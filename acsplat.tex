@@ -44,11 +44,12 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep Starjava
 \end{keyword}
 \end{frontmatter}
 
+
 %-------------------------------------------------------
 \section{Introduction}
 
 There is a lot of tools for analysis of astronomical spectra, the most commonly
-used by professional astronomers are various packages of MIDAS, IRAF and a lot
+used by professional astronomers are various packages of MIDAS, IRAF, Starlink and a lot
 of IDL stuff. The very advanced processing is very often done still in custom
 (evn FORTRAN) programs used by a small community.  All of such tools work with
 a special preformated (very often ASCII tables)  files on local disk and so the
@@ -61,7 +62,7 @@ measure some variables (e.g. radial velocity or equivalent widts of selected
 lines) - if done interactively the spectra must be zoomed etc.  It is seen that
 a real scientific analysis of thousands of spectra is a very tedious task even
 on the same instrument. But the real challenge is an analysis of an
-multi-wavelength spectra from different instruments, where all the metadat are
+multi-wavelength spectra from different instruments, where all the metadata are
 different, there are various flux and even wavelength units (or energies in
 X-ray) and even the formats of storage vary (simple FITS, binary tables, ASCII
 lists...).
@@ -200,7 +201,10 @@ changes like copies.
 
 The SPLAT data model requires that spectra have a name, coordinate system and
 some data values. Other supported items are data errors, fuller descriptions,
-keyed properties (key, value, description), data units and labels.
+keyed properties (key, value, description), data units and labels, and the
+underlying dimensionality (if the spectrum is being extracted from a 2D or 3D
+array). Spectra can also have mutable properties, like the names of the table
+columns that contain the various data values.
 
 Current implementations give SPLAT access to spectra in simple text files,
 FITS, NDF, NDX, as well as FITS and VO tables. Tables are supported as a
@@ -208,11 +212,34 @@ single format using the STILTS <reference> library. In addition to these
 spectra can also be memory based so that they can become modifiable and be
 derived from data with higher dimensionalities.
 
+\subsection{Internal spectral handling}
+
+The presentation of all data types through a single interface works especially
+well when coupled with a further higher-level abstraction. The abstraction in
+the case of SPLAT-VO is in effect how all the analysis and visualisation code
+views a spectrum (these two elements that decouple an abstraction from the
+underlying implementations are in fact the well established 'Bridge Pattern').
+
+This use of a single abstraction to all data formats makes it easier to write
+consistent code and extend the basic internal spectrum with new facilities
+(methods that do things like extraction sections, replace BAD values ect.) as
+well as associate useful properties like graphics and formatting rendering
+hints, data and coordinate range limits. Extending the underlying model is
+also easy as new features strictly need only be handled in the abstraction
+(although clearly that would not be interesting) and new spectral types can
+extend the base abstraction (the basic spectral type is extended to also offer
+spectra that render as line identifiers and cached copies of remote spectra). 
+
+
 \subsection{Presentation}
 
-The presentation of spectra is based on model-view-controller, and the same
-spectral data can be seen and operated on in many different guises, that is as
-a number of line plots, tables, property views etc.
+The presentation of spectra is based on the model-view-controller pattern,
+that pervades Java UI and the same spectral data can be seen and operated on
+in many different guises, that is as a number of line plots, tables, property
+lists etc. Memory based spectra are also directly modifiable (as simple edits
+to table cells or generally using expressions). Through the
+model-view-controller intrastructure all changes are propagated to all views.
+
 
 \subsection{Coordinate systems and units}
 
@@ -222,13 +249,15 @@ comprehensive system for handling coordinate systems and units, including full
 support for reading and writing FITS WCS. This led to the development of a JNI
 library for the Starlink AST library <reference> JNIAST. AST itself is written
 in standard C so compiling it on many platforms is relatively easy, but this
-remains a portability issue at the heart of SPLAT limiting its portability.
+remains a portability issue at the heart of SPLAT limiting one of the initial
+aims.
 
 Some of the advanced features that SPLAT offers based on AST are support for
 spectral coordinates in wavelength, velocity, frequency and energy. These can
 have standards of rest, so transformations of rest frame are also supported
-(important for velocity and laboratory data). SPLAT also support dual-band
-spectra.
+(important for velocity and laboratory data). SPLAT also supports dual-band
+spectra for sub-millimeter spectra. Many of these features have been improved
+in AST over time and SPLAT gains from this.
 
 
 \section{SPLAT-VO}
@@ -551,6 +580,13 @@ It is in active development and thanks to joining the developer of VO server sui
 
 
 \section{Acknowledgements}
+The initial work on SPLAT-VO  was supported by the now closed
+Starlink Project funded by the Particle Physics and Astronomy Research Council
+and more recently by the Joint Astronomy Centre, Hawaii, also funded by the
+Particle Physics and Astronomy Research Council and more recently by it's
+successor organisation the Science and Technology Facilities Council.
+
+
 This work is was supported by grant 13-250819 of GACR. GAVO is funded by the German Federal Ministry of Education and Research.
 Thanks to Mark Taylor and Markus Demleitner who actively supports from
 GAVO
