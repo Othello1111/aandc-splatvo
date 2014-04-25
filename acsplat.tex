@@ -49,7 +49,7 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep Starjava
 There is a lot of tools for analysis of astronomical spectra, the most commonly
 used by professional astronomers are various packages of MIDAS, IRAF, Starlink and a lot
 of IDL stuff. The very advanced processing is very often done still in custom
-(evn FORTRAN) programs used by a small community.  All of such tools work with
+(even FORTRAN) programs used by a small community.  All of such tools work with
 a special preformated (very often ASCII tables)  files on local disk and so the
 typical task of the astronomer during spectral analysis consists of finding the
 required spectra in various archives, download it, understand and extract the
@@ -136,11 +136,6 @@ something about the solutions - required by referees
 Showing some star 
 
 several screenshots
-
-
-\subsection{Use Cases ?}
-
-use cases examples\\
 
 LPV
 
@@ -287,42 +282,71 @@ binary tables or very important 1D spectrum FITS image typically produced by
 IRAF {\tt onedspec} package (describing the wavelength axis with CRVAL1, CRPIX1
 and CDELT1 FITS keywords).   
 
-See SUN/243 for a long list....
+The list of capabilites of SPLAT-VO is enormous and are fully described in
+online documentation, which is updated according to the Starlink document  See SUN/243 
+\cite{SUN243}.
+
+Here with give just the short overview of features not relevant to VO
+protocols, some of which are very
+specific for SPLAT-VO and certain type of analysis of hot emission line stars.
+
 \begin{itemize}
 
-\item Stacking of spectra 
+\item Stacking of spectra introducing either constant vertical offset or
+offset based on functions of value of certain FITS keywords. For example the
+line profiles may be ordered by the circular phase computed for certain
+period.
 
-\item Measurement of radial velocities by flipping profile (explain). For asymetric line profiles (see parimucha skoda) Can be run in a batch mode 
+\item Measurement of radial velocities by visual matching of a line profile
+with its mirrored image based on idea of oscilloscopic comparators. It is
+important for measuring the asymetric adn distorted line profiles typical for
+hot emission stars. For detailed explanation see \citet{2007IAUS..240..486P}.
+Can be even run in a batch mode for a number of lines on a list of spectra
+using so called visitor list.
 
-\item Fitting continuum using Hermitean polynomials
+\item Fitting continuum using flexible curves similar to those expected to be
+drawn by human.  The  INTEP procedure based on Hermitean polynomials
+\citep{1982PDAO...16...67H} has been sucessfuly used for decades in fitting stellar
+continua (typically of emission-line stars like Be stars and symbiotic ones)
+in program SPEFO \citep{1996ASPC..101..187S}. The overview of advantages of
+this procedure is given in \citet{2008asvo.proc...97S}. Another option is the
+method of \citet{Akima:1970:NMI:321607.321609}.
 
-\item Powerful transformation of spectral/energy axis with respect to various coordinate systems (optical, vacuum wavelenght, optical and radio velocities, redshift .. wrt to e.g. LSR, barycentrum ....)
+\item Powerful transformation of spectral/energy axis with respect to various
+coordinate systems (optical, vacuum wavelenght, optical and radio velocities,
+redshift .. wrt to e.g. LSR, barycentrum ....)
 
-\item built in spreadsheet processor supported by special astronomical functions. Allows to modify/transform data or even plot various functions (models)
+\item Built in spreadsheet processor supported by special astronomical
+functions. Allows to modify/transform data or even plot various functions
+(models).
 
 \item Filtering package with smoothing, wavelets
 
-\item fitting package - for fitting Gaussian, Voigt or Lorentz profiles
+\item Line fitting package - for fitting Gaussian, Voigt or Lorentz profiles
 
-\item simple statistics on selected region
+\item Simple statistics on selected region
 
-\item editation of spectra (cutouts, replacing part by fits, removal of outliers)
+\item Editation of spectra (cutouts, replacing part by fits, removal of outliers)
 
-\item Complete graphics toolkit with many configurable options for presentation of data. Export of publication quality output in png, gif, eps, ps ..
+\item Complete graphics toolkit with many configurable options for
+presentation of data. Export of publication quality output in png, gif, eps.
 
-\item Animation of spectra - cration of animated jpeg/png files.
+\item Animation of spectra - creation of animated jpeg/png files. Convenient
+for showing the line evolution or non-radial pulsations.
 
-\item Identification of spectral lines using simple supplied ASCII linelists + built-in set of common  atomic and molecular lines (even molecules in radio )
+\item Identification of spectral lines using simple supplied ASCII linelists +
+built-in set of common  atomic and molecular lines (even molecules in radio
+region)
 
 \item Simple operations on spectra (adding, subtracting, dividing, continuum fitting...)
 
+\item Various editable colour themes
 
-\item work on whole stack of spectra 
+\item Built-in examples of multiwavelength observation. The two use cases
+containing a buch of multispectral data demonstrate immediately basic features
+of SPLAT-VO
 
-\item various colour themas
-\item built-in examples of multiwavelength observatiion - immediate playion with features 
-
-\item Built-in help 
+\item Built-in context help 
 
 
 \end{itemize}
@@ -330,20 +354,41 @@ See SUN/243 for a long list....
 
 \section{ SPLAT-VO SSAP interface}
 
-The most important for VO is the SSAP interface which has been still in active developping state.
-The task of the interface is to help the user build a correct SSAP query (which is seen immedaitely) by filling simple form for paramters like nacoordintes and size of the searching cone of the object (or name which is translated by CDS Sesame on request), spectral ranges BAND, date/time of bservation, status of callibration of  wavelength and flux axis and format of available data.
-The recent addition allows to refine the quesry sellect all optional parameters supported by selected SSAP servers.
+The most important for VO is the SSAP interface which has been still in active
+developping state.  The task of the interface is to help the user build a
+correct SSAP query (which is seen immedaitely) by filling simple form for
+paramters like nacoordintes and size of the searching cone of the object (or
+name which is translated by CDS Sesame on request), spectral ranges BAND,
+date/time of bservation, status of callibration of  wavelength and flux axis
+and format of available data.  The recent addition allows to refine the quesry
+select all optional parameters supported by selected SSAP servers.
 
-all data are loaded onto local computer. And kept in memory. Lot of operation on memory spectra 
+The data returned by SSAP server (pointed by {\tt accref} link in metadata are
+loaded onto local computer, stored in a local directory  and kept in memory.
+Lot of operation can be done aftewards without SSAP calls on already loaded
+memory spectra including the individual tuning of presentation of each
+spectrum (e.g. line types, graphics attributes).
 
-individual tuning (graphics attributes, selection /removal )
+The list of SSAP server may be updated using one of selected VO registries and even the local
+services not yet registerd may be added manually. The server list may be
+edited to query only collections with similar data or even only one service
+may be queried for detailed specific operations.
 
-
+The observational data services are separated visually from services
+delivering theoretical spectra (e.g. service with  Kuruz models of stellar
+atmospheres) and are selected by radio button. This changes the role of
+parameters used to query --- naturally the coordinates of object do not make
+sense on theoretical spectra, while the $\log\,g$ or $T_eff$ are not used for
+observational data.
 
 
 \subsection{Scripting of SPLAT-VO}   
 
-beanshell - examples 
+The various classes of SPLAT-VO may be called directly from the 
+BeanShell scripting language \citep{niemeyer2013learning} and so the very complex workflows can be created.
+Part of the distributions are example scripts for batch fitting of Gaussian line
+profiles or complex deblending. There are as well example scripts for
+controling the SPLAT-VO from command line.
 
 
 \subsection{Educational power of SPLAT-VO}
