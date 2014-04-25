@@ -43,11 +43,18 @@ MUST BE FILLED
 Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep Starjava
 \end{keyword}
 \end{frontmatter}
+
+%% Local commands
+
+%% Links
+\newcommand{\ascl}[1]{\href{http://www.ascl.net/#1}{ascl:#1}}
+
 %-------------------------------------------------------
 \section{Introduction}
 
 There is a lot of tools for analysis of astronomical spectra, the most commonly
-used by professional astronomers are various packages of MIDAS, IRAF, Starlink and a lot
+used by professional astronomers are various packages of MIDAS
+(\ascl{1302.017}), IRAF (\ascl{9911.002}), Starlink (\ascl{1110.012}) and a lot
 of IDL stuff. The very advanced processing is very often done still in custom
 (even FORTRAN) programs used by a small community.  All of such tools work with
 a special preformated (very often ASCII tables)  files on local disk and so the
@@ -96,12 +103,12 @@ workflow-based environment, the crucial feature for understanding data is the
 advanced visualization and comfortable user interaction.   Therefore the very
 important part of the VO infrastrucure represent the VO-compatible spectra
 visualization clients.  So far there are there three of them. The famous
-VO-SPEC developed in ESA is designed strictly on principles of IVOA standards
+VO-SPEC (\ascl{1205.011}) developed in ESA is designed strictly on principles of IVOA standards
 and rather was irather focused on analysis of high energy space-based spectra
 due to lack of important capabilities common in optical spectra analysis.  The
 two other clients are in fact the former general spectra  analysis tools with
 built-in separate plugin for querying and downloading spectra uusing SSAP.  The
-Specview, developed by I. Busco in STScI {\it reference}  was  intended namely for
+Specview (\ascl{1210.016}), developed by I. Busco in STScI {\it reference}  was  intended namely for
 handling spectra from HST instrumentation but gradually transformed into
 VO-compatible general client supplemented with a library of theoretical spectra
 and various models for SED  generation.  It has the specific capabilities
@@ -114,7 +121,7 @@ it is less flexible in support of various SSAP features and lacking behind the
 rapid IVOA standards evolution. 
 
 In contrast with it, the last VO-compatible client for spectra analysis, the
-SPLAT-VO was revived recently and currently is under intensive development
+SPLAT-VO (\ascl{1402.008}) was revived recently and currently is under intensive development
 serving as a testbed for newly proposed VO standards and special features. 
 
  
@@ -150,17 +157,19 @@ data mining of spectra
 
 The SPLAT-VO project is an extension to an older one simply called SPLAT. The
 name SPLAT is based on the words SPectraL Analysis Tool, an application for
-the display and analysis of spectral data. The development of SPLAT itself was
+the display and analysis of spectral data. The development of SPLAT
+itself (\ascl{1402.007}) was
 started by the Starlink project <reference> in 1999 in response to a perceived
 need within the UK astronomy community for a spectral domain tool with
-capabilities similar to those of the successful GAIA::Skycat tool <reference>
+capabilities similar to those of the successful GAIA::Skycat tool
+(\ascl{1403.024}) <reference>
 that supported imaging data. SPLAT was also a leader project for moving future
 developments into the Java language, with the obvious benefits of improved
 portability, modern language capabilities (OOD, OOP) and core-level support for
 features like UIs and internet protocols and services. This work eventually
 led to the formation of what became the STARJAVA project, now hosted at
 <https:://github/Starlink/starjava>. Where the source code for SPLAT-VO and
-other STARJAVA projects, like TOPCAT <reference>, can be freely downloaded.
+other STARJAVA projects, like TOPCAT (\ascl{1101.010}) <reference>, can be freely downloaded.
 
 \subsection{SPLAT-VO}
 The first VO capabilities added to SPLAT where released in 2005, as support
@@ -201,7 +210,7 @@ columns that contain the various data values.
 
 Current implementations give SPLAT access to spectra in simple text files,
 FITS, NDF, NDX, as well as FITS and VO tables. Tables are supported as a
-single format using the STILTS <reference> library. In addition to these
+single format using the STILTS (\ascl{1105.001}) <reference> library. In addition to these
 spectra can also be memory based so that they can become modifiable and be
 derived from data with higher dimensionalities.
 
@@ -259,7 +268,8 @@ in AST over time and SPLAT gains from this.
 Although the every SSAP client has  powerful capabilities, its flexibility
 would be limited only to the build-in features, probably not suiting all the
 requests of a wide spectroscopic community. However, almost all VO-compatible
-tools, including important table processor TOPCAT and stellar atlas Aladin,
+tools, including important table processor TOPCAT and stellar atlas
+Aladin (\ascl{1112.019}),
 have built-in support for Simple Application Message Protocol (SAMP), successor
 of PLASTIC.  This allows joining the basic VO applications like the individual
 bricks to build a very complex visualization and processing pipelines allowing
