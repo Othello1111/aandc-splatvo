@@ -118,13 +118,13 @@ formats from NASA sattelites and allowing the advanced comparison of
 observations with a wide range of theoreticla spectra models  (e.g. quasars,
 dusty rings, whole Kurucz library of spectral types, interstellar medium...),
 it is less flexible in support of various SSAP features and lacking behind the
-rapid IVOA standards evolution. 
+rapid IVOA standards evolution.
 
 In contrast with it, the last VO-compatible client for spectra analysis, the
 SPLAT-VO (\ascl{1402.008}) was revived recently and currently is under intensive development
-serving as a testbed for newly proposed VO standards and special features. 
+serving as a testbed for newly proposed VO standards and special features.
 
- 
+
 
 
 
@@ -140,7 +140,7 @@ something about the solutions - required by referees
 \subsection{VO access in practical examples}
 
 
-Showing some star 
+Showing some star
 
 several screenshots
 
@@ -230,7 +230,7 @@ hints, data and coordinate range limits. Extending the underlying model is
 also easy as new features strictly need only be handled in the abstraction
 (although clearly that would not be interesting) and new spectral types can
 extend the base abstraction (the basic spectral type is extended to also offer
-spectra that render as line identifiers and cached copies of remote spectra). 
+spectra that render as line identifiers and cached copies of remote spectra).
 
 
 \subsection{Presentation}
@@ -290,10 +290,10 @@ input spectra may be loaded directly from local disk in a number of formats,
 including several types of multicolumn ASCII tables, multi-extension FITS with
 binary tables or very important 1D spectrum FITS image typically produced by
 IRAF {\tt onedspec} package (describing the wavelength axis with CRVAL1, CRPIX1
-and CDELT1 FITS keywords).   
+and CDELT1 FITS keywords).
 
 The list of capabilites of SPLAT-VO is enormous and are fully described in
-online documentation, which is updated according to the Starlink document  See SUN/243 
+online documentation, which is updated according to the Starlink document  See SUN/243
 \cite{SUN243}.
 
 Here with give just the short overview of features not relevant to VO
@@ -356,7 +356,7 @@ region)
 containing a buch of multispectral data demonstrate immediately basic features
 of SPLAT-VO
 
-\item Built-in context help 
+\item Built-in context help
 
 
 \end{itemize}
@@ -392,9 +392,9 @@ sense on theoretical spectra, while the $\log\,g$ or $T_eff$ are not used for
 observational data.
 
 
-\subsection{Scripting of SPLAT-VO}   
+\subsection{Scripting of SPLAT-VO}
 
-The various classes of SPLAT-VO may be called directly from the 
+The various classes of SPLAT-VO may be called directly from the
 BeanShell scripting language \citep{niemeyer2013learning} and so the very complex workflows can be created.
 Part of the distributions are example scripts for batch fitting of Gaussian line
 profiles or complex deblending. There are as well example scripts for
@@ -526,18 +526,18 @@ the new features added, which are listed in the next subsections.
  An example is shown below:
 
 {\tiny
-\begin{minipage}{\textwidth} 
+\begin{minipage}{\textwidth}
 \begin{verbatim}
 <RESOURCE ID="aeoadowdpudn" type="service">
   <GROUP name="inputParams">
-    <PARAM arraysize="*" datatype="char" name="ID" 
+    <PARAM arraysize="*" datatype="char" name="ID"
     ref="ssa_pubDID" ucd="meta.id;meta.main" value="">
       <DESCRIPTION> The pubisher DID of the dataset of interest
       </DESCRIPTION>
     </PARAM>
-    <PARAM arraysize="*" datatype="char" name="FLUXCALIB" 
+    <PARAM arraysize="*" datatype="char" name="FLUXCALIB"
     ucd="phot.calib" utype="ssa:Char.FluxAxis.Calibration" value="">
-      <DESCRIPTION>Recalibrate the spectrum.  Right now, the only 
+      <DESCRIPTION>Recalibrate the spectrum.  Right now, the only
       recalibration supported is max(flux)=1  ('RELATIVE').</DESCRIPTION>
       <VALUES>
         <OPTION name="RELATIVE" value="RELATIVE"/>
@@ -552,7 +552,7 @@ the new features added, which are listed in the next subsections.
         <MAX value="8.7665e-07"></MAX>
       </VALUES>
     </PARAM>
-    <PARAM ID="appadowdpudn" datatype="float" name="LAMBDA_MAX" 
+    <PARAM ID="appadowdpudn" datatype="float" name="LAMBDA_MAX"
     ucd="par.max;em.wl" unit="m" value="">
       <DESCRIPTION>Spectral cutout interval, upper limit</DESCRIPTION>
       <VALUES>
@@ -561,7 +561,7 @@ the new features added, which are listed in the next subsections.
       </VALUES>
     </PARAM>
   </GROUP>
-  <PARAM arraysize="*" datatype="char" name="accessURL" ucd="meta.ref.url" 
+  <PARAM arraysize="*" datatype="char" name="accessURL" ucd="meta.ref.url"
   value="http://dc.zah.uni-heidelberg.de/flashheros/q/sdl/dlget"/>
 </RESOURCE>
 \end{verbatim}
@@ -794,7 +794,7 @@ useful.
 \subsection{VO Interface extensions}
 \begin{itemize}
 \item Continue to improve the data discovery User Interface\\
-Based on feedback from SPLAT users, the user interface is still being improved, in terms of search possibilities and usability. 
+Based on feedback from SPLAT users, the user interface is still being improved, in terms of search possibilities and usability.
 \item Continue the ObsCore Client Development;
 \item Implementation of  VOUnits \cite{vounits} standard;
 \item	Improvement of the Unit Conversion functions in SPLAT;\\
@@ -806,7 +806,7 @@ Based on feedback from SPLAT users, the user interface is still being improved, 
 \begin{itemize}
 \item Automatic matching of line identifiers to spectrum;
 \item	Velocity calculation;
-\item Data cubes, 
+\item Data cubes,
 \item Complex graphics attributes bound to individual spectar collections, Changes on kernel - work with stack of spectra together (e.g. cutouts, fitting )
 \item Dynamic spectra - evolution of spectr aprofiles in time (gray scale representation)
 \item Automatic continuum normalization algortithm .
@@ -856,4 +856,4 @@ available on Github at  \url{https://github.com/Starlink/starjava}
 
 
 
-\end{document}  
+\end{document}
