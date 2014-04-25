@@ -1,3 +1,6 @@
+acsplat.pdf
+*.spl
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
