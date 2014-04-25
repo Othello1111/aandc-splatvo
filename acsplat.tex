@@ -75,7 +75,7 @@ lists...).
 To make the handling of spectra obtained from world-wide  distributed
 heterogeneus archives simple and efficient was the main motivation for
 developping the International Virtual Observatory Alliance Simple Spectra
-Access Protocol (IVOA SSAP \cite{ssap}). The key elements of success is the standard data
+Access Protocol \citep[IVOA SSAP;][]{ssap}. The key elements of success is the standard data
 format called VO-TABLE, that describes the metadata in a limited vocabulary of
 obligatory keywords, the simple http-based protocol with a set of query keywords
 and the standard spectra discovery mechanism (like a google for astronomical
@@ -425,18 +425,18 @@ limitations. Some features like cut-outs or flux calibration, which
 are often needed, have to be performed in a second work step after
 downloading the spectra. It is much more efficient to have it done
 on-the-fly and  to download the spectra exactly as needed. To overcome
-the limitations of SSAP we the new DataLink\cite{datalink} protocol
+the limitations of SSAP, the new DataLink protocol \citep{datalink}
 was used. SPLAT is one of the first client implementations of
 DataLink, in this way also contributing to its testing and development
 from a client point of view.
 
 Besides SSAP, spectra can also be retrieved using the ObsCore protocol
-through TAP (so called ObsTAP\cite{obstap}). Its implementation in
+through TAP \citep[known as ObsTap;][]{obstap}. Its implementation in
 SPLAT allows spectra to be retrieved also from ObsCore services, and
-the ObsTAP ADQL\cite{adql} search offers a more powerful search
+the ObsTAP ADQL \citep{adql} search offers a more powerful search
 mechanism as well. The implementation of new VO protocols like ObsTAP
 and DataLink have been done side-by-side with their server-side
-implementation in DaCHS (Data Center Helper Suite \cite{dachs}),
+implementation in DaCHS \citep[Data Center Helper Suite;][]{dachs},
 developed by Markus Demleitner.
 
 Also SPLAT-VO's user interface has been improved. An improved server
@@ -779,12 +779,15 @@ useful.
 
 \subsection{VO Interface extensions}
 \begin{itemize}
-\item Continue to improve the data discovery User Interface\\
-Based on feedback from SPLAT users, the user interface is still being improved, in terms of search possibilities and usability.
+\item Continue to improve the data discovery User Interface
+Based on feedback from SPLAT users, the user interface is still being
+improved, in terms of search possibilities and usability.
 \item Continue the ObsCore Client Development;
-\item Implementation of  VOUnits \cite{vounits} standard;
-\item	Improvement of the Unit Conversion functions in SPLAT;\\
-\item Retrieve spectral line identifiers using SLAP (Simple Line Access Protocol \cite{slap}). Currently SPLAT uses local files for the lines;
+\item Implementation of  VOUnits \citep{vounits} standard;
+\item	Improvement of the Unit Conversion functions in SPLAT;
+\item Retrieve spectral line identifiers using SLAP \citep[Simple Line
+  Access Protocol;][]{slap}. Currently SPLAT uses local files for the
+  lines;
 \item  SPLAT scripting interface - for automatic processing (like Topcat/Stillts/Jython).
 \end{itemize}
 
