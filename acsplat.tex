@@ -801,6 +801,49 @@ Based on feedback from SPLAT users, the user interface is still being improved, 
 \item BigData cabapilities - e.g SDSS or LAMOST - 2 milions spectra Result of dataming identifiers sent for visualization
 \end{itemize}
 
+\section{Lessons learned}
+
+During the development of SPLAT-VO a number of lessons have been
+learned that may affect future developments of similar tools. In this
+section we summarize these issues.
+
+\subsection{Using JNI versus ``pure'' Java}
+
+The question should probably be asked if using a JNI wrapper to the
+AST library was a good choice or not. As with most things, we believe
+this was a good idea and also bad. The judgement of how bad depends on
+how the ultimate cost benefit analysis works in the longer term, but
+either way it is difficult to deny that a pure Java solution would
+have been preferable.
+
+The positives of this choice are that it made the development of
+SPLAT-VO possible on useful timescales as we were able to immediately
+benefit from all the work that had gone into the AST library, as AST
+is very much more than just a system for handling coordinates and
+units. It also insulates against the often messy need to parse FITS
+headers and offers the ability to transform easily between all
+compatible coordinates and units. Even today some 15 years later, AST
+is still believed to be a class leader in these areas.
+
+Avoiding this work was also pragmatic as a re-write into Java would
+have been a lot of work that the effort just wasn't available and
+still isn't. In the intervening years there have also been new
+features added to AST, such as the dual-sideband support, which was
+vital for submillimeter work, and the adoption of SPLAT by the
+JAC. The development of SPLAT has also been a useful testing ground
+for the development of AST itself (like the introduction of thread
+safety, so not just the handling of spectral coordinates), closing a
+virtuous circle.
+
+The downsides are only the obvious ones, not having a pure Java
+solution compromises the portability, so we need to make an additional
+effort for all the supported platforms. There is also the non-trivial
+time writing the JNI layer itself takes. Writing JNI interface code is
+more challenging than those more commonly found for scripting
+languages.
+
+\subsubsection{Open sourcing from the beginning}
+
 \section{Conclusions}
 
 The SPLAT-VO is the very powerful tools for analysis of spectra
