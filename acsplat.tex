@@ -284,6 +284,15 @@ data). SPLAT also supports double sideband spectra for sub-millimeter
 spectra. Many of these features have been improved in AST over time
 and SPLAT gains from this.
 
+
+\subsection{Scripting of SPLAT-VO}   
+
+The various classes of SPLAT-VO may be called directly from the BeanShell
+scripting language \citep{niemeyer2013learning} and so the very complex
+workflows can be created.  Part of the distributions are example scripts for
+batch fitting of Gaussian line profiles or complex deblending. There are as
+well example scripts for controling the SPLAT-VO from command line.
+
 %-------------------------------------------------------
 
 \subsection{The Power of SAMP in SPLAT-VO}
@@ -327,7 +336,19 @@ specific for SPLAT-VO and certain type of analysis of hot emission line stars.
 \item Stacking of spectra introducing either constant vertical offset or
 offset based on functions of value of certain FITS keywords. For example the
 line profiles may be ordered by the circular phase computed for certain
-period.
+period. Stacking is also useful for visualization of evolution of stellar line profiles in variable stars.
+The Fig.~\ref{fig:phiper-heros-stack} shows the evolution of emission lines profile of star $Phi$~Persei observed with HEROS spectrograph on Ond\v{r}ejov in 2003.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
+\caption{The Phi Persei time evolution of $H_\alpha$ line emission profile from observation of HEROS spectrograph. The SPLAT-VO stacking offset of  0.6 is applied for better visibility of changes}
+\label{fig:phiper-heros-stack}
+\end{center}
+\end{figure*}
+
+
+
 
 \item Measurement of radial velocities by visual matching of a line profile
 with its mirrored image based on idea of oscilloscopic comparators. It is
@@ -380,6 +401,7 @@ of SPLAT-VO
 
 \item Built-in context help
 
+\item Scripting capability using Beanshell
 
 \end{itemize}
 
@@ -444,23 +466,6 @@ should try himself what is available on given server. The user than has to
 individually select suitable spectra from  multidimensional  table combining
 all the parameters ranges required.  An example below shows the selection of several Kurucz models
 for Vega.
-
-
-
-
-
-\subsection{Scripting of SPLAT-VO}   
-
-The various classes of SPLAT-VO may be called directly from the 
-BeanShell scripting language \citep{niemeyer2013learning} and so the very complex workflows can be created.
-Part of the distributions are example scripts for batch fitting of Gaussian line
-profiles or complex deblending. There are as well example scripts for
-controling the SPLAT-VO from command line.
-
-
-\subsection{Educational power of SPLAT-VO}
-
-used in various VO schools - examples of usage
 
 
 
@@ -681,6 +686,27 @@ with interactive menu.  The current limitation only (see below)
 requires the time axis expressed as floating point variables, which
 limits the possibility of using strings (e.g. dates, time stamps or
 even the names of CCD images used to extract given photometric point )
+An example in Fig~\ref{} shows  query and light curves obtained  (Fig.~\ref{})  from 
+Ond\v{r}ejov Southern Photometric Survey \citep{} ongoing on  at Danish 1.5m telescope DK154.
+
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_query.pdf}
+\caption{Example of using SSAP for obtaining multicolour light curves from OSPS}
+\label{fig:OGLE-SC7-127550_query}
+\end{center}
+\end{figure*}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_plot.pdf}
+\caption{Multicolour light curves of Cepheid OGLE-SC7-127550 from OSPS. The manual modification of default line type into various markers and flip of vertical axis was applied on data obtained by experimental SSAP light curve protocol using query from Fig.~\ref{OGLE-SC7-127550_query}. The measurements in Johnoson -Cousins filters correspond to U (diamonds), B (asterisks), V (pluses) R (crosses) and I (triangles).
+}
+\label{fig:OGLE-SC7-127550_plot}
+\end{center}
+\end{figure*}
 
 \subsection{New Features in Spectral Analysis}
 
@@ -916,38 +942,13 @@ open-source and available on Github at
 \bibliography{acsplat}
 
 
-\begin{figure*}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{}
-\caption{}
-\label{fig:}
-\end{center}
-\end{figure*}
-
+!!! explain what is OSPS and cite ADASS article !!!
 
 \begin{figure*}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{}
-\caption{}
-\label{fig:}
-\end{center}
-\end{figure*}
-
-
-\begin{figure*}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{}
-\caption{}
-\label{fig:}
-\end{center}
-\end{figure*}
-
-
-\begin{figure*}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{}
-\caption{}
-\label{fig:}
+\includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
+\caption{Zeta Ophiuchi in $H_\alpha$ region from Ond\v{r}ejov Coud\`e spectrograph 700mm camera (green) and HEROS (blue) with overplotted line identification from custom line list of telluric lines. Note the deepr telluric lines on HEROS due to its almost double  spectral resolving power}
+\label{fig:zetoph2sp-id}
 \end{center}
 \end{figure*}
 
@@ -962,12 +963,5 @@ open-source and available on Github at
 \end{figure*}
 
 
-\begin{figure*}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{}
-\caption{}
-\label{fig:}
-\end{center}
-\end{figure*}
 
 \end{document}
