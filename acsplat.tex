@@ -437,7 +437,7 @@ observational data.
 In the similar way like observation data are obtained as result of SSAP query
 the libraries of theoretical spectra availabale in VO (e.g. Kuruz models, Rauch
 NON-LTE, TLUSTY hot stars, Salpeter, Dusty ..) The extended protocol called
-TSAP \citet{ssap} just uses instead of position,wavelength reqions and time range, the
+TSAP \cite{ssap} just uses instead of position,wavelength reqions and time range, the
 physical parameters like $T_{\rm eff}$, $\log g$ and  metalicity for query. Unfortunately
 there do not exist obligatory metadata for physical parameters so the user
 should try himself what is available on given server. The user than has to
@@ -667,10 +667,6 @@ expression. After sending the query the results tables will be
 displayed, which are in functionality similar to the SSAP browser
 window.
 
-\subsection{New Features in Spectral Analysis}
-
-For analytic capabilities and user comfort in general, we added (or
-are still adding) to SPLAT-VO following features:
 
 \subsubsection{Visualizing Light Curves using  SSAP}
 
@@ -686,93 +682,46 @@ requires the time axis expressed as floating point variables, which
 limits the possibility of using strings (e.g. dates, time stamps or
 even the names of CCD images used to extract given photometric point )
 
-\subsubsection{Added visual spectrum selection capability (beta)}
+\subsection{New Features in Spectral Analysis}
 
-So far, when the user worked with multiple spectra in one common plot
-window, he has had a limited possibility of selection just one of them
-for further actions. Selection of e.g. noisy spectrum and its deletion
-from plot window could be done only by trial-and-error procedure and
-therefore quite problematic and time-wasting.
+For analytic capabilities and user comfort in general, we added (or
+are still adding) to SPLAT-VO following features:
+\subsubsection{Saving Spectra Stack in Multi-extension FITS format}
 
-In the upcoming version, the user can click by mouse inside the plot
-window and SPLAT will automatically select the closest spectrum. The
-spectrum gets selected in the local spectra drop-down menu above the
-plot itself, and in the global list of spectra in the main
-window. From there, it can be easily deleted or modified for plotting
-and analysis.
+Previous versions of SPLAT were able to save its global list of spectra only to
+their native binary format, which wa in fact the memory dump of spectra
+objects. But sometimes, there may be a need to save that list to a more
+universal, standardized format. For example, SPLAT allows to perform many
+operations on spectra, which results in a new spectrum object that is added to
+a global list of spectra (e.g. cutting a part of spectrum). Saving the list of
+such spectra to a standardized format would then allow its opening in another
+tool and continuing to work with it in a way the SPLAT wasn't designed to.
+This may be helpful for preparation of large list of normalized line profiles
+for Fourier disentangling or asteroismology studies.
 
-The selection of the spectrum is quite reliable and for ensuring this,
-the selected spectrum gets immediately highlighted by few-seconds
-blinking in inverted color.
+Therefore, SPLAT-VO now allows the user to save the global list of spectra to a
+much more universal FITS format, where every spectrum  is represented by its
+own (IMAGE) extension.  The only disadvantage compared to the proprietary
+format is that it won't keep the settings like color or strength of the lines
+or type of symbols used for points etc., since these information  are not
+standardized for FITS.
 
-\subsubsection{Saving in Flexible Image Transport System (FITS) - (beta)}
 
-Previous versions of SPLAT were able to save its global list of
-spectra only to their native binary format. But sometimes, there may
-be a need to save that list to a more universal, standardized
-format. For example, SPLAT allows to perform many operations on
-spectra, which results in a new spectrum object that is added to a
-global list of spectra (e.g. cutting a part of spectrum). Saving the
-list of such spectra to a standardized format would then allow its
-opening in another tool and continuing to work with it in a way the
-SPLAT wasn't designed to.
+\subsubsection{Visual Spectrum Selection and Highlighting}
 
-Therefore, the upcoming version of SPLAT-VO will allow the user to
-save the global list of spectra to a universal FITS (Flexible Image
-Transport System) format. The FITS format is multipurpose format for
-storing the scientific data, primarily designed and used for
-astronomy. The FITS allows storing multiple data of multiple type in
-it, for example, it can contain the image of a star and its spectrum
-(or spectra) with corresponding metadata. This is done by a concept of
-extensions.
+In the earlier versions of SPLAT-VO, when the user worked with multiple 
+spectra in one common plot window, he  had a limited possibility of 
+selection just one of them for further actions. Selection of e.g. noisy 
+spectrum and its deletion from plot window could be done only by 
+trial-and-error procedure and therefore quite problematic and time-wasting.
 
-In the upcoming version of SPLAT, every spectrum will be represented
-by its own (IMAGE) extension. The only disadvantage compared to the
-proprietary format is that it won't keep the settings like color or
-strength of the line etc. This is primary because of the fact that
-these metadata would have to be added to its headers and FITS is
-designed to be a universal format, so adding these SPLAT-specific
-metadata seems to be a little bit questionable at this moment (yet
-there is a way, if this feature would be required in practice).
-
-We are also planning to add the support for another types of FITS
-extensions (e.g. BINTABLE), as well as other formats, like VO-Table.
-
-SPLAT will also be capable of reading the global list in FITS
-format. Unlike the saving the global list, for the opening of it, the
-input FITS is not limited only to a FITS/IMAGE extension but can
-generally be any valid FITS file.
-
-\subsubsection{Improved support for multi-HDU FITS files (experimental)}
-
-In the previous versions, SPLAT was (simply put) reading only the
-first HDU found in the FITS file. But FITS can contain many HDUs in a
-form of an extension as described above. These extensions were
-basically inaccessible in SPLAT.
-
-In the upcoming version, SPLAT will be able to load all HDUs located
-in the input FITS file. Each HDU will produce a spectrum item in the
-global list of spectra referencing the corresponding FITS header. This
-means that features like showing the FITS headers or ordering by its
-metadata (contained in FITS headers) will be automatically working
-with this new feature. Thanks to this, SPLAT will become a truly
-general-purpose, feature-rich FITS viewer and editor. More
-importantly, the ability to access all FITS headers (or more precisely
-its metadata) also improves SPLAT's spectral analysis capabilities.
-
-\subsubsection{Highlighting the spectrum after selection}
-
-When user clicked on a spectrum in global spectra list and this
-spectrum was plotted to a window(s) with multiple spectra, he had no
-way of knowing, which one of them it is.
-
-In the upcoming version, when user clicks on a spectrum in global
-spectra list, the spectrum gets immediately highlighted in all plot
-windows that it is opened in. The highlighting has a form of a
-few-seconds blinking in an inverted color and is performed
-sequentially (highlighting in one plot window comes after the previous
-one is finished), which gives to the user a perfect sequential
-overview of the spectrum's plots.
+We improved this and now when the user clicks on a spectrum in global spectra
+list, SPLAT-VO will automatically select the closest spectrum to the cursor
+position and  the spectrum gets immediately highlighted in all plot windows
+that it is opened in. The highlighting has a form of a few-seconds blinking in
+an inverted color and is performed sequentially (highlighting in one plot
+window comes after the previous one is finished), which gives to the user a
+perfect sequential overview of the spectrum's plots.
 
 \subsubsection{Cut window: saving the ranges}
 
@@ -781,7 +730,7 @@ ranges of regions from a local file (feature available under 'File'
 menu). But what if he made a visual selection of ranges from a
 currently plotted spectrum and wanted to save it to a local file?
 
-Since the upcoming version, SPLAT can save the currently defined
+Since now, SPLAT can save the currently defined
 ranges to a local file (feature is available under 'File' menu) in the
 same format as the reading feature expects, that is one range (with a
 white space between its beginning and ending value) per line:
@@ -802,27 +751,27 @@ And cutting regions from spectrum again: until now, when user defined
 all the wanted regions and performed the cut action, SPLAT cut the
 regions only from the currently active spectrum.
 
-In the upcoming version, this window will possess a table of all
+This window newly possess a table of all
 currently plotted spectra in the corresponding plot window. User then
 can select multiple of it (buttons for selecting and deselecting all
 the spectra are of course there as well) and perform a cut (or any
 other action in this window) on all the selected spectra.
 
-\subsubsection{All SAMP spectra to the same plot window}
+\subsubsection{Display of All  spectra recived by SAMP to the same  window}
 
-In the previous versions of SPLAT, all spectra received via the SAMP
+In the previous versions of SPLAT-VO, all spectra received via the SAMP
 protocol got opened in their own plot windows. Very often, it would be
-useful or even necessary for analysis to have them plotted in the same
+necessary for comparative analysis to have them plotted in the same
 window, but for this, the user had to do it manually.
 
-As stays in the title, the upcoming version will be able to do this
+SPLAT-VO is now able to do this
 for the user automatically. We added new checkbox under the
-'Interoperability' menu that can be used to switch between the current
+'Interoperability' menu that can be used to switch between the previous
 state (each spectrum to its own plot window) and plotting all the
 spectra received from SAMP to their common plot window. This feature
 can be of course turned on and off several times during the runtime,
 so it allows to plot one bulk of spectra received from SAMP to one
-window and another bulk to another window).
+window and another bulk to another window.
 
 \section{Splats Future Plans}
 
@@ -857,9 +806,11 @@ useful for automatic batch processing.
 \item Data cubes,
 \item Complex graphics attributes bound to individual spectral collections, Changes on kernel - work with stack of spectra together (e.g. cutouts, fitting )
 \item Dynamic spectra - evolution of spectra profiles in time (gray scale representation)
-\item Automatic continuum normalization algortithm .
+\item Automatic continuum normalization algortithm to apply on all spectra received from servers not supporting it
 \item Sorting, stacking, and adapting spectra according to specific metadata (In principle folding with phase with given period.)
-\item BigData cabapilities - e.g SDSS or LAMOST - 2 millions spectra Result of data mining identifiers sent for visualization
+\item Support for exporting the global list of spectra to another types of FITS extensions and other formats, like VO-Table.
+\item Access to all extensions and its metadata in FITS received via SSAP protocol. 
+
 \end{itemize}
 
 \section{Lessons learned}
@@ -965,6 +916,58 @@ open-source and available on Github at
 \bibliography{acsplat}
 
 
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
+\label{fig:}
+\end{center}
+\end{figure*}
 
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
+\label{fig:}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
+\label{fig:}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
+\label{fig:}
+\end{center}
+\end{figure*}
+
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
+\label{fig:}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{}
+\caption{}
+\label{fig:}
+\end{center}
+\end{figure*}
 
 \end{document}
