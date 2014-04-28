@@ -838,11 +838,21 @@ useful.
 Based on feedback from SPLAT-VO users, the user interface is still being
 improved, in terms of search possibilities and usability.
 \item Continue the ObsCore Client Development;
-\item Implementation of  VOUnits \citep{vounits} standard;
+\item Implementation of  the VOUnits \citep{vounits} standard;
 \item	Improvement of the Unit Conversion functions in SPLAT-VO;
 \item Retrieve spectral line identifiers using SLAP \citep[Simple Line
   Access Protocol;][]{slap}. Currently SPLAT-VO uses simple formatted ASCII files for the decription of custom line list and some built-in list. The SLAP access will allow for the imediate retrieval of line lists from  big world-wide atomic and molecular  database like e.g. NIST or all databases from VAMDC consortium  (REFERECCES !!!!!!!)
 \end{itemize}
+
+{\color{red} Should we be mentioning that AST handles the unit
+  conversions in SPLAT? Is the plan to improve AST in this regard or
+  to remove AST and do unit scaling in a different package? One thing
+  I think we should mention is that support for radio/submm units is
+  hard as they are usually in temperature rather than janskys and
+  there are multiple formalisms for temperature scale (T$_R$,
+  T$_{mb}$, T$^*_A$ etc and tracking all the efficiency values
+  required to transform to flux units is tricky.}
+
 
 \subsection{New science and data functions}
 \begin{itemize}
