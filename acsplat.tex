@@ -31,13 +31,15 @@ Cosmology, University of Durham, South Road, Durham DH1 3LE, UK}
 \address[HDB]{Universit\"a{}t Heidelberg, Astronomisches Rechen-Institut,
 M\"o{}nchhofstra\ss{}e 12--14, 69120 Heidelberg, Germany}
 \address[VSB]{Department of Computer Science, Faculty of Electrical
-Engineering and Computer Science, V\v{S}B --- Technical University of Ostrava, 17. listopadu 15, 708 33 Ostrava-Poruba, Czech Republic}
+Engineering and Computer Science, V\v{S}B --- Technical University of Ostrava\\
+ 17. listopadu 15, 708 33 Ostrava-Poruba, Czech Republic}
 \address[COR]{Department of Astronomy, Cornell University, Ithaca, NY 14853, USA}
 
 
 \begin{abstract}
 There is a abstract about SPLAT
-MUST BE FILLED
+MUST BE FILLED STIl ABSTRACT NEEDED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 \end{abstract}
 \begin{keyword}
 Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep Starjava
@@ -90,8 +92,7 @@ a set of query keywords and the standard spectra discovery mechanism
 
 
 \subsection{The SSA Protocol}
-
-
+%
 SSAP allows the astronomer to find in the all world-wide VO-compatible
 archives spectra of his favour object (or all objects in given celestial
 places, circles etc.) in given spectral range exposed in given times as well as
@@ -102,8 +103,7 @@ principle can create e.g. previews of spectra in png or deliver the fluxes and
 wavelengts in ASCII or CSV table).
 
 \subsection{SSAP-compatible  Visualization Clients}
-
-
+%
 Although a regular work with large amounts of data is more convenient
 by calling the SSAP protocol from some scripting language in a batch
 like or workflow-based environment, the crucial feature for
@@ -137,30 +137,7 @@ recently and currently is under intensive development serving as a
 testbed for newly proposed VO standards and special features.
 
 
-
-
-
-\subsection{Advantages and bottleneck of  VO-plugin enabled general tools}
-
-
-something about the solutions - required by referees
-
-
-
-
-
-\subsection{VO access in practical examples}
-
-
-Showing some star
-
-several screenshots
-
-LPV
-
-data mining of spectra
-
-
+%\subsection{VO access in practical examples}
 
 %-------------------------------------------------------
 
@@ -207,14 +184,20 @@ between applications.  Initially, in 2006, this used the PLASTIC
 \citep{2012ASPC..461..279T}.
 
 
-More recently the VO aspects of SPLAT-VO have been taken over by Margarida Castro
-Neves, from the German Astrophysical Virtual Observatory (GAVO) in Heldelberg, Germany.
-Due to the need for a spectral analysis application with VO capabilities and good scientific analysis functions,
-GAVO  decided to resume its development once the original funding has stopped. In this way
-SPLAT-VO can continue to be improved, and kept up-to-date with the changing requirements of both 
-end users and data providers.  This development  is done in cooperation with Petr Skoda
-(Astronomical Institute of the Academy of Sciences of the Czech Republic), who contributes in
-defining the requierments... !!!!! (David Andresic,...)
+More recently, in 2011, the VO aspects of SPLAT-VO have been taken over by Margarida
+Castro Neves, from the German Astrophysical Virtual Observatory (GAVO) in
+Heldelberg, Germany.  Due to the need for a spectral analysis application with
+VO capabilities and good scientific analysis functions, GAVO  decided to resume
+its development once the original funding has stopped. In this way SPLAT-VO can
+continue to be improved, and kept up-to-date with the changing requirements of
+both end users and data providers.  This development  is done in cooperation
+with Petr \v{S}koda (Astronomical Institute of the Academy of Sciences of the
+Czech Republic), who contributes in defining the user requierments and
+suggesting modifications of scientific funcions (with emphasis on optical
+stellar spectroscopy of mainly  emission line stars).  His Master and former
+Bachelor's student David Andre\v{s}i\v{c} from Technical University, Ostrava has been
+implementing new analytic functionality (see section.~\ref{davids_functions} since 2012.
+
 
 
 \section{SPLAT-VO Internals}
@@ -394,9 +377,18 @@ presentation of data. Export of publication quality output in png, gif, eps.
 \item Animation of spectra - creation of animated jpeg/png files. Convenient
 for showing the line evolution or non-radial pulsations.
 
-\item Identification of spectral lines using simple supplied ASCII linelists +
+\item Identification of spectral lines using simple supplied ASCII linelists and
 built-in set of common  atomic and molecular lines (even molecules in radio
-region)
+region). The Fig.~\ref{fig:zetoph2sp-id} shows identification of telluric lines on a combination of spectra from two different instruments.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
+\caption{Zeta Ophiuchi in $H_\alpha$ region from Ond\v{r}ejov Coud\`e spectrograph 700mm camera (green) and HEROS (blue) with overplotted line identification from custom line list of telluric lines. Note the deepr telluric lines on HEROS due to its almost double  spectral resolving power}
+\label{fig:zetoph2sp-id}
+\end{center}
+\end{figure*}
+
 
 \item Simple operations on spectra (adding, subtracting, dividing, continuum fitting...)
 
@@ -461,26 +453,21 @@ spectra (thin lines - green SWP, pink LWR camera) is on Fig.~\ref{fig:iuegst2}.
 \end{figure*}
 
 
-The observational data services are separated visually from services
-delivering theoretical spectra (e.g. service with  Kuruz models of stellar
-atmospheres) and are selected by radio button. This changes the role of
-parameters used to query --- naturally the coordinates of object do not make
-sense on theoretical spectra, while the $\log g$ or $T_{\rm eff}$ are not used for
-observational data.
 
+\subsection{ Theoretical Spectra Access}
 
-\subsection{ Theoretical spectra Access}
-
-In the similar way like observation data are obtained as result of SSAP query
-the libraries of theoretical spectra availabale in VO (e.g. Kuruz models, Rauch
-NON-LTE, TLUSTY hot stars, Salpeter, Dusty ..) The extended protocol called
-TSAP \cite{ssap} just uses instead of position,wavelength reqions and time range, the
-physical parameters like $T_{\rm eff}$, $\log g$ and  metalicity for query. Unfortunately
-there do not exist obligatory metadata for physical parameters so the user
-should try himself what is available on given server. The user than has to
-individually select suitable spectra from  multidimensional  table combining
-all the parameters ranges required.  An example below shows the selection of several Kurucz models
-for Vega.
+In a similar way like observational spectra  are obtained synthetic spectra
+from the libraries  available in VO (e.g. Kuruz models, Rauch NON-LTE, TLUSTY
+hot stars, Salpeter, Dusty). They are selected by radio button, which  changes
+the role of parameters used to query. The extended protocol called TSAP
+\cite{ssap} uses  the various physical parameters like $T_{\rm eff}$, $\log g$,
+metalicity etc. for query instead of position,wavelength reqions and time
+range. Unfortunately there do not exist obligatory metadata for physical
+parameters so the user should try himself what is available on given server.
+The user than has to individually select suitable spectra from multidimensional
+table combining all the parameters ranges required.  An example on
+Fig.~\ref{fig:TSAP-query} and Fig.~\ref{fig:TSA-plot} shows the selection of
+several Kurucz models for Vega.
 
 
 \begin{figure*}
@@ -495,7 +482,8 @@ for Vega.
 \begin{figure*}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{TSSA-plot.pdf}
-\caption{Zoomed plot of Vega-like Kuruz models manually selected in previous TSAP Query window (see Fig.~\ref{fig:TSAP-query}). }
+\caption{Zoomed plot of Vega-like Kuruz models manually selected in previous
+TSAP Query window (see Fig.~\ref{fig:TSAP-query}). }
 \label{fig:TSAP-plot}
 \end{center}
 \end{figure*}
@@ -742,9 +730,10 @@ Ond\v{r}ejov Southern Photometric Survey \citep{} ongoing on  at Danish 1.5m tel
 \end{figure*}
 
 \subsection{New Features in Spectral Analysis}
-
+\label{davids_functions}
 For analytic capabilities and user comfort in general, we added (or
 are still adding) to SPLAT-VO following features:
+
 \subsubsection{Saving Spectra Stack in Multi-extension FITS format}
 
 Previous versions of SPLAT-VO were able to save its global list of spectra only to
@@ -852,8 +841,7 @@ improved, in terms of search possibilities and usability.
 \item Implementation of  VOUnits \citep{vounits} standard;
 \item	Improvement of the Unit Conversion functions in SPLAT-VO;
 \item Retrieve spectral line identifiers using SLAP \citep[Simple Line
-  Access Protocol;][]{slap}. Currently SPLAT-VO uses local files for the
-  lines;
+  Access Protocol;][]{slap}. Currently SPLAT-VO uses simple formatted ASCII files for the decription of custom line list and some built-in list. The SLAP access will allow for the imediate retrieval of line lists from  big world-wide atomic and molecular  database like e.g. NIST or all databases from VAMDC consortium  (REFERECCES !!!!!!!)
 \end{itemize}
 
 \subsection{New science and data functions}
@@ -973,14 +961,8 @@ open-source and available on Github at
 
 
 %!!! explain what is OSPS and cite ADASS article !!!
+%bc thesis of Andresic
 
-\begin{figure*}[H]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
-\caption{Zeta Ophiuchi in $H_\alpha$ region from Ond\v{r}ejov Coud\`e spectrograph 700mm camera (green) and HEROS (blue) with overplotted line identification from custom line list of telluric lines. Note the deepr telluric lines on HEROS due to its almost double  spectral resolving power}
-\label{fig:zetoph2sp-id}
-\end{center}
-\end{figure*}
 
 
 
