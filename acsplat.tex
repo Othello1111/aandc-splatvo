@@ -251,7 +251,7 @@ spectra that render as line identifiers and cached copies of remote spectra).
 \subsection{Presentation}
 
 The presentation of spectra is based on the model-view-controller pattern,
-that pervades Java UI and the same spectral data can be seen and operated on
+that pervades Java UIs and the same spectral data can be seen and operated on
 in many different guises, that is as a number of line plots, tables, property
 lists etc. Memory based spectra are also directly modifiable (as simple edits
 to table cells or generally using expressions). Through the
@@ -281,10 +281,13 @@ and SPLAT-VO gains from this.
 \subsection{Scripting of SPLAT-VO}   
 
 The various classes of SPLAT-VO may be called directly from the BeanShell
-scripting language \citep{niemeyer2013learning} and so the very complex
-workflows can be created.  Part of the distributions are example scripts for
-batch fitting of Gaussian line profiles or complex deblending. There are as
-well example scripts for controlling the SPLAT-VO from command line.
+scripting language \citep{niemeyer2013learning}, in principle this allows
+complex workflows to be created, and is used to create example scripts that
+are part of the standard distribution. These support the batch fitting of
+single Gaussian line profiles, as well as composite models consisting of any
+number of Gaussian, Lorentzian and Voigt profiles for deblending complex lines
+(a feature that has never made it into the full UI). BeanShell scripts are
+also used for controlling SPLAT-VO from command line.
 
 %-------------------------------------------------------
 
