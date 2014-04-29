@@ -183,12 +183,11 @@ between applications.  Initially, in 2006, this used the PLASTIC
 \citep{2007ASPC..376..511T} protocol and more latterly SAMP
 \citep{2012ASPC..461..279T}.
 
-
 More recently, in 2011, the VO aspects of SPLAT-VO have been taken over by Margarida
 Castro Neves, from the German Astrophysical Virtual Observatory (GAVO) in
 Heldelberg, Germany.  Due to the need for a spectral analysis application with
 VO capabilities and good scientific analysis functions, GAVO  decided to resume
-its development once the original funding has stopped. In this way SPLAT-VO can
+its development once the original funding had stopped. In this way SPLAT-VO can
 continue to be improved, and kept up-to-date with the changing requirements of
 both end users and data providers.  This development  is done in cooperation
 with Petr \v{S}koda (Astronomical Institute of the Academy of Sciences of the
@@ -198,41 +197,39 @@ stellar spectroscopy of mainly  emission line stars).  His Master and former
 Bachelor's student David Andre\v{s}i\v{c} from Technical University, Ostrava has been
 implementing new analytic functionality (see section.~\ref{davids_functions} since 2012.
 
-
-
 \section{SPLAT-VO Internals}
 
 \subsection{Data Formats}
 
-The SPLAT-VO spectral data model is specified by a single internal interface that
-is implemented to give support for the various data formats that are
+The SPLAT-VO spectral data model is specified by a single internal interface
+that is concretely implemented for the various data formats that are
 supported. Having a single interface decouples the data model and makes it
 practical to support a wide range of formats, but necessarily means that some
-features will not be supported and can be lost when making transformative
-changes like copies.
+format specific features will not be supported and can be lost when making
+transformative changes like saving back to file.
 
-The SPLAT-VO data model requires that spectra have a name, coordinate system and
-some data values. Other supported items are data errors, fuller descriptions,
-keyed properties (key, value, description), data units and labels, and the
-underlying dimensionality (if the spectrum is being extracted from a 2D or 3D
-array). Spectra can also have mutable properties, like the names of the table
-columns that contain the various data values.
+The SPLAT-VO data model is simple only requiring that spectra have a name,
+coordinate system and some data values. Other supported items are data errors,
+fuller descriptions, keyed properties (key, value, description), data units
+and labels, and the underlying dimensionality (if the spectrum is being
+extracted from a 2D or 3D array). Spectra can also have mutable properties,
+like the names of the table columns that contain the various data values.
 
 Current implementations give SPLAT-VO access to spectra in simple text
 files, FITS, NDF \citep{ndfjenness}, NDX \citep{2003ASPC..295..221G},
-as well as FITS and VO tables. Tables are supported as a single format
-using the STILTS \citep[][\ascl{1105.001}]{2006ASPC..351..666T}
-library. In addition to these spectra can also be memory based so that
-they can become modifiable and be derived from data with higher
-dimensionalities.
+as well as FITS and VO tables. Tables are supported using the STILTS 
+\citep[][\ascl{1105.001}]{2006ASPC..351..666T} library. In addition to these
+spectra can also be memory based so that they can become modifiable and be
+derived from data with higher dimensionalities.
 
 \subsection{Internal spectral handling}
 
 The presentation of all data types through a single interface works especially
-well when coupled with a further higher-level abstraction. The abstraction in
-the case of SPLAT-VO is in effect how all the analysis and visualisation code
-views a spectrum (these two elements that decouple an abstraction from the
-underlying implementations are in fact the well established 'Bridge Pattern').
+well when coupled with a further, higher-level, abstraction class. This
+abstraction is in effect how all the analysis and visualisation code
+throughout SPLAT-VO see a `spectrum' (these two elements that decouple an
+abstraction from the underlying implementations are in fact the well
+established `Bridge Pattern').
 
 This use of a single abstraction to all data formats makes it easier to write
 consistent code and extend the basic internal spectrum with new facilities
@@ -247,9 +244,9 @@ spectra that render as line identifiers and cached copies of remote spectra).
 
 \subsection{Presentation}
 
-The presentation of spectra is based on the model-view-controller pattern,
-that pervades Java UIs and the same spectral data can be seen and operated on
-in many different guises, that is as a number of line plots, tables, property
+The presentation of spectra is based on the model-view-controller pattern that
+pervades Java UIs and the same spectral data can be seen and operated on in
+many different guises, that is as a number of line plots, tables, property
 lists etc. Memory based spectra are also directly modifiable (as simple edits
 to table cells or generally using expressions). Through the
 model-view-controller infrastructure all changes are propagated to all views.
@@ -261,18 +258,17 @@ Early in the design of SPLAT it was decided that it would not be possible to
 replicate the considerable effort that had already been put into a
 comprehensive system for handling coordinate systems and units, including full
 support for reading and writing FITS WCS. This led to the development of a JNI
-library for the Starlink AST library \citep{1998ASPC..145...41W}, JNIAST. AST itself is written
-in standard C so compiling it on many platforms is relatively easy, but this
-remains a portability issue at the heart of SPLAT limiting one of the initial
-aims.
+library for the Starlink AST library \citep{1998ASPC..145...41W}, JNIAST. AST
+itself is written in standard C so compiling it on many platforms is
+relatively easy, but this remains a portability issue at the heart of SPLAT
+limiting one of the initial aims.
 
-Some of the advanced features that SPLAT-VO offers based on AST are
-support for spectral coordinates in wavelength, velocity, frequency
-and energy. These can have standards of rest, so transformations of
-rest frame are also supported (important for velocity and laboratory
-data). SPLAT-VO also supports double side-band spectra for sub-millimeter
-spectra. Many of these features have been improved in AST over time
-and SPLAT-VO gains from this.
+Some of the advanced features that SPLAT-VO offers based on AST are support
+for spectral coordinates in wavelength, velocity, frequency and energy. These
+can have standards of rest, so transformations of rest frame are also
+supported (important for velocity and laboratory data). SPLAT-VO also supports
+double side-band spectra for sub-millimeter spectra. Many of these features
+have been improved in AST over time and SPLAT-VO gains from this.
 
 
 \subsection{Scripting of SPLAT-VO}
