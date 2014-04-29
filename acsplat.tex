@@ -54,45 +54,44 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep STARJAVA
 %-------------------------------------------------------
 \section{Introduction}
 
-There are many tools for the analysis of astronomical spectra.
-The most commonly used of these are the various packages of
-MIDAS \citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
+There are many tools for the analysis of astronomical spectra.  The most
+commonly used of these are the various packages of MIDAS
+\citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
 \citep[][\ascl{9911.002}]{2012ASPC..461..595F}, Starlink
-\citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together
-with many IDL extensions and scripts. Very advanced processing
-is still often done in custom (especially FORTRAN) programs
-used by small communities.  These tools tend to work with
-specially formatted files (quite often ASCII tables) stored on
-local disks and so the typical task of the astronomer during spectral
-analysis consists of finding the required spectra, in various archives,
-downloading them, understanding and extracting the metadata (e.g.\ date of
-exposure, spectral range, flux units), converting to the custom format used
-by the particular tool, visualizing selected spectra, removing the bad
-data (e.g.\ noisy), running the processing on an improved list and visualizing
-again, measuring some variables (e.g. radial velocity or equivalent
-widths of selected lines) - if done interactively the spectra must be
-zoomed etc.  It is seen that a real scientific analysis of thousands
-of spectra is a very tedious task even on the same instrument. But the
-real modern challenge is an analysis of multi-wavelength spectra from
-different instruments, where all the metadata are different, there are
-various flux and wavelength, frequency or energy units (X-ray) and
-where the formats of storage also vary (simple FITS, binary tables, ASCII
-lists etc.).
+\citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together with many IDL
+extensions and scripts. Very advanced processing is still often done in custom
+(especially FORTRAN) programs used by small communities.  These tools tend to
+work with specially formatted files (quite often ASCII tables) stored on local
+disks.
 
-{\color{red} PWD: not sure I follow the next part. Are you saying spectra
-must be in VOTables, not true? Or are we talking about the SSAP response?
-}
+The common tasks of an astronomer during spectral analysis consists of finding
+the required spectra in various archives, downloading them, understanding and
+extracting the metadata (e.g.\ date of exposure, spectral range, flux units),
+converting to the custom format used by the particular tool, visualizing
+selected spectra and  removing the bad ones (e.g.\ noisy). Then he can finally
+run some massive processing (and measurement of various parameters) on an
+improved list.  Very often is the measurement of some variables (e.g. radial
+velocity or equivalent widths of selected lines) accomplished interactively
+and the spectra must be zoomed and unzoomed, panned, rescaled etc.  
+
+It is seen that a real scientific analysis of thousands of spectra is a very
+tedious task even on the same instrument. But the real modern challenge is an
+analysis of multi-wavelength spectra from different instruments, where all the
+metadata are different, there are various flux and wavelength, frequency or
+energy units  and where the formats of storage also vary (simple FITS, binary
+tables, ASCII lists etc.).
+
 To make the handling of spectra obtained from world-wide distributed
 heterogeneous archives simple and efficient was the main motivation for
-developing the International Virtual Observatory Alliance Simple
-Spectra Access Protocol \citep[IVOA SSAP;][]{ssap}. The key elements
-of success is the standard data format called VOTable
-\citep{2004tivo.conf..118O}, that describes the metadata in a limited
-vocabulary of obligatory keywords, the simple http-based protocol with
-a set of query keywords and the standard spectra discovery mechanism
-(like a Google for astronomical data) called IVOA Registry \citep{registry}.
+developing the International Virtual Observatory Alliance Simple Spectra
+Access Protocol \citep[IVOA SSAP;][]{ssap}. The key elements of this
+http-based protocol is the the standard spectra discovery mechanism (like a
+Google for astronomical data) called IVOA Registry \citep{registry} and  the
+standard data format called VOTable \citep{2004tivo.conf..118O}, 
+describing the metadata of retrieved spectra in a limited vocabulary of
+obligatory parameters.
 
-\subsection{The SSA Protocol}
+  \subsection{The SSA Protocol}
 %
 SSAP allows the astronomer to find all the world-wide VO-compatible archival
 spectra of his favourite object, it can also be used to get spectra for all
@@ -118,7 +117,7 @@ designed strictly on principles of IVOA standards and was rather focused on
 analysis of high energy and space-based spectra with absolute flux
 calibration, lacking support for some common functions and custom data formats
 used in ground-based stellar spectroscopy. The most critical 1D FITS image
-format was added just recently. VOSPEC contains quite complex non-linear
+format was added just recently. VOSpec contains quite complex non-linear
 model-fitting package and can handle the photometric points as well as Spectra
 Energy Distributions (SEDs).  
 
@@ -129,21 +128,22 @@ various domain-specific functionality, better tuned to requirements of
 scientists not familiar with VO technology.
 
 Specview \citep[][\ascl{1210.016}]{2002SPIE.4847..410B}, developed at STScI,
-was intended mainly for handling spectra from HST instrumentation but
-gradually transformed into VO-compatible general client supplemented with a
-library of theoretical spectra and various models for SED generation.  It has
-the specific capabilities namely for fitting of various models of spectra .
-While the Specview is very powerful tool for analysis of SEDs, compatible with
-a lot of very special formats from NASA satellites and allowing the advanced
-comparison of observations with a wide range of theoretical spectra models
-(e.g.\ quasars, dusty rings, whole Kurucz library of spectral types,
-interstellar medium\ldots), it is less flexible in support of various SSAP
-features and lacking behind the rapid IVOA standards evolution.
+was intended mainly for handling spectra from Hubble Space Telescope
+instrumentation and some other NASA missions, but gradually transformed into
+VO-compatible general client supplemented with a library of theoretical
+spectra and various models for SED generation.  While the Specview is very
+powerful tool  compatible with a lot of very special formats from HST, IUE,
+FUSE, ISO and GALEX  satellites, allowing the advanced comparison of
+observations with a wide range of theoretical spectra models (e.g.\ power
+laws, Bremstrahlung,  emission line profiles,  interstellar extinction, dusty
+rings or  whole Kurucz library of spectral types), it is less flexible in
+support of various SSAP features and lacking behind the rapid IVOA standards
+evolution.
 
-In contrast with it, the last VO-compatible client for spectra
-analysis, SPLAT-VO \citep[][\ascl{1402.008}]{sun243} was revived
-recently and currently is under intensive development serving as a
-test-bed for newly proposed VO standards and special features.
+In contrast with it, the last VO-compatible client for spectra analysis,
+SPLAT-VO \citep[][\ascl{1402.008}]{sun243} was revived recently and currently
+is under intensive development serving as a test-bed for newly proposed VO
+standards and special features.
 
 
 %\subsection{VO access in practical examples}
@@ -167,7 +167,7 @@ benefits of improved portability, modern language capabilities (OOD,
 OOP) and core-level support for features like UIs and internet
 protocols and services. This work eventually led to the formation of
 what became the STARJAVA project, now hosted at
-\url{https:://github/Starlink/starjava}. Where the source code for
+\url{https:://github/Starlink/starjava}, where the source code for
 SPLAT-VO and other STARJAVA projects, like TOPCAT
 \citep[][\ascl{1101.010}]{2005ASPC..347...29T}, can be freely
 downloaded.
@@ -203,7 +203,7 @@ with Petr \v{S}koda (Astronomical Institute of the Academy of Sciences of the
 Czech Republic), who contributes in defining the user requirements and
 suggesting modifications of scientific functions (with emphasis on optical
 stellar spectroscopy of mainly  emission line stars).  His Master and former
-Bachelor's student David Andre\v{s}i\v{c} from Technical University, Ostrava has been
+Bachelor student David Andre\v{s}i\v{c} from Technical University, Ostrava has been
 implementing new analytic functionality (see section.~\ref{davids_functions} since 2012.
 
 \section{SPLAT-VO Internals}
@@ -412,7 +412,7 @@ of SPLAT-VO
 \end{itemize}
 
 
-\section{ SPLAT-VO SSAP interface}
+\section{SPLAT-VO SSAP interface}
 
 The most important for VO is the SSAP interface which has been still in active
 developing state.  The task of the interface is to help the user build a
