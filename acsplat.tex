@@ -954,25 +954,32 @@ future using the Simple Line Access Protocol (SLAP).
 
 \subsubsection{SPLAT-VO in data reduction pipelines}
 
-{\color{red}
-
-TJ: One issue that I have had with SPLAT is the difficulty of
-automating processing within my workflow. ORAC-DR aims to fully
-automate spectral data processing and currently does this using
-Starlink classic tasks. Whilst BeanShell seems to be a useful feature
-for scripting SPLAT I need to be able to (1) control SPLAT to trigger data
-analysis routines without a GUI being instantiated and (2) be able to
-record a processing session, save it out to be edited and then replay
-it on hundreds of spectra (also without a GUI).
-
-It always felt wrong to add clever processing to SPLAT and then lose
-it from the pipeline. At JCMT we focused our efforts on the heterodyne
-data reduction pipeline and used splat for visualisation. This didn't
-sit well with me though and I would have welcomed the ability to use
-modern and clever algorithms from SPLAT. Maybe this was all possible
-and I mis-understood the restrictions. Even so that would still be a lesson.
-
-}
+Interactive user interfaces are very powerful but a number of issues
+become apparent when reduction and analysis facilities are directly
+integrated into an application where automation is a secondary
+concern.  At the James Clerk Maxwell Telescope SPLAT replaced the
+SPECX package \citep[][\ascl{1310.008}]{specx} which had been
+developed for interactive command-line use whilst supporting a
+scripting language to allow for bulk processing of spectra. With SPLAT
+the promise of beanshell support was never able to overcome some key
+difficulties associated with automation. There are two scenarios for
+automation. The first is for an astronomer to record the steps taken
+manually in reducing or analysing a spectrum and then replay that
+analysis on many other spectrum. The second scenario is to allow key
+algorithms to be made usable in a pipeline environment with the GUI
+disabled. For the JCMT heterodyne pipeline
+\citep{2008ASPC..394..565J,JennessACSISDR} all efforts at algorithmic
+enhancement were focused on individual Starlink applications such as
+KAPPA \citep[][\ascl{1403.022}]{sun95}, because it was unclear how
+feasible it would be to add complex algorithms to SPLAT and make them
+available through the pipeline. One of the interesting approaches
+taken by GAIA \citep{2009ASPC..411..575D} was that all analysis
+algorithms were called through a messaging interface such that they
+could be used by the interactive GUI, from the command-line or from
+the pipeline. This proved to be a very powerful approach but was not
+available in the SPLAT design. Taking care to separate core algorithms
+from interactive interfaces is an important design decision that has
+long term ramifications for an application.
 
 \subsection{Obtaining SPLAT-VO}
 
