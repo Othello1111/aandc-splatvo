@@ -56,29 +56,33 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep Starjava
 %-------------------------------------------------------
 \section{Introduction}
 
-There are a lot of tools for analysis of astronomical spectra, the
-most commonly used by professional astronomers are various packages of
+There are many tools for the analysis of astronomical spectra. 
+The most commonly used of these are the various packages of
 MIDAS \citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
 \citep[][\ascl{9911.002}]{2012ASPC..461..595F}, Starlink
-\citep[][\ascl{1110.012}]{1982QJRAS..23..485D} and a lot of IDL
-stuff. The very advanced processing is very often done still in custom
-(even FORTRAN) programs used by a small community.  All of such tools
-work with a special preformated (very often ASCII tables) files on
-local disk and so the typical task of the astronomer during spectral
-analysis consists of finding the required spectra in various archives,
-download it, understand and extract the metadata (e.g.\ date of
-exposure, spectral range, flux units), convert to custom format used
-by the particular tool, visualize selected spectra, remove the bad
-(e.g.\ noisy), run the processing on improved list and visualize
-again, measure some variables (e.g. radial velocity or equivalent
-widts of selected lines) - if done interactively the spectra must be
+\citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together
+with many IDL extensions and scripts. Very advanced processing
+is still often done in custom (especially FORTRAN) programs 
+used by small communities.  These tools tend to work with
+specially formatted files (quite often ASCII tables) stored on
+local disks and so the typical task of the astronomer during spectral
+analysis consists of finding the required spectra, in various archives,
+downloading them, understanding and extracting the metadata (e.g.\ date of
+exposure, spectral range, flux units), converting to the custom format used
+by the particular tool, visualizing selected spectra, removing the bad
+data (e.g.\ noisy), running the processing on an improved list and visualizing
+again, measuring some variables (e.g. radial velocity or equivalent
+widths of selected lines) - if done interactively the spectra must be
 zoomed etc.  It is seen that a real scientific analysis of thousands
 of spectra is a very tedious task even on the same instrument. But the
-real challenge is an analysis of an multi-wavelength spectra from
+real modern challenge is an analysis of multi-wavelength spectra from
 different instruments, where all the metadata are different, there are
-various flux and even wavelength units (or energies in X-ray) and even
-the formats of storage vary (simple FITS, binary tables, ASCII
-lists...).
+various flux and wavelength, frequency or energy units (X-ray) and
+where the formats of storage also vary (simple FITS, binary tables, ASCII
+lists etc.).
+
+% PWD: not sure I follow the next part. Are you saying spectra
+% must be in VOTables? Or are we talking about the SSAP response?
 
 To make the handling of spectra obtained from world-wide distributed
 heterogeneus archives simple and efficient was the main motivation for
