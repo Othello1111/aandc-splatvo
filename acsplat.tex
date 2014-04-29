@@ -54,13 +54,13 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep STARJAVA
 %-------------------------------------------------------
 \section{Introduction}
 
-There are many tools for the analysis of astronomical spectra. 
+There are many tools for the analysis of astronomical spectra.
 The most commonly used of these are the various packages of
 MIDAS \citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
 \citep[][\ascl{9911.002}]{2012ASPC..461..595F}, Starlink
 \citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together
 with many IDL extensions and scripts. Very advanced processing
-is still often done in custom (especially FORTRAN) programs 
+is still often done in custom (especially FORTRAN) programs
 used by small communities.  These tools tend to work with
 specially formatted files (quite often ASCII tables) stored on
 local disks and so the typical task of the astronomer during spectral
@@ -178,7 +178,7 @@ downloaded.
 The first VO capabilities added to SPLAT where released in 2005
 \citep{2005ASPC..347...22D}, as support for querying VO registries for
 Simple Spectral Access Protocol servers was added. A selection of
-these servers could then be queried for any spectral they contained
+these servers could then be queried for any spectra they contained
 within a region on the sky and these could then be selected and
 displayed. SPLAT already had the ability to match a wide range of
 spectral coordinate systems and flux units, so the spectra could be
@@ -193,12 +193,11 @@ between applications.  Initially, in 2006, this used the PLASTIC
 \citep{2007ASPC..376..511T} protocol and more latterly SAMP
 \citep{2012ASPC..461..279T}.
 
-
 More recently, in 2011, the VO aspects of SPLAT-VO have been taken over by Margarida
 Castro Neves, from the German Astrophysical Virtual Observatory (GAVO) in
 Heldelberg, Germany.  Due to the need for a spectral analysis application with
 VO capabilities and good scientific analysis functions, GAVO  decided to resume
-its development once the original funding has stopped. In this way SPLAT-VO can
+its development once the original funding had stopped. In this way SPLAT-VO can
 continue to be improved, and kept up-to-date with the changing requirements of
 both end users and data providers.  This development  is done in cooperation
 with Petr \v{S}koda (Astronomical Institute of the Academy of Sciences of the
@@ -208,41 +207,39 @@ stellar spectroscopy of mainly  emission line stars).  His Master and former
 Bachelor's student David Andre\v{s}i\v{c} from Technical University, Ostrava has been
 implementing new analytic functionality (see section.~\ref{davids_functions} since 2012.
 
-
-
 \section{SPLAT-VO Internals}
 
 \subsection{Data Formats}
 
-The SPLAT-VO spectral data model is specified by a single internal interface that
-is implemented to give support for the various data formats that are
+The SPLAT-VO spectral data model is specified by a single internal interface
+that is concretely implemented for the various data formats that are
 supported. Having a single interface decouples the data model and makes it
 practical to support a wide range of formats, but necessarily means that some
-features will not be supported and can be lost when making transformative
-changes like copies.
+format specific features will not be supported and can be lost when making
+transformative changes like saving back to file.
 
-The SPLAT-VO data model requires that spectra have a name, coordinate system and
-some data values. Other supported items are data errors, fuller descriptions,
-keyed properties (key, value, description), data units and labels, and the
-underlying dimensionality (if the spectrum is being extracted from a 2D or 3D
-array). Spectra can also have mutable properties, like the names of the table
-columns that contain the various data values.
+The SPLAT-VO data model is simple only requiring that spectra have a name,
+coordinate system and some data values. Other supported items are data errors,
+fuller descriptions, keyed properties (key, value, description), data units
+and labels, and the underlying dimensionality (if the spectrum is being
+extracted from a 2D or 3D array). Spectra can also have mutable properties,
+like the names of the table columns that contain the various data values.
 
 Current implementations give SPLAT-VO access to spectra in simple text
 files, FITS, NDF \citep{ndfjenness}, NDX \citep{2003ASPC..295..221G},
-as well as FITS and VO tables. Tables are supported as a single format
-using the STILTS \citep[][\ascl{1105.001}]{2006ASPC..351..666T}
-library. In addition to these spectra can also be memory based so that
-they can become modifiable and be derived from data with higher
-dimensionalities.
+as well as FITS and VO tables. Tables are supported using the STILTS 
+\citep[][\ascl{1105.001}]{2006ASPC..351..666T} library. In addition to these
+spectra can also be memory based so that they can become modifiable and be
+derived from data with higher dimensionalities.
 
 \subsection{Internal spectral handling}
 
 The presentation of all data types through a single interface works especially
-well when coupled with a further higher-level abstraction. The abstraction in
-the case of SPLAT-VO is in effect how all the analysis and visualisation code
-views a spectrum (these two elements that decouple an abstraction from the
-underlying implementations are in fact the well established 'Bridge Pattern').
+well when coupled with a further, higher-level, abstraction class. This
+abstraction is in effect how all the analysis and visualisation code
+throughout SPLAT-VO see a `spectrum' (these two elements that decouple an
+abstraction from the underlying implementations are in fact the well
+established `Bridge Pattern').
 
 This use of a single abstraction to all data formats makes it easier to write
 consistent code and extend the basic internal spectrum with new facilities
@@ -257,9 +254,9 @@ spectra that render as line identifiers and cached copies of remote spectra).
 
 \subsection{Presentation}
 
-The presentation of spectra is based on the model-view-controller pattern,
-that pervades Java UIs and the same spectral data can be seen and operated on
-in many different guises, that is as a number of line plots, tables, property
+The presentation of spectra is based on the model-view-controller pattern that
+pervades Java UIs and the same spectral data can be seen and operated on in
+many different guises, that is as a number of line plots, tables, property
 lists etc. Memory based spectra are also directly modifiable (as simple edits
 to table cells or generally using expressions). Through the
 model-view-controller infrastructure all changes are propagated to all views.
@@ -271,21 +268,20 @@ Early in the design of SPLAT it was decided that it would not be possible to
 replicate the considerable effort that had already been put into a
 comprehensive system for handling coordinate systems and units, including full
 support for reading and writing FITS WCS. This led to the development of a JNI
-library for the Starlink AST library \citep{1998ASPC..145...41W}, JNIAST. AST itself is written
-in standard C so compiling it on many platforms is relatively easy, but this
-remains a portability issue at the heart of SPLAT limiting one of the initial
-aims.
+library for the Starlink AST library \citep{1998ASPC..145...41W}, JNIAST. AST
+itself is written in standard C so compiling it on many platforms is
+relatively easy, but this remains a portability issue at the heart of SPLAT
+limiting one of the initial aims.
 
-Some of the advanced features that SPLAT-VO offers based on AST are
-support for spectral coordinates in wavelength, velocity, frequency
-and energy. These can have standards of rest, so transformations of
-rest frame are also supported (important for velocity and laboratory
-data). SPLAT-VO also supports double side-band spectra for sub-millimeter
-spectra. Many of these features have been improved in AST over time
-and SPLAT-VO gains from this.
+Some of the advanced features that SPLAT-VO offers based on AST are support
+for spectral coordinates in wavelength, velocity, frequency and energy. These
+can have standards of rest, so transformations of rest frame are also
+supported (important for velocity and laboratory data). SPLAT-VO also supports
+double side-band spectra for sub-millimeter spectra. Many of these features
+have been improved in AST over time and SPLAT-VO gains from this.
 
 
-\subsection{Scripting of SPLAT-VO}   
+\subsection{Scripting of SPLAT-VO}
 
 The various classes of SPLAT-VO may be called directly from the BeanShell
 scripting language \citep{niemeyer2013learning}, in principle this allows
@@ -300,20 +296,19 @@ also used for controlling SPLAT-VO from command line.
 
 \subsection{The Power of SAMP in SPLAT-VO}
 
-Although the every SSAP client has  powerful capabilities, its flexibility
-would be limited only to the build-in features, probably not suiting all the
-requests of a wide spectroscopic community. However, almost all VO-compatible
-tools, including important table processor TOPCAT and stellar atlas
-Aladin (\ascl{1112.019}),
-have built-in support for Simple Application Message Protocol (SAMP), successor
-of PLASTIC.  This allows joining the basic VO applications like the individual
-bricks to build a very complex visualization and processing pipelines allowing
-to accomplish the very complicated analysis of truly Big Data.  The astronomer
-may, for example, visualize the spectra of objects he clicks on in some imaging
-survey frame displayed in Aladin, or identify the visual appearance of galaxies
-the spectra of which was visually selected in SPLAT-VO.  SAMP was also successfuly
-used by one of the authors to send the spectra selected from   static web
-previews for detailed analysis in SPLAT-VO.
+Although all SSAP clients have powerful capabilities, they are naturally
+limited to their built-in features, which will not suit all the requirements
+of a wide spectroscopic community. However, almost all VO-compatible tools,
+including important table processor TOPCAT and stellar atlas Aladin
+(\ascl{1112.019}), have built-in support for the Simple Application Message
+Protocol (SAMP), successor of PLASTIC. This supports the bringing together of
+basic VO applications, like bricks, to build complex visualization and
+processing pipelines allowing very complicated analyses of truly Big Data.
+The astronomer may, for example, visualize the spectra of objects they click
+on in some imaging survey frame displayed in Aladin, or identify the visual
+appearance of galaxies from the spectra which have been visually selected in
+SPLAT-VO.  SAMP was also successfuly used by one of the authors to send the
+spectra selected from static web previews for detailed analysis in SPLAT-VO.
 
 
 \section{SPLAT-VO Capabilities  for Spectra Analysis}
@@ -445,7 +440,7 @@ calibrated spectra of  emission star $Phi$~Persei. We have selected Hubble
 Space Telescope with Goddard High Resolution Spectrograph (at the opened tab, note
 also the unfolded service description on the left side) and the IUE low resolution spectra (selected in other tab).
 The  composite plot of UV spectra from HST GHRS (thick blue short pieces) IUE low resolution
-spectra (thin lines - green SWP, pink LWR camera) is on Fig.~\ref{fig:iuegst2}.
+spectra (thin lines - green SWP, pink LWR camera) is on Fig.~\ref{fig:iuehst2}.
 
 \begin{figure*}[Ht]
 \begin{center}
@@ -479,7 +474,7 @@ range. Unfortunately there do not exist obligatory metadata for physical
 parameters so the user should try himself what is available on given server.
 The user than has to individually select suitable spectra from multidimensional
 table combining all the parameters ranges required.  An example on
-Fig.~\ref{fig:TSAP-query} and Fig.~\ref{fig:TSA-plot} shows the selection of
+Fig.~\ref{fig:TSAP-query} and Fig.~\ref{fig:TSAP-plot} shows the selection of
 several Kurucz models for Vega.
 
 
@@ -721,7 +716,7 @@ with interactive menu.  The current limitation only (see below)
 requires the time axis expressed as floating point variables, which
 limits the possibility of using strings (e.g. dates, time stamps or
 even the names of CCD images used to extract given photometric point )
-An example in Fig~\ref{} shows  query and light curves obtained  (Fig.~\ref{})  from 
+An example in Fig~\ref{} shows  query and light curves obtained  (Fig.~\ref{})  from
 Ond\v{r}ejov Southern Photometric Survey \citep{} ongoing on  at Danish 1.5m telescope DK154.
 
 
@@ -737,7 +732,7 @@ Ond\v{r}ejov Southern Photometric Survey \citep{} ongoing on  at Danish 1.5m tel
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_plot.pdf}
-\caption{Multicolour light curves of Cepheid OGLE-SC7-127550 from OSPS. The manual modification of default line type into various markers and flip of vertical axis was applied on data obtained by experimental SSAP light curve protocol using query from Fig.~\ref{OGLE-SC7-127550_query}. The measurements in Johnoson -Cousins filters correspond to U (diamonds), B (asterisks), V (pluses) R (crosses) and I (triangles).
+\caption{Multicolour light curves of Cepheid OGLE-SC7-127550 from OSPS. The manual modification of default line type into various markers and flip of vertical axis was applied on data obtained by experimental SSAP light curve protocol using query from Fig.~\ref{fig:OGLE-SC7-127550_query}. The measurements in Johnoson -Cousins filters correspond to U (diamonds), B (asterisks), V (pluses) R (crosses) and I (triangles).
 }
 \label{fig:OGLE-SC7-127550_plot}
 \end{center}
@@ -772,10 +767,10 @@ standardized for FITS.
 
 \subsubsection{Visual Spectrum Selection and Highlighting}
 
-In the earlier versions of SPLAT-VO, when the user worked with multiple 
-spectra in one common plot window, he  had a limited possibility of 
-selection just one of them for further actions. Selection of e.g. noisy 
-spectrum and its deletion from plot window could be done only by 
+In the earlier versions of SPLAT-VO, when the user worked with multiple
+spectra in one common plot window, he  had a limited possibility of
+selection just one of them for further actions. Selection of e.g. noisy
+spectrum and its deletion from plot window could be done only by
 trial-and-error procedure and therefore quite problematic and time-wasting.
 
 We improved this and now when the user clicks on a spectrum in global spectra
@@ -856,7 +851,12 @@ improved, in terms of search possibilities and usability.
 \item Implementation of  the VOUnits \citep{vounits} standard;
 \item	Improvement of the Unit Conversion functions in SPLAT-VO, as well as making possible for the user to choose the units  (e.g. of waveband) when performing a VO query.
 \item Retrieve spectral line identifiers using SLAP \citep[Simple Line
-  Access Protocol;][]{slap}. Currently SPLAT-VO uses simple formatted ASCII files for the description of custom line list and some built-in list. The SLAP access will allow for the immediate retrieval of line lists from  big world-wide atomic and molecular  database like e.g. NIST \citep{NIST_ASD} or all databases from VAMDC consortium  \citep{vamdc}.
+  Access Protocol;][]{slap}. Currently SPLAT-VO uses simple formatted
+  ASCII files for the description of custom line list and some
+  built-in list. The SLAP access will allow for the immediate
+  retrieval of line lists from  big world-wide atomic and molecular
+  database such as NIST \citep{NIST_ASD,2012APS..DMP.D1004K,2004JPCRD..33..177L} or all the databases from the
+  VAMDC consortium  \citep{2011BaltA..20..503K}.
 \end{itemize}
 
 {\color{red} Should we be mentioning that AST handles the unit
@@ -878,7 +878,7 @@ improved, in terms of search possibilities and usability.
 \item Automatic continuum normalization algorithm to apply on all spectra received from servers not supporting it
 \item Sorting, stacking, and adapting spectra according to specific metadata (In principle folding with phase with given period.)
 \item Support for exporting the global list of spectra to another types of FITS extensions and other formats, like VO-Table.
-\item Access to all extensions and its metadata in FITS received via SSAP protocol. 
+\item Access to all extensions and its metadata in FITS received via SSAP protocol.
 
 \end{itemize}
 
@@ -941,7 +941,7 @@ lines was never sufficient and astronomers continue to ask for more
 obscure transitions to be included. A local line catalogue is an
 excellent back up but it is also necessary to look up catalogues from
 remote services. The ALMA-OT \citep{2013ASPC..475..373W} works in
-exactly this way with much success. This feature will be added in the 
+exactly this way with much success. This feature will be added in the
 future using the Simple Line Access Protocol (SLAP).
 
 \subsubsection{SPLAT-VO in data reduction pipelines}
