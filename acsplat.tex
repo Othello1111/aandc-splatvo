@@ -517,7 +517,7 @@ was used. SPLAT-VO is one of the first client implementations of
 DataLink, in this way also contributing to its testing and development
 from a client point of view.
 
-Besides SSAP, spectra can also be retrieved using the ObsCore protocol
+Besides SSAP, spectra can also be retrieved using the ObsCore data model
 through TAP \citep[known as ObsTap;][]{obstap}. Its implementation in
 SPLAT-VO allows spectra to be retrieved also from ObsCore services, and
 the ObsTAP ADQL \citep{adql} search offers a more powerful search
@@ -695,7 +695,8 @@ rudimentary ADQL interface where some parameters can be set. For more
 advanced queries, the user can directly edit the ADQL
 expression. After sending the query the results tables will be
 displayed, which are in functionality similar to the SSAP browser
-window.
+window. For the TAP query SPLAT-VO uses STARJAVA's TAP functions written
+by Mark Taylor.
 
 
 \subsubsection{Visualizing Light Curves using  SSAP}
