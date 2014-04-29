@@ -312,102 +312,108 @@ spectra selected from static web previews for detailed analysis in SPLAT-VO.
 
 \section{SPLAT-VO Capabilities  for Spectra Analysis}
 
-The SPLAT-VO as a former general purpose spectra analysis tool supports a very
-wide range of capabilities required by astronomers for every-day wwork without
-the need of having even basic knowledge of Virtual Observatory technology. The
-input spectra may be loaded directly from local disk in a number of formats,
-including several types of multicolumn ASCII tables, multi-extension FITS with
-binary tables or very important 1D spectrum FITS image typically produced by
-IRAF {\tt onedspec} package (describing the wavelength axis with CRVAL1, CRPIX1
-and CDELT1 FITS keywords).
+SPLAT-VO as a general purpose spectral analysis tool supports a very wide
+range of capabilities required by astronomers for every-day work outside of
+the VO. Input spectra may be loaded directly from local disk files in a number
+of formats, including several types of multicolumn ASCII tables,
+multi-extension FITS with binary tables or 1D spectrum FITS image, as well as
+Starlink NDF.
 
 The list of capabilites of SPLAT-VO is enormous and are fully described in
 the associated documentation \citep[SUN/243;][]{sun243}.
 
-Here with give just the short overview of features not relevant to VO
-protocols, some of which are very
-specific for SPLAT-VO and certain type of analysis of hot emission line stars.
+Here we give a short overview of features not relevant to VO protocols. A
+number of these features are very specific to the analysis of hot emission
+line stars.
 
 \begin{itemize}
 
-\item Stacking of spectra introducing either constant vertical offset or
-offset based on functions of value of certain FITS keywords. For example the
-line profiles may be ordered by the circular phase computed for certain
-period. Stacking is also useful for visualization of evolution of stellar line profiles in variable stars.
-The Fig.~\ref{fig:phiper-heros-stack} shows the evolution of emission lines profile of star $Phi$~Persei observed with HEROS spectrograph on Ond\v{r}ejov in 2003.
+\item Visual stacking of spectra introducing either constant vertical offset
+  or offset based on functions of value of certain FITS keywords. For example
+  the line profiles may be ordered by the circular phase computed for a
+  certain period. Stacking is also useful for visualization of evolution of
+  stellar line profiles in variable stars.  The
+  Fig.~\ref{fig:phiper-heros-stack} shows the evolution of an emission line
+  profile for the star $Phi$~Persei observed with HEROS spectrograph on
+  Ond\v{r}ejov in 2003.
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
-\caption{The Phi Persei time evolution of $H_\alpha$ line emission profile from observation of HEROS spectrograph. The SPLAT-VO stacking offset of  0.6 is applied for better visibility of changes}
+\caption{The time evolution of the $H_\alpha$ line emission profile in Phi Persei.
+  Observations taken using the HEROS spectrograph. The stacking offset of 0.6
+  makes sure that the changes can be seen easily}
+
 \label{fig:phiper-heros-stack}
 \end{center}
 \end{figure*}
 
 
+\item Measurement of radial velocities by the visual matching of a line
+  profile with its mirrored image based on idea of oscilloscopic comparators.
+  It is important for measuring the asymmetric and distorted line profiles
+  typical for hot emission stars. For detailed explanation see
+  \citet{2007IAUS..240..486P}. This feature can be operated with a batch-like
+  mode to quick assess a number of lines and or spectra using a `visitor list'.
 
+\item Continuum estimation using flexible curves similar to those expected to
+  be drawn by a human. The INTEP procedure based on Hermitean polynomials
+  \citep{1982PDAO...16...67H} has been successfully used for decades in
+  fitting stellar continua (typically of emission-line stars like Be stars and
+  symbiotic ones) in the program SPEFO \citep{1996ASPC..101..187S}. The
+  overview of advantages of this procedure is given in
+  \citet{2008asvo.proc...97S}. Other curves types are also available such as
+  \citet{Akima:1970:NMI:321607.321609}.
 
-\item Measurement of radial velocities by visual matching of a line profile
-with its mirrored image based on idea of oscilloscopic comparators. It is
-important for measuring the asymmetric and distorted line profiles typical for
-hot emission stars. For detailed explanation see \citet{2007IAUS..240..486P}.
-Can be even run in a batch mode for a number of lines on a list of spectra
-using so called visitor list.
-
-\item Fitting continuum using flexible curves similar to those expected to be
-drawn by human.  The  INTEP procedure based on Hermitean polynomials
-\citep{1982PDAO...16...67H} has been successfully used for decades in fitting stellar
-continua (typically of emission-line stars like Be stars and symbiotic ones)
-in program SPEFO \citep{1996ASPC..101..187S}. The overview of advantages of
-this procedure is given in \citet{2008asvo.proc...97S}. Another option is the
-method of \citet{Akima:1970:NMI:321607.321609}.
-
-\item Powerful transformation of spectral/energy axis with respect to various
-coordinate systems (optical, vacuum wavelength, optical and radio velocities,
-redshift .. wrt to e.g. LSR, barycentre ....)
+\item Powerful transformation of the spectral axis with respect to various
+  coordinate systems; air and vacuum wavelength, optical and radio velocities,
+  frequency, redshift, energy. The transformations can also include various
+  standards of rest; topocentric, heliocentric, dynamic and kinematic local.
 
 \item Built in spreadsheet processor supported by special astronomical
-functions. Allows to modify/transform data or even plot various functions
-(models).
+  functions. Allows the modification/transformation of coordinates and data
+  values. Astronomical functions include the spectral profile models.
 
-\item Filtering package with smoothing, wavelets
+\item Filtering with smoothing (mean, median, rebin) and denoising with wavelets.
 
-\item Line fitting package - for fitting Gaussian, Voigt or Lorentz profiles
+\item Line fitting using Gaussian, Voigt or Lorentz profiles.
 
-\item Simple statistics on selected region
+\item Statistics of selected regions, mean, median, sum, mode, variance, skew,
+      kurtosis, rms, quantiles.
 
-\item Edition of spectra (cutouts, replacing part by fits, removal of outliers)
+\item Region removal, replacement and extraction. Replace with interpolation.
 
 \item Complete graphics toolkit with many configurable options for
-presentation of data. Export of publication quality output in PNG, GIF, EPS.
+  presentation of data. Export of publication quality output in PNG, GIF, EPS.
 
-\item Animation of spectra - creation of animated JPEG/PNG files. Convenient
-for showing the line evolution or non-radial pulsations.
+\item Animation of spectra - creation of slide JPEG/PNG files. Convenient
+  for showing the line evolution or non-radial pulsations.
 
 \item Identification of spectral lines using simple supplied ASCII line lists and
-built-in set of common  atomic and molecular lines (even molecules in radio
-region). The Fig.~\ref{fig:zetoph2sp-id} shows identification of telluric lines on a combination of spectra from two different instruments.
+ built-in set of common  atomic and molecular lines (includes molecules in sub-millimeter
+ region). The Fig.~\ref{fig:zetoph2sp-id} shows the identification of telluric lines on a
+ combination of spectra from two different instruments. 
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
-\caption{Zeta Ophiuchi in $H_\alpha$ region from Ond\v{r}ejov Coud\`e spectrograph 700mm camera (green) and HEROS (blue) with overplotted line identification from custom line list of telluric lines. Note the deeper telluric lines on HEROS due to its almost double  spectral resolving power}
+\caption{Zeta Ophiuchi in $H_\alpha$ region, data taken with Ond\v{r}ejov Coud\`e
+  spectrograph 700mm camera (green) and HEROS (blue) with overplotted line
+  identification from custom line list of telluric lines. Note the deeper
+  telluric lines on HEROS due to its almost double spectral resolving power.} 
 \label{fig:zetoph2sp-id}
 \end{center}
 \end{figure*}
 
+\item Simple operations on spectra (adding, subtracting, dividing, continuum fitting...).
 
-\item Simple operations on spectra (adding, subtracting, dividing, continuum fitting...)
+\item Built-in examples of multi-wavelength observations. The two use cases
+ contain multispectral data to demonstrate the basic features of SPLAT-VO.
 
-\item Various editable colour themes
+\item Comprehensive on-line help linked to the main document SUN/243.
 
-\item Built-in examples of multiwavelength observation. The two use cases
-containing a bunch of multispectral data demonstrate immediately basic features
-of SPLAT-VO
-
-\item Built-in context help
-
-\item Scripting capability using BeanShell
+\item Scripting capability using BeanShell and control of basic display
+ from the command-line.
 
 \end{itemize}
 
