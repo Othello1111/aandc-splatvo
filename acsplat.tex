@@ -54,13 +54,13 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep STARJAVA
 %-------------------------------------------------------
 \section{Introduction}
 
-There are many tools for the analysis of astronomical spectra. 
+There are many tools for the analysis of astronomical spectra.
 The most commonly used of these are the various packages of
 MIDAS \citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
 \citep[][\ascl{9911.002}]{2012ASPC..461..595F}, Starlink
 \citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together
 with many IDL extensions and scripts. Very advanced processing
-is still often done in custom (especially FORTRAN) programs 
+is still often done in custom (especially FORTRAN) programs
 used by small communities.  These tools tend to work with
 specially formatted files (quite often ASCII tables) stored on
 local disks and so the typical task of the astronomer during spectral
@@ -107,37 +107,34 @@ the fluxes and wavelengths in ASCII or CSV tables).
 
 \subsection{SSAP-compatible  Visualization Clients}
 %
-Although a regular work with large amounts of data is more convenient
-by calling the SSAP protocol from some scripting language in a batch
-like or workflow-based environment, the crucial feature for
-understanding data is the advanced visualization and comfortable user
-interaction.  Therefore the very important part of the VO
-infrastructure represent the VO-compatible spectra visualization
-clients.  So far there are there three of them.  VOSpec
-\citep[][\ascl{1205.011}]{2005ASPC..347..198O}, developed by ESA, is
-designed strictly on principles of IVOA standards and was rather
-focused on analysis of high energy space-based spectra due to lack of
-important capabilities common in optical spectral analysis.  The two
-other clients are in fact the former general spectra analysis tools
-with built-in separate plugin for querying and downloading spectra
-using SSAP.  Specview \citep[][\ascl{1210.016}]{2002SPIE.4847..410B},
-developed at STScI, was intended mainly for handling spectra from HST
-instrumentation but gradually transformed into VO-compatible general
-client supplemented with a library of theoretical spectra and various
-models for SED generation.  It has the specific capabilities namely
-for fitting of various models of spectra . While the Specview is very
-powerful tool for analysis of SEDs, compatible with a lot of very
-special formats from NASA satellites and allowing the advanced
-comparison of observations with a wide range of theoretical spectra
-models (e.g.\ quasars, dusty rings, whole Kurucz library of spectral
-types, interstellar medium\ldots), it is less flexible in support of
-various SSAP features and lacking behind the rapid IVOA standards
-evolution.
+Although regular work with large amounts of data is more convenient by calling
+the SSAP protocol from some scripting language in a batch or workflow-based
+environment, a crucial feature for investigating and understanding data is the
+provision of an advanced visualization tool with easy user interaction.
+Therefore a very important part of the VO infrastructure is represented by
+VO-compatible spectral visualization clients. To date there are three such
+developments. VOSpec \citep[][\ascl{1205.011}]{2005ASPC..347..198O}, developed
+by ESA, is designed strictly on IVOA standards and principles and was rather
+focused on the analysis of high energy space-based spectra, because of a lack
+of important capabilities that are common in optical spectral analysis. The
+two other clients are in fact former general spectral analysis tools extended
+to also query and download spectra using SSAP.
+Specview \citep[][\ascl{1210.016}]{2002SPIE.4847..410B}, developed at STScI,
+was intended mainly for handling spectra from HST instrumentation but gradually
+transformed into a VO-compatible general client supplemented with a library of
+theoretical spectra and various models for SED generation. It has powerful
+capabilities for fitting various models of spectra.
+While the Specview is also a very capable tool for the analysis of SEDs,
+supporting a lot of very special formats from NASA satellites and allowing the
+advanced comparison of observations with a wide range of theoretical spectral
+models (e.g.\ quasars, dusty rings, whole Kurucz library of spectral types,
+interstellar medium\ldots), it is less flexible at supporting various SSAP
+features and lags behind the rapid IVOA standards evolution.
 
-In contrast with it, the last VO-compatible client for spectra
-analysis, SPLAT-VO \citep[][\ascl{1402.008}]{sun243} was revived
-recently and currently is under intensive development serving as a
-test-bed for newly proposed VO standards and special features.
+In contrast with it, the third VO-compatible client for spectra analysis,
+SPLAT-VO \citep[][\ascl{1402.008}]{sun243} was revived recently and currently
+is under intensive development serving as a test-bed for newly proposed VO
+standards and special features.
 
 
 %\subsection{VO access in practical examples}
@@ -171,7 +168,7 @@ downloaded.
 The first VO capabilities added to SPLAT where released in 2005
 \citep{2005ASPC..347...22D}, as support for querying VO registries for
 Simple Spectral Access Protocol servers was added. A selection of
-these servers could then be queried for any spectral they contained
+these servers could then be queried for any spectra they contained
 within a region on the sky and these could then be selected and
 displayed. SPLAT already had the ability to match a wide range of
 spectral coordinate systems and flux units, so the spectra could be
@@ -278,7 +275,7 @@ spectra. Many of these features have been improved in AST over time
 and SPLAT-VO gains from this.
 
 
-\subsection{Scripting of SPLAT-VO}   
+\subsection{Scripting of SPLAT-VO}
 
 The various classes of SPLAT-VO may be called directly from the BeanShell
 scripting language \citep{niemeyer2013learning}, in principle this allows
@@ -714,7 +711,7 @@ with interactive menu.  The current limitation only (see below)
 requires the time axis expressed as floating point variables, which
 limits the possibility of using strings (e.g. dates, time stamps or
 even the names of CCD images used to extract given photometric point )
-An example in Fig~\ref{} shows  query and light curves obtained  (Fig.~\ref{})  from 
+An example in Fig~\ref{} shows  query and light curves obtained  (Fig.~\ref{})  from
 Ond\v{r}ejov Southern Photometric Survey \citep{} ongoing on  at Danish 1.5m telescope DK154.
 
 
@@ -764,10 +761,10 @@ standardized for FITS.
 
 \subsubsection{Visual Spectrum Selection and Highlighting}
 
-In the earlier versions of SPLAT-VO, when the user worked with multiple 
-spectra in one common plot window, he  had a limited possibility of 
-selection just one of them for further actions. Selection of e.g. noisy 
-spectrum and its deletion from plot window could be done only by 
+In the earlier versions of SPLAT-VO, when the user worked with multiple
+spectra in one common plot window, he  had a limited possibility of
+selection just one of them for further actions. Selection of e.g. noisy
+spectrum and its deletion from plot window could be done only by
 trial-and-error procedure and therefore quite problematic and time-wasting.
 
 We improved this and now when the user clicks on a spectrum in global spectra
@@ -870,7 +867,7 @@ improved, in terms of search possibilities and usability.
 \item Automatic continuum normalization algorithm to apply on all spectra received from servers not supporting it
 \item Sorting, stacking, and adapting spectra according to specific metadata (In principle folding with phase with given period.)
 \item Support for exporting the global list of spectra to another types of FITS extensions and other formats, like VO-Table.
-\item Access to all extensions and its metadata in FITS received via SSAP protocol. 
+\item Access to all extensions and its metadata in FITS received via SSAP protocol.
 
 \end{itemize}
 
@@ -933,7 +930,7 @@ lines was never sufficient and astronomers continue to ask for more
 obscure transitions to be included. A local line catalogue is an
 excellent back up but it is also necessary to look up catalogues from
 remote services. The ALMA-OT \citep{2013ASPC..475..373W} works in
-exactly this way with much success. This feature will be added in the 
+exactly this way with much success. This feature will be added in the
 future using the Simple Line Access Protocol (SLAP).
 
 \subsubsection{SPLAT-VO in data reduction pipelines}
