@@ -110,7 +110,7 @@ calling the SSAP protocol from some scripting language in a batch like or
 workflow-based environment, the crucial feature for understanding data is the
 advanced visualization and comfortable user interaction.  Therefore the very
 important part of the VO infrastructure represent the VO-compatible spectra
-visualization clients.  So far there are there three of them. 
+visualization clients.  So far there are there three of them.
 
 VOSpec \citep[][\ascl{1205.011}]{2005ASPC..347..198O}, developed by ESA, is
 designed strictly on principles of IVOA standards and was rather focused on
@@ -119,7 +119,7 @@ calibration, lacking support for some common functions and custom data formats
 used in ground-based stellar spectroscopy. The most critical 1D FITS image
 format was added just recently. VOSpec contains quite complex non-linear
 model-fitting package and can handle the photometric points as well as Spectra
-Energy Distributions (SEDs).  
+Energy Distributions (SEDs).
 
 The two other clients are in fact the former general spectra analysis tools
 with built-in separate plugin for querying and downloading spectra using SSAP.
@@ -226,7 +226,7 @@ like the names of the table columns that contain the various data values.
 
 Current implementations give SPLAT-VO access to spectra in simple text
 files, FITS, NDF \citep{ndfjenness}, NDX \citep{2003ASPC..295..221G},
-as well as FITS and VO tables. Tables are supported using the STILTS 
+as well as FITS and VO tables. Tables are supported using the STILTS
 \citep[][\ascl{1105.001}]{2006ASPC..351..666T} library. In addition to these
 spectra can also be memory based so that they can become modifiable and be
 derived from data with higher dimensionalities.
@@ -312,102 +312,108 @@ spectra selected from static web previews for detailed analysis in SPLAT-VO.
 
 \section{SPLAT-VO Capabilities  for Spectra Analysis}
 
-The SPLAT-VO as a former general purpose spectra analysis tool supports a very
-wide range of capabilities required by astronomers for every-day wwork without
-the need of having even basic knowledge of Virtual Observatory technology. The
-input spectra may be loaded directly from local disk in a number of formats,
-including several types of multicolumn ASCII tables, multi-extension FITS with
-binary tables or very important 1D spectrum FITS image typically produced by
-IRAF {\tt onedspec} package (describing the wavelength axis with CRVAL1, CRPIX1
-and CDELT1 FITS keywords).
+SPLAT-VO as a general purpose spectral analysis tool supports a very wide
+range of capabilities required by astronomers for every-day work outside of
+the VO. Input spectra may be loaded directly from local disk files in a number
+of formats, including several types of multicolumn ASCII tables,
+multi-extension FITS with binary tables or 1D spectrum FITS image, as well as
+Starlink NDF.
 
 The list of capabilites of SPLAT-VO is enormous and are fully described in
 the associated documentation \citep[SUN/243;][]{sun243}.
 
-Here with give just the short overview of features not relevant to VO
-protocols, some of which are very
-specific for SPLAT-VO and certain type of analysis of hot emission line stars.
+Here we give a short overview of features not relevant to VO protocols. A
+number of these features are very specific to the analysis of hot emission
+line stars.
 
 \begin{itemize}
 
-\item Stacking of spectra introducing either constant vertical offset or
-offset based on functions of value of certain FITS keywords. For example the
-line profiles may be ordered by the circular phase computed for certain
-period. Stacking is also useful for visualization of evolution of stellar line profiles in variable stars.
-The Fig.~\ref{fig:phiper-heros-stack} shows the evolution of emission lines profile of star $Phi$~Persei observed with HEROS spectrograph on Ond\v{r}ejov in 2003.
+\item Visual stacking of spectra introducing either constant vertical offset
+  or offset based on functions of value of certain FITS keywords. For example
+  the line profiles may be ordered by the circular phase computed for a
+  certain period. Stacking is also useful for visualization of evolution of
+  stellar line profiles in variable stars.  The
+  Fig.~\ref{fig:phiper-heros-stack} shows the evolution of an emission line
+  profile for the star $Phi$~Persei observed with HEROS spectrograph on
+  Ond\v{r}ejov in 2003.
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
-\caption{The Phi Persei time evolution of $H_\alpha$ line emission profile from observation of HEROS spectrograph. The SPLAT-VO stacking offset of  0.6 is applied for better visibility of changes}
+\caption{The time evolution of the $H_\alpha$ line emission profile in Phi Persei.
+  Observations taken using the HEROS spectrograph. The stacking offset of 0.6
+  makes sure that the changes can be seen easily}
+
 \label{fig:phiper-heros-stack}
 \end{center}
 \end{figure*}
 
 
+\item Measurement of radial velocities by the visual matching of a line
+  profile with its mirrored image based on idea of oscilloscopic comparators.
+  It is important for measuring the asymmetric and distorted line profiles
+  typical for hot emission stars. For detailed explanation see
+  \citet{2007IAUS..240..486P}. This feature can be operated with a batch-like
+  mode to quick assess a number of lines and or spectra using a `visitor list'.
 
+\item Continuum estimation using flexible curves similar to those expected to
+  be drawn by a human. The INTEP procedure based on Hermitean polynomials
+  \citep{1982PDAO...16...67H} has been successfully used for decades in
+  fitting stellar continua (typically of emission-line stars like Be stars and
+  symbiotic ones) in the program SPEFO \citep{1996ASPC..101..187S}. The
+  overview of advantages of this procedure is given in
+  \citet{2008asvo.proc...97S}. Other curves types are also available such as
+  \citet{Akima:1970:NMI:321607.321609}.
 
-\item Measurement of radial velocities by visual matching of a line profile
-with its mirrored image based on idea of oscilloscopic comparators. It is
-important for measuring the asymmetric and distorted line profiles typical for
-hot emission stars. For detailed explanation see \citet{2007IAUS..240..486P}.
-Can be even run in a batch mode for a number of lines on a list of spectra
-using so called visitor list.
-
-\item Fitting continuum using flexible curves similar to those expected to be
-drawn by human.  The  INTEP procedure based on Hermitean polynomials
-\citep{1982PDAO...16...67H} has been successfully used for decades in fitting stellar
-continua (typically of emission-line stars like Be stars and symbiotic ones)
-in program SPEFO \citep{1996ASPC..101..187S}. The overview of advantages of
-this procedure is given in \citet{2008asvo.proc...97S}. Another option is the
-method of \citet{Akima:1970:NMI:321607.321609}.
-
-\item Powerful transformation of spectral/energy axis with respect to various
-coordinate systems (optical, vacuum wavelength, optical and radio velocities,
-redshift .. wrt to e.g. LSR, barycentre ....)
+\item Powerful transformation of the spectral axis with respect to various
+  coordinate systems; air and vacuum wavelength, optical and radio velocities,
+  frequency, redshift, energy. The transformations can also include various
+  standards of rest; topocentric, heliocentric, dynamic and kinematic local.
 
 \item Built in spreadsheet processor supported by special astronomical
-functions. Allows to modify/transform data or even plot various functions
-(models).
+  functions. Allows the modification/transformation of coordinates and data
+  values. Astronomical functions include the spectral profile models.
 
-\item Filtering package with smoothing, wavelets
+\item Filtering with smoothing (mean, median, rebin) and denoising with wavelets.
 
-\item Line fitting package - for fitting Gaussian, Voigt or Lorentz profiles
+\item Line fitting using Gaussian, Voigt or Lorentz profiles.
 
-\item Simple statistics on selected region
+\item Statistics of selected regions, mean, median, sum, mode, variance, skew,
+      kurtosis, rms, quantiles.
 
-\item Edition of spectra (cutouts, replacing part by fits, removal of outliers)
+\item Region removal, replacement and extraction. Replace with interpolation.
 
 \item Complete graphics toolkit with many configurable options for
-presentation of data. Export of publication quality output in PNG, GIF, EPS.
+  presentation of data. Export of publication quality output in PNG, GIF, EPS.
 
-\item Animation of spectra - creation of animated JPEG/PNG files. Convenient
-for showing the line evolution or non-radial pulsations.
+\item Animation of spectra - creation of slide JPEG/PNG files. Convenient
+  for showing the line evolution or non-radial pulsations.
 
 \item Identification of spectral lines using simple supplied ASCII line lists and
-built-in set of common  atomic and molecular lines (even molecules in radio
-region). The Fig.~\ref{fig:zetoph2sp-id} shows identification of telluric lines on a combination of spectra from two different instruments.
+ built-in set of common  atomic and molecular lines (includes molecules in sub-millimeter
+ region). The Fig.~\ref{fig:zetoph2sp-id} shows the identification of telluric lines on a
+ combination of spectra from two different instruments.
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
-\caption{Zeta Ophiuchi in $H_\alpha$ region from Ond\v{r}ejov Coud\`e spectrograph 700mm camera (green) and HEROS (blue) with overplotted line identification from custom line list of telluric lines. Note the deeper telluric lines on HEROS due to its almost double  spectral resolving power}
+\caption{Zeta Ophiuchi in $H_\alpha$ region, data taken with Ond\v{r}ejov Coud\`e
+  spectrograph 700mm camera (green) and HEROS (blue) with overplotted line
+  identification from custom line list of telluric lines. Note the deeper
+  telluric lines on HEROS due to its almost double spectral resolving power.}
 \label{fig:zetoph2sp-id}
 \end{center}
 \end{figure*}
 
+\item Simple operations on spectra (adding, subtracting, dividing, continuum fitting...).
 
-\item Simple operations on spectra (adding, subtracting, dividing, continuum fitting...)
+\item Built-in examples of multi-wavelength observations. The two use cases
+ contain multispectral data to demonstrate the basic features of SPLAT-VO.
 
-\item Various editable colour themes
+\item Comprehensive on-line help linked to the main document SUN/243.
 
-\item Built-in examples of multiwavelength observation. The two use cases
-containing a bunch of multispectral data demonstrate immediately basic features
-of SPLAT-VO
-
-\item Built-in context help
-
-\item Scripting capability using BeanShell
+\item Scripting capability using BeanShell and control of basic display
+ from the command-line.
 
 \end{itemize}
 
@@ -716,7 +722,7 @@ requires the time axis expressed as floating point variables, which
 limits the possibility of using strings (e.g. dates, time stamps or
 even the names of CCD images used to extract given photometric point )
 An example in Fig~\ref{} shows  query and light curves obtained  (Fig.~\ref{})  from
-Ond\v{r}ejov Southern Photometry Survey \citep{adassxxiii} ongoing on  at Danish 1.5m telescope DK154.
+Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on  at Danish 1.5m telescope DK154.
 
 
 
@@ -737,9 +743,9 @@ Ond\v{r}ejov Southern Photometry Survey \citep{adassxxiii} ongoing on  at Danish
 \end{center}
 \end{figure*}
 
-\subsection{New Features in Spectral Analysis} 
+\subsection{New Features in Spectral Analysis}
 
-\label{davids_functions} 
+\label{davids_functions}
 For better analytic capabilities and user comfort in
 general, were added \citep{and146bcthesis} to SPLAT-VO following features:
 
@@ -792,6 +798,8 @@ ranges to a local file (feature is available under 'File' menu) in the
 same format as the reading feature expects, that is one range (with a
 white space between its beginning and ending value) per line:
 
+\begin{quote}
+\small
 \begin{verbatim}
 # Generated by SPLAT-VO
 
@@ -801,6 +809,7 @@ white space between its beginning and ending value) per line:
 # Range 2
 8729.026 8748.744
 \end{verbatim}
+\end{quote}
 
 \subsubsection{Cut window: performing on multiple spectra}
 
@@ -906,7 +915,7 @@ compatible coordinates and units. Even today some 15 years later, AST
 is still believed to be a class leader in these areas.
 
 Avoiding this work was also pragmatic as a re-write into Java would
-have been a lot of work that the effort just wasn't available and
+have been a lot of work that the effort just wasn't available for and
 still isn't. In the intervening years there have also been new
 features added to AST, such as the dual-sideband support, which was
 vital for submillimeter work, and the adoption of SPLAT by the
@@ -929,7 +938,7 @@ made publicly available, first via CVS on a Starlink server, then via
 Subversion on a Joint Astronomy Centre server and finally using `git`
 on Github. We feel that this openness contributed directly to the
 software being picked up by the GAVO project, saving the application
-from obscurity once the direct funding for it was dropped.
+from stagnation once the direct funding for it was dropped.
 
 \subsubsection{Local spectral line catalogues are not sufficient}
 
@@ -964,6 +973,31 @@ modern and clever algorithms from SPLAT. Maybe this was all possible
 and I mis-understood the restrictions. Even so that would still be a lesson.
 
 }
+
+\subsection{Obtaining SPLAT-VO}
+
+SPLAT-VO is released in a variety of ways, you can build it using the source
+code, obtain it as part of a Starlink JAC release. Alternatively you can
+install into your desktop using a standalone IzPack bundled version or run it
+up using Java webstart.
+
+The bundled standalone and webstart releases of SPLAT-VO are currently
+available for the following desktops, Linux (32 and 64 bit), Mac OS X (32 and
+64 bit Lion) and Windows XP and later (32 bit Java only). Previous versions
+also worked on Solaris, Sparc and Intel, and OS X PPC.
+
+The Starlink releases
+\citep[e.g.,][]{currie_adassxxiii,2013ASPC..475..247B} are available
+for Linux (32 and 64 bit) and OS X (Lion and Snow Leopard).
+
+See \ascl{1402.007}\footnote{or \url{http://astro.dur.ac.uk/~pdraper/splat}}
+for the main support site where links to these releases can be found.
+Beta releases of the GAVO developments are also available.
+
+The source code for SPLAT-VO and its associated libraries is
+open-source and available on Github at
+\url{https://github.com/Starlink/starjava}
+
 
 \section{Conclusions}
 
@@ -1000,9 +1034,6 @@ Markus Demleitner who actively supports the new features in SPLAT-VO SSAP
 and DataLink handling by the development of GAVO DaCHS server publishing suite.
 We thank Jan Wouterloot for his work testing the sub-millimetre
 features of SPLAT.
-The source code for SPLAT-VO and its associated libraries is
-open-source and available on Github at
-\url{https://github.com/Starlink/starjava}
 
 \bibliographystyle{model2-names-astronomy}
 \bibliography{acsplat}
