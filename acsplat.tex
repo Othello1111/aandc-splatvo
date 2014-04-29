@@ -912,7 +912,7 @@ compatible coordinates and units. Even today some 15 years later, AST
 is still believed to be a class leader in these areas.
 
 Avoiding this work was also pragmatic as a re-write into Java would
-have been a lot of work that the effort just wasn't available and
+have been a lot of work that the effort just wasn't available for and
 still isn't. In the intervening years there have also been new
 features added to AST, such as the dual-sideband support, which was
 vital for submillimeter work, and the adoption of SPLAT by the
@@ -935,7 +935,7 @@ made publicly available, first via CVS on a Starlink server, then via
 Subversion on a Joint Astronomy Centre server and finally using `git`
 on Github. We feel that this openness contributed directly to the
 software being picked up by the GAVO project, saving the application
-from obscurity once the direct funding for it was dropped.
+from stagnation once the direct funding for it was dropped.
 
 \subsubsection{Local spectral line catalogues are not sufficient}
 
@@ -970,6 +970,30 @@ modern and clever algorithms from SPLAT. Maybe this was all possible
 and I mis-understood the restrictions. Even so that would still be a lesson.
 
 }
+
+\subsection{Obtaining SPLAT-VO}
+
+SPLAT-VO is released in a variety of ways, you can build it using the source
+code, obtain it as part of a Starlink JAC release. Alternatively you can
+install into your desktop using a standalone IzPack bundled version or run it
+up using Java webstart. 
+
+The bundled standalone and webstart releases of SPLAT-VO are currently
+available for the following desktops, Linux (32 and 64 bit), Mac OS X (32 and
+64 bit Lion) and Windows XP and later (32 bit Java only). Previous versions
+also worked on Solaris, Sparc and Intel, and OS X PPC.
+
+The Starlink releases are available for Linux (32 and 64 bit) and OS X (Lion
+and Snow Leopard).
+
+See \ascl{1402.007}\footnote{or \url{http://astro.dur.ac.uk/~pdraper/splat}} 
+for the main support site where links to these releases can be found.
+Beta releases of the GAVO developments are also available.
+
+The source code for SPLAT-VO and its associated libraries is
+open-source and available on Github at
+\url{https://github.com/Starlink/starjava}
+
 
 \section{Conclusions}
 
@@ -1006,9 +1030,6 @@ Markus Demleitner who actively supports the new features in SPLAT-VO SSAP
 and DataLink handling by the development of GAVO DaCHS server publishing suite.
 We thank Jan Wouterloot for his work testing the sub-millimetre
 features of SPLAT.
-The source code for SPLAT-VO and its associated libraries is
-open-source and available on Github at
-\url{https://github.com/Starlink/starjava}
 
 \bibliographystyle{model2-names-astronomy}
 \bibliography{acsplat}
