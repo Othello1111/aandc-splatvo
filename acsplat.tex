@@ -79,9 +79,9 @@ various flux and wavelength, frequency or energy units (X-ray) and
 where the formats of storage also vary (simple FITS, binary tables, ASCII
 lists etc.).
 
-% PWD: not sure I follow the next part. Are you saying spectra
-% must be in VOTables? Or are we talking about the SSAP response?
-
+{\color{red} PWD: not sure I follow the next part. Are you saying spectra
+must be in VOTables, not true? Or are we talking about the SSAP response?
+}
 To make the handling of spectra obtained from world-wide distributed
 heterogeneous archives simple and efficient was the main motivation for
 developing the International Virtual Observatory Alliance Simple
@@ -95,14 +95,15 @@ a set of query keywords and the standard spectra discovery mechanism
 
 \subsection{The SSA Protocol}
 %
-SSAP allows the astronomer to find in the all world-wide VO-compatible
-archives spectra of his favour object (or all objects in given celestial
-places, circles etc.) in given spectral range exposed in given times as well as
-subjected to more subtle criteria like the spectral resolution or target class
-(even spectral type) if the server provides such information.  The proper
-server even converts the spectra on-the-fly in the required format (and in
-principle can create e.g. previews of spectra in PNG or deliver the fluxes and
-wavelengths in ASCII or CSV table).
+SSAP allows the astronomer to find all the world-wide VO-compatible archival
+spectra of his favourite object, it can also be used to get spectra for all
+the objects in a `circular' region of interest on the sky. These simple
+queries can be refined using spectral ranges, dates of observation as well as
+subject to more subtle criteria like spectral resolution or target class (even
+spectral type) if the server supports such refinement. More capable servers
+provide extended facilities for converting spectra on-the-fly to the required
+format (and in principle can create e.g. previews of spectra in PNG or deliver
+the fluxes and wavelengths in ASCII or CSV tables).
 
 \subsection{SSAP-compatible  Visualization Clients}
 %
