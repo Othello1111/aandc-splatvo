@@ -322,27 +322,27 @@ Starlink NDF.
 The list of capabilites of SPLAT-VO is enormous and are fully described in
 the associated documentation \citep[SUN/243;][]{sun243}.
 
-Here we give a short overview of features not relevant to VO protocols. A
-number of these features are very specific to the analysis of hot emission
+Here we give a short overview of features not relevant to VO protocols.
+Several features are very specific to the analysis of hot emission
 line stars.
 
 \begin{itemize}
 
 \item Visual stacking of spectra introducing either constant vertical offset
-  or offset based on functions of value of certain FITS keywords. For example
+  or offset based on functions of values of certain FITS keywords. For example
   the line profiles may be ordered by the circular phase computed for a
   certain period. Stacking is also useful for visualization of evolution of
   stellar line profiles in variable stars.  The
   Fig.~\ref{fig:phiper-heros-stack} shows the evolution of an emission line
-  profile for the star $Phi$~Persei observed with HEROS spectrograph on
-  Ond\v{r}ejov in 2003.
+  profile for the star $\Phi$~Persei observed with HEROS spectrograph at
+  Ond\v{r}ejov 2m telescope in years 2001--2003.
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
-\caption{The time evolution of the $H_\alpha$ line emission profile in Phi Persei.
-  Observations taken using the HEROS spectrograph. The stacking offset of 0.6
-  makes sure that the changes can be seen easily}
+\caption{The time evolution of the H$_\alpha$ line emission profile in
+$\Phi$~Per observations taken using the HEROS spectrograph at Ond\v{r}ejov 2m
+telescope. The stacking offset of 0.6  makes sure that the changes can be seen easily}
 
 \label{fig:phiper-heros-stack}
 \end{center}
@@ -370,7 +370,7 @@ line stars.
   frequency, redshift, energy. The transformations can also include various
   standards of rest; topocentric, heliocentric, dynamic and kinematic local.
 
-\item Built in spreadsheet processor supported by special astronomical
+\item Built-in spreadsheet processor supported by special astronomical
   functions. Allows the modification/transformation of coordinates and data
   values. Astronomical functions include the spectral profile models.
 
@@ -381,7 +381,8 @@ line stars.
 \item Statistics of selected regions, mean, median, sum, mode, variance, skew,
       kurtosis, rms, quantiles.
 
-\item Region removal, replacement and extraction. Replace with interpolation.
+\item Region removal, replacement and extraction. Also replacement part of
+spectra  with interpolated curve.
 
 \item Complete graphics toolkit with many configurable options for
   presentation of data. Export of publication quality output in PNG, GIF, EPS.
@@ -392,12 +393,13 @@ line stars.
 \item Identification of spectral lines using simple supplied ASCII line lists and
  built-in set of common  atomic and molecular lines (includes molecules in sub-millimeter
  region). The Fig.~\ref{fig:zetoph2sp-id} shows the identification of telluric lines on a
- combination of spectra from two different instruments.
+ combination of spectra from two different spectrographs of Ond\v{r}ejov 2m
+telescope.
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
-\caption{Zeta Ophiuchi in $H_\alpha$ region, data taken with Ond\v{r}ejov Coud\`e
+\caption{Zeta Ophiuchi in H$_\alpha$ region, data obtained with Ond\v{r}ejov Coud\`e
   spectrograph 700mm camera (green) and HEROS (blue) with overplotted line
   identification from custom line list of telluric lines. Note the deeper
   telluric lines on HEROS due to its almost double spectral resolving power.}
@@ -420,17 +422,18 @@ line stars.
 
 \section{SPLAT-VO SSAP interface}
 
-The most important for VO is the SSAP interface which has been still in active
-developing state.  The task of the interface is to help the user build a
-correct SSAP query (which is seen immediately) by filling simple form for
-parameters like coordinates and size of the searching cone of the object (or
-name which is translated by CDS Sesame on request), spectral ranges BAND,
-date/time of observation, status of calibration of  wavelength and flux axis
-and format of available data.  The recent addition allows to refine the query
-select all optional parameters supported by selected SSAP servers.
+The most important for VO funcionality is the SSAP interface, which has been
+still in active developing state.  The task of the interface is to help the
+user build a correct SSAP query (which is seen immediately) by filling simple
+form for parameters like coordinates ({\tt POS}) and size ({\tt SIZE}) of the searching cone of the
+object (or name which is translated by CDS names resolver Sesame on request), spectral ranges
+({\tt BAND}), date/time of observation ({\tt TIME}), status of calibration of
+wavelength ({\tt WAVECALIB}) and flux ({\tt FLUXCALIB})
+axis and format ({\tt FORMAT}) of available data.  The recent addition allows to refine the
+query using all optional parameters supported by selected SSAP servers.
 
-The data returned by SSAP server (pointed by {\tt accref} link in metadata are
-loaded onto local computer, stored in a local directory  and kept in memory.
+The data returned by SSAP server (pointed by {\tt accref} link in metadata) are
+loaded onto local computer, stored in a local user's directory  and kept in memory.
 Lot of operation can be done afterwards without SSAP calls on already loaded
 memory spectra including the individual tuning of presentation of each
 spectrum (e.g. line types, graphics attributes).
@@ -440,11 +443,11 @@ services not yet registered may be added manually. The server list may be
 edited to query only collections with similar data or even only one service
 may be queried for detailed specific operations.
 
-As an  example the  Fig.~\ref{fig:hst_query} shows the search of absolutely
-calibrated spectra of  emission star $Phi$~Persei. We have selected Hubble
+As an  example, the  Fig.~\ref{fig:hst_query} shows the search of absolutely
+calibrated spectra of  emission star $\Phi$~Per. We have selected Hubble
 Space Telescope with Goddard High Resolution Spectrograph (at the opened tab, note
 also the unfolded service description on the left side) and the IUE low resolution spectra (selected in other tab).
-The  composite plot of UV spectra from HST GHRS (thick blue short pieces) IUE low resolution
+The  composite plot of UV spectra from HST GHRS (thick blue short pieces) and IUE low resolution
 spectra (thin lines - green SWP, pink LWR camera) is on Fig.~\ref{fig:iuehst2}.
 
 \begin{figure*}[Ht]
@@ -470,23 +473,24 @@ spectra (thin lines - green SWP, pink LWR camera) is on Fig.~\ref{fig:iuehst2}.
 \subsection{ Theoretical Spectra Access}
 
 In a similar way like observational spectra  are obtained synthetic spectra
-from the libraries  available in VO (e.g. Kuruz models, Rauch NON-LTE, TLUSTY
-hot stars, Salpeter, Dusty). They are selected by radio button, which  changes
-the role of parameters used to query. The extended protocol called TSAP
-\citep{ssap} uses  the various physical parameters like $T_{\rm eff}$, $\log g$,
-metalicity etc. for query instead of position,wavelength regions and time
-range. Unfortunately there do not exist obligatory metadata for physical
-parameters so the user should try himself what is available on given server.
-The user than has to individually select suitable spectra from multidimensional
-table combining all the parameters ranges required.  An example on
-Fig.~\ref{fig:TSAP-query} and Fig.~\ref{fig:TSAP-plot} shows the selection of
-several Kurucz models for Vega.
+from the libraries  available in VO (e.g. Kurucz models, Rauch's non-LTE model
+spectra, TLUSTY hot stars, Salpeter, Dusty). They are selected by radio
+button, which  changes the role of parameters used to query. The extended
+protocol called Theory-SSAP (shortly TSAP) \citep{ssap} uses  the various
+physical parameters like $T_{\rm eff}$, $\log g$, metalicity etc. for query
+instead of position, wavelength regions and time range. Unfortunately, there do
+not exist obligatory metadata for all required physical parameters, so the user should try
+himself what is available on given server.  The user than has to individually
+select suitable spectra from multidimensional table combining all the
+parameters ranges required.  The Fig.~\ref{fig:TSAP-query} and
+Fig.~\ref{fig:TSAP-plot} shows the query and result of selection of several Kurucz models for
+Vega.
 
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{TSSA-query.pdf}
-\caption{TSAP Query for Vega like Kurucz models. Note the additional parameters needed.}
+\caption{TSAP Query for Vega-like Kurucz models. Note the additional parameters needed.}
 \label{fig:TSAP-query}
 \end{center}
 \end{figure*}
@@ -511,23 +515,22 @@ TSAP Query window (see Fig.~\ref{fig:TSAP-query}). }
 
 As the VO evolves, adding new protocols and data models, SPLAT-VO
 needs to evolve accordingly.  The further development of SPLAT-VO has
-been continued by MargaridaCastro Neves and Markus Demleitner at the
-University of Heidelberg, and by and Petr Skoda and David Andresic at
+been continued by Margarida Castro Neves and Markus Demleitner at the
+University of Heidelberg, and by and Petr \v{S}koda and David Andre\v{s}i\v{c} at
 the Astronomical Institute of the Academy of Sciences of the Czech
 Republic.
 
-SSAP, as the name says, is a simple protocol, and has some
-limitations. Some features like cut-outs or flux calibration, which
-are often needed, have to be performed in a second work step after
-downloading the spectra. It is much more efficient to have it done
-on-the-fly and  to download the spectra exactly as needed. To overcome
-the limitations of SSAP, the new DataLink protocol \citep{datalink}
-was used. SPLAT-VO is one of the first client implementations of
-DataLink, in this way also contributing to its testing and development
-from a client point of view.
+SSAP, as the name says, is a simple protocol, and has some limitations. Some
+features like cut-outs or flux calibration, which are often needed, have to be
+performed in a second work step after downloading the spectra. It is much more
+efficient to have it done on-the-fly at the server and  to download the
+spectra exactly as needed. To overcome the limitations of SSAP, the new
+DataLink protocol \citep{datalink} was used. SPLAT-VO is one of the first
+client implementations of DataLink, in this way also contributing to its
+testing and development from a client point of view.
 
 Besides SSAP, spectra can also be retrieved using the ObsCore data model
-through TAP \citep[known as ObsTap;][]{obstap}. Its implementation in
+through Table Access Protocol(TAP)  \citep[known as ObsTap;][]{obstap}. Its implementation in
 SPLAT-VO allows spectra to be retrieved also from ObsCore services, and
 the ObsTAP ADQL \citep{adql} search offers a more powerful search
 mechanism as well. The implementation of new VO protocols like ObsTAP
@@ -580,16 +583,17 @@ in the registry.
 
 \subsubsection{Metadata parameters query}
 
-In it's original version, SPLAT-VO contained just a simple cone search
-(RA, DEC, band, time, data format), although many other metadata is
-available.  Now SPLAT-VO retrieves also the metadata parameters for each
-server, and a new user interface allows users to chose metadata
+In it's original version, SPLAT-VO contained just a simple cone search using
+the SSAP obligatory parameters (RA, DEC, band, time, data format) and later
+added wavelegth and flux calibration state, although many other metadata is
+available on servers.  Now SPLAT-VO retrieves also the metadata parameters for
+each server, and a new user interface allows users to chose metadata
 parameters and their values to perform more detailed queries.  This is
-especially interesting when querying theoretical spectra, which
-contain many additional query parameters (TSAP). Figure ~\ref{fig:TSAP-query})
-shows the use of additional metadata parameters.
+especially interesting when querying theoretical spectra by TSAP, which contain many
+additional query parameters. Figure~\ref{fig:TSAP-query} shows the
+use of additional metadata parameters.
 
-\subsubsection{Simple http authentication}
+\subsubsection{Simple HTTP authentication}
 
 It can be used when data is published to the VO before it should be
 publicly available. So the owner and a limited group of users can
@@ -710,19 +714,20 @@ by Mark Taylor.
 
 \subsubsection{Visualizing Light Curves using  SSAP}
 
-As the proper standard for displaying photometric light curves or time
-series of other variables is not so far established by IVOA, there were
-several attempts to exploit the visual similarity of spectra and light
-curves pretending the spectral axis is the temporal one.  So the SSAP
-was successfully used as a transport protocol for delivering light
-curves in binary table format. In principle the table may contain many
-columns displayed as dependent variable against the various time axes
-with interactive menu.  The current limitation only (see below)
-requires the time axis expressed as floating point variables, which
-limits the possibility of using strings (e.g. dates, time stamps or
-even the names of CCD images used to extract given photometric point )
-An example in Fig~\ref{fig:OGLE-SC7-127550_query} shows  query and light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
-Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on  at Danish 1.5m telescope DK154.
+As the proper standard for displaying photometric light curves or time series
+of other variables is not so far established by IVOA, there were several
+attempts to exploit the visual similarity of spectra and light curves
+pretending the spectral axis is the temporal one.  So the SSAP was
+successfully used as a transport protocol for delivering light curves in
+binary table format. In principle the table may contain many columns displayed
+as dependent variable against the various time axes with interactive menu.
+The current limitation only requires the time axis expressed as floating point
+variables, which limits the possibility of using strings (e.g. dates, time
+stamps or even the names of CCD images used to extract given photometric point
+on light curve.  An example in Fig~\ref{fig:OGLE-SC7-127550_query} shows the
+query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
+Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on
+at Danish 1.5m telescope DK154.
 
 
 
@@ -782,7 +787,7 @@ We improved this and now when the user clicks on a spectrum in global spectra
 list, SPLAT-VO will automatically select the closest spectrum to the cursor
 position and  the spectrum gets immediately highlighted in all plot windows
 that it is opened in. The highlighting has a form of a few-seconds blinking in
-an inverted col-or and is performed sequentially (highlighting in one plot
+an inverted colour and is performed sequentially (highlighting in one plot
 window comes after the previous one is finished), which gives to the user a
 perfect sequential overview of the spectrum's plots.
 
@@ -834,9 +839,9 @@ SPLAT-VO is now able to do this
 for the user automatically. We added new checkbox under the
 'Interoperability' menu that can be used to switch between the previous
 state (each spectrum to its own plot window) and plotting all the
-spectra received from SAMP to their common plot window. This feature
+spectra received by SAMP to their common plot window. This feature
 can be of course turned on and off several times during the runtime,
-so it allows to plot one bulk of spectra received from SAMP to one
+so it allows to plot one bulk of spectra received by SAMP to one
 window and another bulk to another window.
 
 \section{Future plans for SPLAT-VO}
@@ -884,7 +889,8 @@ improved, in terms of search possibilities and usability.
 \item Complex graphics attributes bound to individual spectral collections, Changes on kernel - work with stack of spectra together (e.g. cutouts, fitting )
 \item Dynamic spectra - evolution of spectra profiles in time (gray scale representation)
 \item Automatic continuum normalization algorithm to apply on all spectra received from servers not supporting it
-\item Sorting, stacking, and adapting spectra according to specific metadata (In principle folding with phase with given period.)
+\
+(In principle folding with phase given period.)
 \item Support for exporting the global list of spectra to another types of FITS extensions and other formats, like VO-Table.
 \item Access to all extensions and its metadata in FITS received via SSAP protocol.
 
