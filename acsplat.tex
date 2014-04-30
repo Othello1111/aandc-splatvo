@@ -281,17 +281,25 @@ Early in the design of SPLAT it was decided that it would not be possible to
 replicate the considerable effort that had already been put into a
 comprehensive system for handling coordinate systems and units, including full
 support for reading and writing FITS WCS. This led to the development of a JNI
-library for the Starlink AST library \citep{1998ASPC..145...41W}, JNIAST. AST
+library for the Starlink AST library \citep{1998ASPC..145...41W,2012ASPC..461..825B}, JNIAST. AST
 itself is written in standard C so compiling it on many platforms is
-relatively easy, but this remains a portability issue at the heart of SPLAT
+relatively easy, but, as discussed in Sec.\ \ref{sec:jniast-lesson}, this remains a portability issue at the heart of SPLAT
 limiting one of the initial aims.
 
 Some of the advanced features that SPLAT-VO offers based on AST are support
 for spectral coordinates in wavelength, velocity, frequency and energy. These
 can have standards of rest, so transformations of rest frame are also
 supported (important for velocity and laboratory data). SPLAT-VO also supports
-double side-band spectra for sub-millimeter spectra. Many of these features
+double side-band spectra for sub-millimeter spectra and flux unit matching. Many of these features
 have been improved in AST over time and SPLAT-VO gains from this.
+
+AST supports all the units specified in the FITS standard and can
+calculate scaling factors to allow matching of spectra with different
+flux units. Adding full VOUnits support \citep{vounits} to SPLAT-VO
+would currently require that AST is updated to match the
+standard. This would have the added benefit of expanding support for
+VOUnits to the entire Starlink software collection and in particular
+enhance the unit support of the VO aspects of GAIA.
 
 
 \subsection{Scripting of SPLAT-VO}
@@ -900,6 +908,7 @@ learned that may affect future developments of similar tools. In this
 section we summarize these issues.
 
 \subsection{Using JNI versus ``pure'' Java}
+\label{sec:jniast-lesson}
 
 The question should probably be asked if using a JNI wrapper to the
 AST library was a good choice or not. As with most things, we believe
