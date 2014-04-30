@@ -876,31 +876,6 @@ can be of course turned on and off several times during the runtime,
 so it allows to plot one bulk of spectra received by SAMP to one
 window and another bulk to another window.
 
-\section{Future plans for SPLAT-VO}
-
-The goal of the developers is to keep SPLAT-VO up-to-date with the
-newest IVOA Standards, many times testing and contributing to the
-development of standards. Besides that, to keep improving the
-visualization and scientific data analysis part to meet scientists
-needs.  Some of the items listed below are already being worked on,
-some others are being planned. It's also important for the developers
-to get feedback from the users community on which additions could be
-useful.
-
-\subsection{New science and data functions}
-\begin{itemize}
-\item Automatic matching of line identifiers to spectrum;
-\item Selection of spectra from data cubes,
-\item Complex graphics attributes bound to individual spectral collections, Changes on kernel - work with stack of spectra together (e.g., cutouts, fitting )
-\item Dynamic spectra - evolution of spectra profiles in time (gray scale representation)
-\item Automatic continuum normalization algorithm to apply on all spectra received from servers not supporting it
-\
-(In principle folding with phase given period.)
-\item Support for exporting the global list of spectra to another types of FITS extensions and other formats, like VO-Table.
-\item Access to all extensions and its metadata in FITS received via SSAP protocol.
-
-\end{itemize}
-
 \section{Lessons learned}
 
 During the development of SPLAT-VO a number of lessons have been
@@ -1083,15 +1058,19 @@ open-source and available on Github at
 The SPLAT-VO is the very powerful tools for analysis of spectra
 allowing immediate browsing of world-wide distributed archives as well
 as detailed study of individual objects in whole electromagnetic
-spectrum including building of SEDs. Its capabilities makes it an
+spectrum including building of SEDs. Its capabilities make it an
 ideal tools for analysis of astronomical spectra even in local mode
 for the non-VO-aware astronomers, although the full productivity is
-reached in the VO environment.  It has been under active development
-promising soon the handling of light curves and data cubes Thanks to
-joining the effort of developer of GAVO DaCHS server suite and
-SPLAT-VO developers the SPLAT-VO is an ideal reference implementation
-for testing new IVOA proposed standards, as required by IVOA rules for
-pushing standards in the Recommendation phase.
+reached in the VO environment. It has been under active development, promising soon the handling of
+light curves and data cubes. We also intend to add support for
+automatic matching of line identifiers to spectra, simultaneous
+processing of multiple spectra, automated continuum normalization, and
+enhanced support of FITS extensions and metdata.
+
+As a result of combining the effort of GAVO DaCHS server suite
+developers and SPLAT-VO developers, SPLAT-VO is an ideal reference
+implementation for testing new IVOA proposed standards, as required by
+IVOA rules, for pushing standards in the Recommendation phase.
 
 \section*{Acknowledgements}
 
