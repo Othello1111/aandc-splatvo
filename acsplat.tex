@@ -61,6 +61,7 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep STARJAVA
 
 \newcommand{\qjras}{QJRAS}
 \newcommand{\apj}{ApJ}
+\newcommand{\aap}{A\&A}
 
 %% Links
 \newcommand{\ascl}[1]{\href{http://www.ascl.net/#1}{ascl:#1}}
@@ -239,11 +240,12 @@ extracted from a 2D or 3D array). Spectra can also have mutable properties,
 like the names of the table columns that contain the various data values.
 
 Current implementations give SPLAT-VO access to spectra in simple text
-files, FITS, NDF \citep{ndfjenness}, NDX \citep{2003ASPC..295..221G},
-as well as FITS and VO tables. Tables are supported using the STILTS
-\citep[][\ascl{1105.001}]{2006ASPC..351..666T} library. In addition to these
-spectra can also be memory based so that they can become modifiable and be
-derived from data with higher dimensionalities.
+files, FITS \citep{2010A&A...524A..42P}, NDF \citep{ndfjenness}, NDX
+\citep{2003ASPC..295..221G}, as well as FITS and VO tables. Tables are
+supported using the STILTS
+\citep[][\ascl{1105.001}]{2006ASPC..351..666T} library. In addition to
+these spectra can also be memory based so that they can become
+modifiable and be derived from data with higher dimensionalities.
 
 \subsection{Internal spectral handling}
 
@@ -280,7 +282,7 @@ model-view-controller infrastructure all changes are propagated to all views.
 Early in the design of SPLAT it was decided that it would not be possible to
 replicate the considerable effort that had already been put into a
 comprehensive system for handling coordinate systems and units, including full
-support for reading and writing FITS WCS. This led to the development of a JNI
+support for reading and writing FITS WCS \citep{2006A&A...446..747G}. This led to the development of a JNI
 library for the Starlink AST library \citep{1998ASPC..145...41W,2012ASPC..461..825B}, JNIAST. AST
 itself is written in standard C so compiling it on many platforms is
 relatively easy, but, as discussed in Sec.\ \ref{sec:jniast-lesson}, this remains a portability issue at the heart of SPLAT
@@ -293,13 +295,14 @@ supported (important for velocity and laboratory data). SPLAT-VO also supports
 double side-band spectra for sub-millimeter spectra and flux unit matching. Many of these features
 have been improved in AST over time and SPLAT-VO gains from this.
 
-AST supports all the units specified in the FITS standard and can
-calculate scaling factors to allow matching of spectra with different
-flux units. Adding full VOUnits support \citep{vounits} to SPLAT-VO
-would currently require that AST is updated to match the
-standard. This would have the added benefit of expanding support for
-VOUnits to the entire Starlink software collection and in particular
-enhance the unit support of the VO aspects of GAIA.
+AST supports all the units specified in the FITS standard
+\citep{2010A&A...524A..42P} and can calculate scaling factors to allow
+matching of spectra with different flux units. Adding full VOUnits
+support \citep{vounits} to SPLAT-VO would currently require that AST
+is updated to match the standard. This would have the added benefit of
+expanding support for VOUnits to the entire Starlink software
+collection and in particular enhance the unit support of the VO
+aspects of GAIA \citep{2009ASPC..411..575D}.
 
 
 \subsection{Scripting of SPLAT-VO}
