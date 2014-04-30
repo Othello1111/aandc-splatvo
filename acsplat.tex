@@ -60,6 +60,7 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep STARJAVA
 %% Local commands
 
 \newcommand{\qjras}{QJRAS}
+\newcommand{\apj}{ApJ}
 
 %% Links
 \newcommand{\ascl}[1]{\href{http://www.ascl.net/#1}{ascl:#1}}
@@ -1011,6 +1012,21 @@ available in the SPLAT design. Taking care to separate core algorithms
 from interactive interfaces is an important design decision that has
 long term ramifications for an application.
 
+\subsection{Sub-millimeter units are hard}
+
+VOUnits \citep{vounits} standardisation is very useful but is not
+sufficient for the majority of spectral line data that is encountered
+by sub-millimeter astronomers. Sub-millimeter spectra are generally
+calibrated in temperature rather than janskys and there are two
+competing standards for handling the different calibration factors
+that are involved in converting from such definitions as corrected
+antenna temperature, main-beam temperature and antenna temperature
+\citep{1981ApJ...250..341K,1989LNP...333..351D,2009tra..book.....W}. The
+units alone do not tell you which temperature scale is in use and many
+efficiency values are required when comparing spectra from different
+telescopes. The situation is in dire need of standardisation efforts
+and we simply had to ignore the issue in SPLAT.
+
 \subsection{Service selection interface}
 
 The new SSAP service selection interface, using more metadata
@@ -1021,9 +1037,31 @@ lead to confusion, especially if the service information from the
 registries is often incomplete. If the data is not there as it should
 be a detailed interface won't do much. The current interface will be
 redesigned in the future, probably simpler but more accurate. It has
-been planned also to use RegTaP to look for spectral services, which
+been planned also to use RegTaP \citep{regtap} to look for spectral services, which
 may provide easier handling.
 
+\subsection{Tracking VO standards is hard}
+
+SPLAT transitioned from a local analysis tool to a VO client during
+the birth of the VO and witnessed an explosive growth of standards
+during that time. One interesting outcome of this was that funding for
+SPLAT became scarce as the VO grew and funds were diverted from
+classical astronomy software development efforts. VO standards became
+increasingly important and it was clear that support should be added
+for SSAP and related standards although it was a struggle to
+prioritise this effort as VO adoption was initially slow and
+astronomers were not driving the initial support for these
+facilities. SPLAT-VO is being updated to add support for standards
+such as ObsCore and RegTap as well as expanded units support with
+VOUnits \citep{vounits}, but the VO standards will continue to evolve
+as new versions are announced and new standards developed and it will
+be a continuing struggle to remain compliant. There is a worry that
+all of the development effort available to SPLAT-VO will be spent
+simply on maintaining standards support and this will be at the
+expense of supporting new analysis algorithms. This is a very
+difficult balancing act and we can not expect the IVOA standards
+process to stagnate purely to make life easier for applications
+developers.
 
 
 \section{Obtaining SPLAT-VO}
