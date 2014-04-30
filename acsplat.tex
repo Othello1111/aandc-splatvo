@@ -593,7 +593,7 @@ can be selected in the interface and only the services which contain
 this information in the metadata will be selected.  The other way is
 useful in the case when users know exactly the services they want to
 query, so they may create an own tag containing the chosen services,
-and give it a name, e.g. "My Favourite Services", which will be saved
+and give it a name, e.g. ``My Favourite Services'', which will be saved
 and loaded the next time SPLAT-VO starts.
 
 This implementation relies on the metadata information from the
@@ -647,7 +647,7 @@ covering getData functionality and more. This feature is still in test
 phase, as the DataLink protocol is still in development.
 
 When parsing the service response from a SSAP query, which is in form
-of a VOTable, SPLAT-VO looks for a RESOURCE element of type "service".
+of a VOTable, SPLAT-VO looks for a \texttt{RESOURCE} element of type \texttt{service}.
 
 An example is shown below:
 
@@ -695,16 +695,16 @@ An example is shown below:
 \end{minipage}
 }
 
-The GROUP element with name "input" contains the input
+The GROUP element with name \texttt{input} contains the input
 parameters that will be returned to the server.  It must contain an ID
 parameter, which refers to the metadata that identifying the required
-spectra (normally the "pubDID" parameter).  The other parameters in
+spectra (normally the \texttt{pubDID} parameter).  The other parameters in
 this group are the ones for which the users can set values that will
-be sent to the service as a request. The "accessURL" parameter defines
+be sent to the service as a request. The \texttt{accessURL} parameter defines
 the service URL to which this request has to be sent.
 
 In the SSAP response to a query, the services supporting DataLink will
-be marked with the  "\ding{34}"  icon. When one of these services is
+be marked with the  ``\ding{34}''  icon. When one of these services is
 selected, the user can activate the DataLink feature by clicking on
 the button with same name. When activated, a window with a form to
 enter values to the DataLink parameters will appear. While this window
