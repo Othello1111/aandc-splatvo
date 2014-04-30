@@ -459,7 +459,7 @@ The data returned by SSAP server (pointed by {\tt accref} link in
 metadata) are loaded onto local computer, stored in a local user's
 directory and kept in memory.  Lot of operation can be done afterwards
 without SSAP calls on already loaded memory spectra including the
-individual tuning of presentation of each spectrum (e.g. line types,
+individual tuning of presentation of each spectrum (e.g., line types,
 graphics attributes).
 
 The list of SSAP server may be updated using one of selected VO
@@ -499,7 +499,7 @@ lines - green SWP, pink LWR camera) is on Fig.~\ref{fig:iuehst2}.
 \subsection{ Theoretical Spectra Access}
 
 In a similar way like observational spectra  are obtained synthetic spectra
-from the libraries  available in VO (e.g. Kurucz models, Rauch's non-LTE model
+from the libraries  available in VO (e.g., Kurucz models, Rauch's non-LTE model
 spectra, TLUSTY hot stars, Salpeter, Dusty). They are selected by radio
 button, which  changes the role of parameters used to query. The extended
 protocol called Theory-SSAP \citep[hereafter TSAP;][]{ssap} uses  the various
@@ -589,7 +589,7 @@ can be selected in the interface and only the services which contain
 this information in the metadata will be selected.  The other way is
 useful in the case when users know exactly the services they want to
 query, so they may create an own tag containing the chosen services,
-and give it a name, e.g. ``My Favourite Services'', which will be saved
+and give it a name, such as ``My Favourite Services'', which will be saved
 and loaded the next time SPLAT-VO starts.
 
 This implementation relies on the metadata information from the
@@ -748,7 +748,7 @@ successfully used as a transport protocol for delivering light curves in
 binary table format. In principle the table may contain many columns displayed
 as dependent variable against the various time axes with interactive menu.
 The current limitation only requires the time axis expressed as floating point
-variables, which limits the possibility of using strings (e.g. dates, time
+variables, which limits the possibility of using strings (e.g., dates, time
 stamps or even the names of CCD images used to extract given photometric point
 on light curve.  An example in Fig~\ref{fig:OGLE-SC7-127550_query} shows the
 query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
@@ -792,7 +792,7 @@ their native binary format, which was in fact the memory dump of spectra
 objects. But sometimes, there may be a need to save that list to a more
 universal, standardized format. For example, SPLAT-VO allows to perform many
 operations on spectra, which results in a new spectrum object that is added to
-a global list of spectra (e.g. cutting a part of spectrum). Saving the list of
+a global list of spectra (e.g., cutting a part of spectrum). Saving the list of
 such spectra to a standardized format would then allow its opening in another
 tool and continuing to work with it in a way the SPLAT-VO wasn't designed to.
 This may be helpful for preparation of large list of normalized line profiles
@@ -810,7 +810,7 @@ standardized for FITS.
 
 In the earlier versions of SPLAT-VO, when the user worked with multiple
 spectra in one common plot window, he  had a limited possibility of
-selection just one of them for further actions. Selection of e.g. noisy
+selection just one of them for further actions. Selection of, for example, noisy
 spectrum and its deletion from plot window could be done only by
 trial-and-error procedure and therefore quite problematic and time-wasting.
 
@@ -890,7 +890,7 @@ useful.
 \begin{itemize}
 \item Automatic matching of line identifiers to spectrum;
 \item Selection of spectra from data cubes,
-\item Complex graphics attributes bound to individual spectral collections, Changes on kernel - work with stack of spectra together (e.g. cutouts, fitting )
+\item Complex graphics attributes bound to individual spectral collections, Changes on kernel - work with stack of spectra together (e.g., cutouts, fitting )
 \item Dynamic spectra - evolution of spectra profiles in time (gray scale representation)
 \item Automatic continuum normalization algorithm to apply on all spectra received from servers not supporting it
 \
