@@ -421,7 +421,7 @@ spectra  with interpolated curve.
 
 \item Identification of spectral lines using simple supplied ASCII line lists and
  built-in set of common  atomic and molecular lines (includes molecules in sub-millimeter
- region). The Fig.~\ref{fig:zetoph2sp-id} shows the identification of telluric lines on a
+ region). Fig.~\ref{fig:zetoph2sp-id} shows the identification of telluric lines on a
  combination of spectra from two different spectrographs of Ond\v{r}ejov 2m
 telescope.
 
@@ -509,7 +509,7 @@ instead of position, wavelength regions and time range. Unfortunately, there do
 not exist obligatory metadata for all required physical parameters, so the user should try
 himself what is available on given server.  The user than has to individually
 select suitable spectra from multidimensional table combining all the
-parameters ranges required.  The Fig.~\ref{fig:TSAP-query} and
+parameters ranges required.  Fig.~\ref{fig:TSAP-query} and
 Fig.~\ref{fig:TSAP-plot} shows the query and result of selection of several Kurucz models for
 Vega.
 
@@ -634,13 +634,13 @@ an username/password window will appear when needed.
 
 To overcome SSAP limitations and allow server-side processing of
 spectra like cut-outs, or format conversions, a protocol called
-getData has been developed. After successful implementation and
-testing on SPLAT-VO, the work on getData has been stopped. It has been
+\texttt{getData} has been developed. After successful implementation and
+testing on SPLAT-VO, the work on \texttt{getData} has been stopped. It has been
 decided to go on implementing this features using the new Datalink
 protocol, which will probably be implemented by several services in
 the future, and can also be used in different cases.  Datalink
 resources can provide links with several ways to access the data,
-covering getData functionality and more. This feature is still in test
+covering \texttt{getData} functionality and more. This feature is still in test
 phase, as the DataLink protocol is still in development.
 
 When parsing the service response from a SSAP query, which is in form
@@ -751,7 +751,7 @@ as dependent variable against the various time axes with interactive menu.
 The current limitation only requires the time axis expressed as floating point
 variables, which limits the possibility of using strings (e.g., dates, time
 stamps or even the names of CCD images used to extract given photometric point
-on light curve.  An example in Fig~\ref{fig:OGLE-SC7-127550_query} shows the
+on light curve.  An example in Fig.~\ref{fig:OGLE-SC7-127550_query} shows the
 query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
 Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on
 at Danish 1.5m telescope DK154.
@@ -825,13 +825,13 @@ perfect sequential overview of the spectrum's plots.
 
 \subsubsection{Cut window: saving the ranges}
 
-In the 'Cut regions from spectrum' window, user could simply read
-ranges of regions from a local file (feature available under 'File'
+In the \emph{Cut regions from spectrum} window, user could simply read
+ranges of regions from a local file (feature available under \texttt{File}
 menu). But what if he made a visual selection of ranges from a
 currently plotted spectrum and wanted to save it to a local file?
 
-Since now, SPLAT-VO can save the currently defined
-ranges to a local file (feature is available under 'File' menu) in the
+SPLAT-VO can now save the currently defined
+ranges to a local file (feature is available under \texttt{File} menu) in the
 same format as the reading feature expects, that is one range (with a
 white space between its beginning and ending value) per line:
 
@@ -869,7 +869,7 @@ window, but for this, the user had to do it manually.
 
 SPLAT-VO is now able to do this
 for the user automatically. We added new checkbox under the
-'Interoperability' menu that can be used to switch between the previous
+\texttt{Interoperability} menu that can be used to switch between the previous
 state (each spectrum to its own plot window) and plotting all the
 spectra received by SAMP to their common plot window. This feature
 can be of course turned on and off several times during the runtime,
