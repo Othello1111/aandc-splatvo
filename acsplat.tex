@@ -37,7 +37,7 @@ Engineering and Computer Science, V\v{S}B --- Technical University of Ostrava\\
 
 
 \begin{abstract}
-SPLAT-VO is a powerful graphical tool for displaying, comparing, modifying and analysing astronomical spectra, as well as searching and retrieving spectra from services around the world using the Virtual Observatory protocols and services. It has been first developed as an offline tool, and later on its VO capabilities have been implemented, as part of the STARJAVA project. Later on, the further development of SPLAT-VO has been continued by the German Astrophysical Virtual Observatory, and the Astronomical Institute of the Academy of Sciences of the Czech Republic. Since then several features have been added, including support for latest VO protocols, and new visualisation and spectra storing capabilities.  This paper presents the history of SPLAT-VO, it's capabilities, recent additions and future plans, as well as  a discussion on the motivations and lessons learned up to now.
+SPLAT-VO is a powerful graphical tool for displaying, comparing, modifying and analysing astronomical spectra, as well as searching and retrieving spectra from services around the world using the Virtual Observatory protocols and services. It has been first developed as an offline tool, and later on its VO capabilities have been implemented, as part of the STARJAVA project.  Since end of 2011 the further development of SPLAT-VO has been continued by the German Astrophysical Virtual Observatory, and the Astronomical Institute of the Academy of Sciences of the Czech Republic. From this time on several features have been added, including support for latest VO protocols, and new visualisation and spectra storing capabilities.  This paper presents the history of SPLAT-VO, it's capabilities, recent additions and future plans, as well as  a discussion on the motivations and lessons learned up to now.
 \end{abstract}
 \begin{keyword}
 Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep STARJAVA
@@ -856,12 +856,13 @@ useful.
 
 \subsection{VO Interface extensions}
 \begin{itemize}
-\item Continue to improve the data discovery User Interface.
+\item Continue to improve the service selection and  data discovery User Interface.
 Based on feedback from SPLAT-VO users, the user interface is still being
 improved, in terms of search possibilities and usability.
 \item Continue the ObsCore Client Development;
-\item Implementation of  the VOUnits \citep{vounits} standard;
-\item	Improvement of the Unit Conversion functions in SPLAT-VO, as well as making possible for the user to choose the units  (e.g. of waveband) when performing a VO query.
+\item Implementation of  the VOUnits \citep{vounits} standard, to handle the data from the VO services, as well as in the preparation of queries to be sent (user interface). The unit conversions in SPLAT-VO are mainly handled by AST.
+\item	Implementation of  RegTaP (IVOA Registry Relational Schema, \citep[]{regtap}) to query for spectral services. It has already been partially implemented to query for ObsCore services.
+
 \item Retrieve spectral line identifiers using SLAP \citep[Simple Line
   Access Protocol;][]{slap}. Currently SPLAT-VO uses simple formatted
   ASCII files for the description of custom line list and some
@@ -985,6 +986,16 @@ the pipeline. This proved to be a very powerful approach but was not
 available in the SPLAT design. Taking care to separate core algorithms
 from interactive interfaces is an important design decision that has
 long term ramifications for an application.
+
+\subsection{Service selection interface}
+The new SSAP service selection interface, using more metadata information from the services,
+is meant to help the user to choose the specific services needed and to avoid making unnecessary
+queries and downloading data which is not needed. Sometimes too much detail may lead to confusion,
+especially if the service information from the registries is often incomplete. If the data is not there as it should 
+be a detailed interface won't do much. The current interface will be redesigned in the future, probably simpler but
+more accurate. Is't been planned also to use RegTaP to look for spectral services, which may provide easier handling. 
+
+
 
 \section{Obtaining SPLAT-VO}
 
