@@ -449,15 +449,16 @@ The most important for VO funcionality is the SSAP interface, which
 has been still in active developing state.  The task of the interface
 is to help the user build a correct SSAP query (which is seen
 immediately) by filling simple form for parameters like coordinates
-({\tt POS}) and size ({\tt SIZE}) of the searching cone of the object
-(or name which is translated by CDS names resolver Sesame on request),
-spectral ranges ({\tt BAND}), date/time of observation ({\tt TIME}),
-status of calibration of wavelength ({\tt WAVECALIB}) and flux ({\tt
-  FLUXCALIB}) axis and format ({\tt FORMAT}) of available data.  The
-recent addition allows to refine the query using all optional
-parameters supported by selected SSAP servers.
+(\texttt{POS}) and size (\texttt{SIZE}) of the searching cone of the
+object (or name which is translated by CDS names resolver Sesame on
+request), spectral ranges (\texttt{BAND}), date/time of observation
+(\texttt{TIME}), status of calibration of wavelength
+(\texttt{WAVECALIB}) and flux (\texttt{FLUXCALIB}) axis and format
+(\texttt{FORMAT}) of available data.  The recent addition allows to
+refine the query using all optional parameters supported by selected
+SSAP servers.
 
-The data returned by SSAP server (pointed by {\tt accref} link in
+The data returned by SSAP server (pointed by \texttt{accref} link in
 metadata) are loaded onto local computer, stored in a local user's
 directory and kept in memory.  Lot of operation can be done afterwards
 without SSAP calls on already loaded memory spectra including the
