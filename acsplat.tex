@@ -879,34 +879,6 @@ some others are being planned. It's also important for the developers
 to get feedback from the users community on which additions could be
 useful.
 
-\subsection{VO Interface extensions}
-\begin{itemize}
-\item Continue to improve the service selection and  data discovery User Interface.
-Based on feedback from SPLAT-VO users, the user interface is still being
-improved, in terms of search possibilities and usability.
-\item Continue the ObsCore Client Development;
-\item Implementation of  the VOUnits \citep{vounits} standard, to handle the data from the VO services, as well as in the preparation of queries to be sent (user interface). The unit conversions in SPLAT-VO are mainly handled by AST.
-\item	Implementation of  RegTaP (IVOA Registry Relational Schema, \citep[]{regtap}) to query for spectral services. It has already been partially implemented to query for ObsCore services.
-
-\item Retrieve spectral line identifiers using SLAP \citep[Simple Line
-  Access Protocol;][]{slap}. Currently SPLAT-VO uses simple formatted
-  ASCII files for the description of custom line list and some
-  built-in list. The SLAP access will allow for the immediate
-  retrieval of line lists from  big world-wide atomic and molecular
-  database such as NIST \citep{NIST_ASD,2012APS..DMP.D1004K,2004JPCRD..33..177L} or all the databases from the
-  VAMDC consortium  \citep{2011BaltA..20..503K}.
-\end{itemize}
-
-{\color{red} Should we be mentioning that AST handles the unit
-  conversions in SPLAT? Is the plan to improve AST in this regard or
-  to remove AST and do unit scaling in a different package? One thing
-  I think we should mention is that support for radio/submm units is
-  hard as they are usually in temperature rather than janskys and
-  there are multiple formalisms for temperature scale (T$_R$,
-  T$_{mb}$, T$^*_A$ etc and tracking all the efficiency values
-  required to transform to flux units is tricky.}
-
-
 \subsection{New science and data functions}
 \begin{itemize}
 \item Automatic matching of line identifiers to spectrum;
@@ -966,7 +938,7 @@ languages.
 
 The decision was made very early on for the SPLAT source code to be
 made publicly available, first via CVS on a Starlink server, then via
-Subversion on a Joint Astronomy Centre server and finally using `git`
+Subversion on a Joint Astronomy Centre server and finally using \texttt{git}
 on Github. We feel that this openness contributed directly to the
 software being picked up by the GAVO project, saving the application
 from stagnation once the direct funding for it was dropped.
@@ -974,14 +946,20 @@ from stagnation once the direct funding for it was dropped.
 \subsection{Local spectral line catalogues are not sufficient}
 
 Currently SPLAT-VO uses a local text file containing molecular
-transitions that are thought to be of interest. This list is dominated
-by sub-millimetre lines required by the JCMT. Even so, the list of
-lines was never sufficient and astronomers continue to ask for more
-obscure transitions to be included. A local line catalogue is an
-excellent back up but it is also necessary to look up catalogues from
-remote services. The ALMA-OT \citep{2013ASPC..475..373W} works in
-exactly this way with much success. This feature will be added in the
-future using the Simple Line Access Protocol (SLAP).
+transitions that are thought to be of interest and allows the user to
+provide external lines via a text file of a similar format. The
+internal list is dominated by sub-millimetre lines required by the
+JCMT. Even so, the list of lines was never sufficient and astronomers
+continue to ask for more obscure transitions to be included. A local
+line catalogue is an excellent back up but it is also necessary to
+look up catalogues from remote services. The ALMA-OT
+\citep{2013ASPC..475..373W} works in exactly this way with much
+success. This feature will be added in the future using the Simple
+Line Access Protocol (SLAP) that will allow for retrieval of line
+lists from big world-wide atomic and molecular database such as NIST
+\citep{NIST_ASD,2012APS..DMP.D1004K,2004JPCRD..33..177L} and all the
+databases from the VAMDC consortium \citep{2011BaltA..20..503K}.
+
 
 \subsection{SPLAT-VO in data reduction pipelines}
 
@@ -1012,7 +990,7 @@ available in the SPLAT design. Taking care to separate core algorithms
 from interactive interfaces is an important design decision that has
 long term ramifications for an application.
 
-\subsection{Sub-millimeter units are hard}
+\subsection{Sub-millimeter units are complicated}
 
 VOUnits \citep{vounits} standardisation is very useful but is not
 sufficient for the majority of spectral line data that is encountered
@@ -1052,8 +1030,9 @@ for SSAP and related standards although it was a struggle to
 prioritise this effort as VO adoption was initially slow and
 astronomers were not driving the initial support for these
 facilities. SPLAT-VO is being updated to add support for standards
-such as ObsCore and RegTap as well as expanded units support with
-VOUnits \citep{vounits}, but the VO standards will continue to evolve
+such as ObsCore\citep{obstap} and RegTap \citep{regtap} as well as expanded units support with
+VOUnits \citep{vounits} required to understand the metadata from these
+services, but the VO standards will continue to evolve
 as new versions are announced and new standards developed and it will
 be a continuing struggle to remain compliant. There is a worry that
 all of the development effort available to SPLAT-VO will be spent
