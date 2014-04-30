@@ -383,13 +383,13 @@ telescope. The stacking offset of 0.6  makes sure that the changes can be seen e
   It is important for measuring the asymmetric and distorted line profiles
   typical for hot emission stars. For detailed explanation see
   \citet{2007IAUS..240..486P}. This feature can be operated with a batch-like
-  mode to quick assess a number of lines and or spectra using a `visitor list'.
+  mode to quick assess a number of lines and or spectra using a \emph{visitor list}.
 
 \item Continuum estimation using flexible curves similar to those expected to
-  be drawn by a human. The INTEP procedure based on Hermitean polynomials
+  be drawn by a human. The \textsc{intep} procedure based on Hermitian polynomials
   \citep{1982PDAO...16...67H} has been successfully used for decades in
   fitting stellar continua (typically of emission-line stars like Be stars and
-  symbiotic ones) in the program SPEFO \citep{1996ASPC..101..187S}. The
+  symbiotic ones) in the program \textsc{spefo} \citep{1996ASPC..101..187S}. The
   overview of advantages of this procedure is given in
   \citet{2008asvo.proc...97S}. Other curves types are also available such as
   \citet{Akima:1970:NMI:321607.321609}.
@@ -414,7 +414,8 @@ telescope. The stacking offset of 0.6  makes sure that the changes can be seen e
 spectra  with interpolated curve.
 
 \item Complete graphics toolkit with many configurable options for
-  presentation of data. Export of publication quality output in PNG, GIF, EPS.
+  presentation of data. Export of publication quality output in PNG,
+  GIF, and EPS.
 
 \item Animation of spectra - creation of slide JPEG/PNG files. Convenient
   for showing the line evolution or non-radial pulsations.
@@ -557,7 +558,7 @@ client implementations of DataLink, in this way also contributing to its
 testing and development from a client point of view.
 
 Besides SSAP, spectra can also be retrieved using the ObsCore data model
-through Table Access Protocol(TAP)  \citep[known as ObsTap;][]{obstap}. Its implementation in
+through Table Access Protocol (TAP)  \citep[known as ObsTap;][]{obstap}. Its implementation in
 SPLAT-VO allows spectra to be retrieved also from ObsCore services, and
 the ObsTAP ADQL \citep{adql} search offers a more powerful search
 mechanism as well. The implementation of new VO protocols like ObsTAP
@@ -626,7 +627,7 @@ It can be used when data is published to the VO before it should be
 publicly available. So the owner and a limited group of users can
 access it before disclosure. The authentication can be done on a
 service basis, where the whole service needs authentication to be
-queried, or on a spectrum basis, i.e. only some of the spectra from a
+queried, or on a spectrum basis, where only some of the spectra from a
 certain service require authentication to be downloaded. In any case,
 an username/password window will appear when needed.
 
