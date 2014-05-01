@@ -74,37 +74,39 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep StarJava
 There are many tools for the analysis of astronomical spectra.  The most
 commonly used of these are the various packages of MIDAS
 \citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
-\citep[][\ascl{9911.002}]{2012ASPC..461..595F}, Starlink
-\citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together with many IDL
-extensions and scripts. Very advanced processing is still often done in custom
+\citep[][\ascl{9911.002}]{2012ASPC..461..595F}, and Starlink
+\citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together with scripts
+written in python \citep[e.g.,][]{2013A&A...558A..33A} and IDL \citep[e.g.,][]{1993ASPC...52..246L}.
+Very advanced processing is still often done in custom
 (especially FORTRAN) programs used by small communities.  These tools tend to
 work with specially formatted files (quite often ASCII tables) stored on local
 disks.
 
-The common tasks of an astronomer during spectral analysis consists of finding
+The common tasks for an astronomer during spectral analysis consists of finding
 the required spectra in various archives, downloading them, understanding and
-extracting the metadata (e.g.\ date of exposure, spectral range, flux units),
+extracting metadata (such as date of exposure, spectral range, and flux units),
 converting to the custom format used by the particular tool, visualizing
-selected spectra and  removing the bad ones (e.g.\ noisy). Then he can finally
-run some massive processing (and measurement of various parameters) on an
-improved list.  Very often is the measurement of some variables (e.g.\ radial
-velocity or equivalent widths of selected lines) accomplished interactively
-and the spectra must be zoomed and unzoomed, panned, rescaled etc.
+selected spectra and  removing the bad ones (for example if they are
+noisy or have excessive numbers of spikes). They can finally
+run some massive processing or analysis on an
+improved list.  Very often the measurement of some parameter, such as the radial
+velocity or equivalent widths of selected lines, is accomplished interactively
+and the spectra must be adjusted by zooming, panning and scaling.
 
-It is seen that a real scientific analysis of thousands of spectra is a very
-tedious task even on the same instrument. But the real modern challenge is an
+A real scientific analysis of thousands of spectra is a very
+tedious task even from the same instrument, but the real modern challenge is an
 analysis of multi-wavelength spectra from different instruments, where all the
 metadata are different, there are various flux and wavelength, frequency or
-energy units  and where the formats of storage also vary (simple FITS, binary
-tables, ASCII lists etc.).
+energy units  and where the formats of storage also vary (including simple FITS, binary
+tables, and ASCII lists).
 
-To make the handling of spectra obtained from world-wide distributed
+Making the handling of spectra obtained from world-wide distributed
 heterogeneous archives simple and efficient was the main motivation for
-developing the International Virtual Observatory Alliance Simple Spectra
+developing the International Virtual Observatory Alliance Simple Spectral
 Access Protocol \citep[IVOA SSAP;][]{ssap}. The key elements of this
-http-based protocol is the the standard spectra discovery mechanism (like a
+\texttt{http}-based protocol is the the standard spectra discovery mechanism (like a
 Google for astronomical data) called IVOA Registry \citep{registry} and  the
-standard data format called VOTable \citep{2004tivo.conf..118O},
+standard VOTable data format\citep{2004tivo.conf..118O},
 describing the metadata of retrieved spectra in a limited vocabulary of
 obligatory parameters.
 
