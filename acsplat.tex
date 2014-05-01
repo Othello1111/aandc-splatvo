@@ -123,13 +123,14 @@ format, and can create previews of spectra in PNG or deliver
 the fluxes and wavelengths in ASCII or CSV tables.
 
 \subsection{SSAP-compatible  Visualization Clients}
-%
-Although a regular work with large amounts of data is more convenient by
-calling the SSAP protocol from some scripting language in a batch like or
-workflow-based environment, the crucial feature for understanding data is the
-advanced visualization and comfortable user interaction.  Therefore the very
-important part of the VO infrastructure represent the VO-compatible spectra
-visualization clients.  So far there are there three of them.
+
+Although processing large amounts of data is more convenient when
+using SSAP from a scripting language for batch processing, a crucial
+part of understanding data is advanced visualization and interactive
+exploration of data.  Therefore, a very important part of the VO
+infrastructure is represented by VO-compatible spectra visualization
+clients. There are three major tools for interactively manipulating
+spectra from the VO.
 
 VOSpec \citep[][\ascl{1205.011}]{2005ASPC..347..198O}, developed by ESA, is
 designed strictly on principles of IVOA standards and was rather focused on
@@ -137,29 +138,31 @@ analysis of high energy and space-based spectra with absolute flux
 calibration, lacking support for some common functions and custom data formats
 used in ground-based stellar spectroscopy. The most critical 1D FITS image
 format was added just recently. VOSpec contains quite complex non-linear
-model-fitting package and can handle the photometric points as well as Spectra
+model-fitting package and can handle the photometric points as well as Spectral
 Energy Distributions (SEDs).
 
-The two other clients are in fact the former general spectra analysis tools
-with built-in separate plugin for querying and downloading spectra using SSAP.
-The advantage of this approach is the support for many legacy data formats and
-various domain-specific functionality, better tuned to requirements of
-scientists not familiar with VO technology.
+The other two clients were developed as general spectral analysis
+tools prior to the conception of the VO and have been extended to add
+support for querying and downloading spectra using SSAP.  The
+advantage of this approach is the support for many legacy data formats
+and various domain-specific functionality, better tuned to
+requirements of scientists not familiar with VO technology.
 
-Specview \citep[][\ascl{1210.016}]{2002SPIE.4847..410B}, developed at STScI,
-was intended mainly for handling spectra from Hubble Space Telescope
-instrumentation and some other NASA missions, but gradually transformed into
-VO-compatible general client supplemented with a library of theoretical
-spectra and various models for SED generation.  While Specview is very
-powerful tool  compatible with a lot of very special formats from \emph{HST}, \emph{IUE},
-\emph{FUSE}, \emph{ISO} and \emph{GALEX}  satellites, allowing the advanced comparison of
-observations with a wide range of theoretical spectra models (e.g.\ power
-laws, Bremstrahlung,  emission line profiles,  interstellar extinction, dusty
-rings or  whole Kurucz library of spectral types), it is less flexible in
-support of various SSAP features and lacking behind the rapid IVOA standards
-evolution.
+Specview \citep[][\ascl{1210.016}]{2002SPIE.4847..410B}, developed at
+STScI, was intended mainly for handling spectra from Hubble Space
+Telescope instrumentation and some other NASA missions, but gradually
+transformed into a VO-compatible general client supplemented with a
+library of theoretical spectra and various models for SED generation.
+While Specview is a very powerful tool compatible with a lot of very
+special formats from \emph{HST}, \emph{IUE}, \emph{FUSE}, \emph{ISO}
+and \emph{GALEX} satellites, allowing for the advanced comparison of
+observations with a wide range of theoretical spectra models (such as
+power laws, Bremsstrahlung, emission line profiles, interstellar
+extinction, dusty rings or whole Kurucz library of spectral types), it
+is less flexible in support of various SSAP features and is falling
+behind the rapid IVOA standards evolution.
 
-In contrast with it, the last VO-compatible client for spectra analysis,
+In contrast with Specview, the last VO-compatible client for spectra analysis,
 SPLAT-VO \citep[][\ascl{1402.008}]{sun243} was revived recently and currently
 is under intensive development serving as a test-bed for newly proposed VO
 standards and special features.
