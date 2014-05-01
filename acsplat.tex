@@ -339,6 +339,28 @@ their static previews.
 
 \section{SPLAT-VO Capabilities  for Spectra Analysis}
 
+\begin{figure*}[t]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
+\caption{The time evolution of the H$_\alpha$ line emission profile in
+$\phi$~Per observations obtained with the HEROS spectrograph at Ond\v{r}ejov 2m
+telescope in years 2001--2003. The stacking offset of 0.6  makes sure that the changes can be seen easily}
+
+\label{fig:phiper-heros-stack}
+\end{center}
+\end{figure*}
+
+\begin{figure*}[t]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
+\caption{Spectrum of $\zeta$~Oph in H$_\alpha$ region  obtained with Ond\v{r}ejov Coud\`e
+  spectrograph 700mm camera (green) and HEROS spectrograph (blue). The line
+  identifications from custom line list of telluric lines is overplotted in violet. Note the deeper
+  telluric lines from HEROS due to its almost double spectral resolving power.}
+\label{fig:zetoph2sp-id}
+\end{center}
+\end{figure*}
+
 SPLAT-VO as a general purpose spectral analysis tool supports a very wide
 range of capabilities required by astronomers for every-day work outside of
 the VO. Input spectra may be loaded directly from local disk files in a number
@@ -365,18 +387,6 @@ line stars.
   Fig.~\ref{fig:phiper-heros-stack} shows the evolution of an emission line
   profile for the star $\phi$~Per observed with HEROS spectrograph at
   Ond\v{r}ejov 2m telescope in years 2001--2003.
-
-\begin{figure*}[t]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
-\caption{The time evolution of the H$_\alpha$ line emission profile in
-$\phi$~Per observations obtained with the HEROS spectrograph at Ond\v{r}ejov 2m
-telescope in years 2001--2003. The stacking offset of 0.6  makes sure that the changes can be seen easily}
-
-\label{fig:phiper-heros-stack}
-\end{center}
-\end{figure*}
-
 
 \item Measurement of radial velocities by the visual matching of a line
   profile with its mirrored image based on idea of oscilloscopic comparators.
@@ -426,17 +436,6 @@ spectra  with interpolated curve.
  combination of spectra of $\zeta$~Oph obtained with two different spectrographs of Ond\v{r}ejov 2m
 telescope.
 
-\begin{figure*}[t]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{zetoph2sp-id.pdf}
-\caption{Spectrum of $\zeta$~Oph in H$_\alpha$ region  obtained with Ond\v{r}ejov Coud\`e
-  spectrograph 700mm camera (green) and HEROS spectrograph (blue). The line
-  identifications from custom line list of telluric lines is overplotted in violet. Note the deeper
-  telluric lines from HEROS due to its almost double spectral resolving power.}
-\label{fig:zetoph2sp-id}
-\end{center}
-\end{figure*}
-
 \item Simple operations on spectra such as adding, subtracting,
   dividing, and continuum fitting.
 
@@ -471,14 +470,6 @@ manually. The server list may be edited to query only collections with
 similar data or even only one service may be queried for detailed
 specific operations.
 
-As an example, the Fig.~\ref{fig:hst_query} shows the search of
-absolutely calibrated spectra of emission star $\phi$~Per. We have
-selected Hubble Space Telescope with Goddard High Resolution
-Spectrograph (at the opened tab, note also the unfolded service
-description on the left side) and the \emph{IUE} low resolution spectra
-(selected in other tab).  The composite plot of UV spectra from \emph{HST}
-GHRS  and \emph{IUE} low resolution spectra is on Fig.~\ref{fig:iuehst2}.
-
 \begin{figure*}[Ht]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{hst_query.pdf}
@@ -499,7 +490,13 @@ GHRS  and \emph{IUE} low resolution spectra is on Fig.~\ref{fig:iuehst2}.
 \end{center}
 \end{figure*}
 
-
+As an example, the Fig.~\ref{fig:hst_query} shows the search of
+absolutely calibrated spectra of emission star $\phi$~Per. We have
+selected Hubble Space Telescope with Goddard High Resolution
+Spectrograph (at the opened tab, note also the unfolded service
+description on the left side) and the \emph{IUE} low resolution spectra
+(selected in other tab).  The composite plot of UV spectra from \emph{HST}
+GHRS  and \emph{IUE} low resolution spectra is on Fig.~\ref{fig:iuehst2}.
 
 \subsection{ Theoretical Spectra Access}
 
@@ -745,23 +742,6 @@ by Mark Taylor.
 
 \subsubsection{Visualizing Light Curves using  SSAP}
 
-As the proper standard for displaying photometric light curves or time series
-of other variables is not so far established by IVOA, there were several
-attempts to exploit the visual similarity of spectra and light curves
-pretending the spectral axis is the temporal one.  So the SSAP was
-successfully used as a transport protocol for delivering light curves in
-binary table format. In principle the table may contain many columns displayed
-as dependent variable against the various time axes with interactive menu.
-The current limitation only requires the time axis expressed as floating point
-variables, which limits the possibility of using strings (e.g., dates, time
-stamps or even the names of CCD images used to extract given photometric point
-on light curve.  An example in Fig.~\ref{fig:OGLE-SC7-127550_query} shows the
-query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
-Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on
-at Danish 1.5m telescope DK154.
-
-
-
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_query.pdf}
@@ -783,6 +763,21 @@ at Danish 1.5m telescope DK154.
 \label{fig:OGLE-SC7-127550_plot}
 \end{center}
 \end{figure*}
+
+As the proper standard for displaying photometric light curves or time series
+of other variables is not so far established by IVOA, there were several
+attempts to exploit the visual similarity of spectra and light curves
+pretending the spectral axis is the temporal one.  So the SSAP was
+successfully used as a transport protocol for delivering light curves in
+binary table format. In principle the table may contain many columns displayed
+as dependent variable against the various time axes with interactive menu.
+The current limitation only requires the time axis expressed as floating point
+variables, which limits the possibility of using strings (e.g., dates, time
+stamps or even the names of CCD images used to extract given photometric point
+on light curve.  An example in Fig.~\ref{fig:OGLE-SC7-127550_query} shows the
+query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
+Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on
+at Danish 1.5m telescope DK154.
 
 \subsection{New Features in Spectral Analysis}
 
