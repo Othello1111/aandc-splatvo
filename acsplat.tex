@@ -519,25 +519,25 @@ resolution spectra is in Fig.~\ref{fig:iuehst2}.
 
 \subsection{ Theoretical Spectra Access}
 
-In a similar way like observational spectra  are obtained synthetic spectra
-from the libraries  available in VO (e.g., Kurucz models, Rauch's non-LTE model
-spectra, TLUSTY hot stars, Salpeter, Dusty). They are selected by radio
-button, which  changes the role of parameters used to query. The extended
-protocol called Theory-SSAP \citep[hereafter TSAP;][]{ssap} uses  the various
-physical parameters like $T_{\rm eff}$, $\log g$, metalicity etc. for query
-instead of position, wavelength regions and time range. Unfortunately, there do
-not exist obligatory metadata for all required physical parameters, so the user should try
-himself what is available on given server.  The user than has to individually
-select suitable spectra from multidimensional table combining all the
-parameters ranges required.  Fig.~\ref{fig:TSAP-query} and
-Fig.~\ref{fig:TSAP-plot} shows the query and result of selection of several Kurucz models for
-Vega.
+In a similar way to observational spectra, synthetic spectra can also be
+obtained from libraries available in the VO (e.g., Kurucz models, Rauch's
+non-LTE model spectra, TLUSTY hot stars, Salpeter, Dusty). They are selected
+by a radio button, which changes the role of parameters used in the query. The
+extended protocol called Theory-SSAP \citep[hereafter TSAP;][]{ssap} uses
+various physical parameters like $T_{\rm eff}$, $\log g$, metalicity etc. for
+queries instead of position, wavelength, region and date/time range.
+Unfortunately obligatory metadata do not exist for all required physical
+parameters, so it is necessary to just try out what is available on a given
+server.  It is then necessary to individually select suitable spectra from a
+multidimensional table combining all the parameter ranges required.
+Fig.~\ref{fig:TSAP-query} and Fig.~\ref{fig:TSAP-plot} show the query and
+result of selecting several Kurucz models for Vega.
 
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{TSSA-query.pdf}
-\caption{TSAP Query for Vega-like Kurucz models. Note the additional parameters needed.}
+\caption{TSAP Query for Vega-like Kurucz models. Note the additional parameters.}
 \label{fig:TSAP-query}
 \end{center}
 \end{figure*}
@@ -546,7 +546,7 @@ Vega.
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{TSSA-plot.pdf}
-\caption{Zoomed plot of Vega-like Kuruz models manually selected in previous
+\caption{Zoomed plot of Vega-like Kuruz models manually selected in the previous
 TSAP Query window (see Fig.~\ref{fig:TSAP-query}). }
 \label{fig:TSAP-plot}
 \end{center}
