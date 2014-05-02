@@ -1038,20 +1038,20 @@ of stellar spectra from Ond\v{r}ejov HEROS observations, we
 immediately faced the limitations of purely client-based
 processing. Every spectrum of HEROS is more than twenty thousand
 points long covering about 3000\,$\AA$ in both channels. Other echelle
-spectra (like VLT UVES or HARPS) may have as many as three hundred
+spectra (like those from UVES or HARPS) may have as many as three hundred
 thousand points. Just downloading thousands of spectra takes a long
 time, but zooming on every spectral line to see it in detail and
 unzooming takes even longer, while consuming lot of memory.
 
-The experience demonstrates that the analysis of stacks of hundreds of
-spectra is a very inconvenient and time consuming task, while usually
-only a short spectral range of tens of Angstroms is needed for display
-each time.  If the server itself (usually a very powerful computer
-with a lot of memory) would trim to the required range, the client
-need download only a very small data chunk, which could be quickly
-displayed. Instead of spending time zooming to another line we can in
-principle perform another query in different spectral range requesting
-again only a short piece of another line range.
+The practical experience demonstrated the analysis of a stack of hundreds
+complete spectra in SPLAT-VO on a common computer, was a very inconvenient and
+time consuming task (if possible at all), while usually only a short spectral
+range of tens of Angstroms was needed to display each time.  If the server
+itself (usually a very powerful computer with a lot of memory) would trim to
+the required range, the client need download only a very small data chunk,
+which could be quickly displayed.  Instead of spending time zooming to another
+line we can in principle perform another query in different spectral range
+requesting again only a short piece of another line range.
 
 The need for server-side post-processing, as articulated by our
 experience with analysis of thousands of spectra lead to the first
@@ -1162,7 +1162,7 @@ analysis of hot emission line stars spectra observed at Perek 2m
 Telescope of the Ond\v{r}ejov observatory of the Astronomical Insitute
 of the Academy of Sciences, Czech Republic. We greatly acknowledge the
 help of M.~\v{S}lechta, responsible for reduction of most of the
-spectra and students T.~Peterka and J.~Nadvorn\'\i{}k for the set up
+spectra and students T.~Peterka and J.~N\'advorn\'\i{}k for the set up
 and maintainance of the SSAP services of the AI stellar department,
 with which SPLAT-VO was heavily tested in recent years.
 
