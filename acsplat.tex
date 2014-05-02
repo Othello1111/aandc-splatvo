@@ -614,7 +614,7 @@ mechanism as well. The implementation of new VO protocols like \obstap\
 and \datalink\ have been done side-by-side with their server-side
 implementation in \dachs\ \citep[Data Center Helper Suite;][]{dachs}.
 
-Also \splatvo's user interface has been improved. An improved server
+\splatvo's user interface has been improved. An improved server
 selection interface and \ssap\ search by metadata parameters are some of
 the new features added, which are listed in the next subsections.
 
@@ -627,7 +627,7 @@ the user could select the services to be queried, as well as remove
 uninteresting services from the list. Information about the services
 of interest had to be gotten from somewhere else, as the service
 metadata was not used.  This simple server selection interface has
-been exchanged by a more detailed selection, users can choose a set of
+been improved by a more detailed selection, users can choose a set of
 services that may contain data of interest, based on the services
 metadata taken from the registry (data source, waveband).
 
@@ -659,10 +659,10 @@ in the registry.
 
 \subsubsection{Metadata parameters query}
 
-In it's original version, \splatvo\ contained just a simple cone search using
+In early versions, \splatvo\ contained just a simple cone search using
 the \ssap\ obligatory parameters (RA, DEC, band, time, data format) and later
-added wavelegth and flux calibration state, although many other metadata is
-available on servers.  Now \splatvo\ retrieves also the metadata parameters for
+added wavelegth and flux calibration state, although much other metadata is
+available on servers.  Now \splatvo\ also retrieves the metadata parameters for
 each server, and a new user interface allows users to chose metadata
 parameters and their values to perform more detailed queries.  This is
 especially interesting when querying theoretical spectra by \tsap, which contain many
@@ -671,8 +671,8 @@ use of additional metadata parameters.
 
 \subsubsection{Simple HTTP authentication}
 
-It can be used when data is published to the VO before it should be
-publicly available. So the owner and a limited group of users can
+Simple HTTP authentication can be used to restrict access to data when it is published to the VO before it should be
+publicly available, so the owner and a limited group of users can
 access it before disclosure. The authentication can be done on a
 service basis, where the whole service needs authentication to be
 queried, or on a spectrum basis, where only some of the spectra from a
@@ -684,13 +684,13 @@ an username/password window will appear when needed.
 To overcome \ssap\ limitations and allow server-side processing of
 spectra like cut-outs, or format conversions, a protocol called
 \getdata\ \citep{getData}  has been developed. After successful implementation and
-testing on \splatvo, the work on \getdata\ has been stopped. It has been
-decided to go on implementing this features using the new \datalink\
-protocol, which will probably be implemented by several services in
-the future, and can also be used in different cases.  \datalink\
-resources can provide links with several ways to access the data,
-covering \texttt{getData} functionality and more. 
-When parsing the service response from a \ssap\ query, which is in form
+testing on SPLAT-VO, the work on \getdata\ has been stopped. It has been
+decided to implement these features using the newer \datalink\
+protocol, which will probably be made available on several services in
+the near future, and can also be used in different cases.  \datalink\
+resources can provide links with several different ways to access the data,
+covering \getdata\ functionality and more.
+When parsing the service response from an \ssap\ query, which is in form
 of a \votable, \splatvo\ looks for a \texttt{RESOURCE} element of type \texttt{service}.
 An example is shown below:
 
@@ -701,7 +701,7 @@ An example is shown below:
   <GROUP name="input">
     <PARAM arraysize="*" datatype="char" name="ID"
     ref="ssa_pubDID" ucd="meta.id;meta.main" value="">
-      <DESCRIPTION> The pubisher DID of the dataset of interest
+      <DESCRIPTION> The publisher DID of the dataset of interest
       </DESCRIPTION>
     </PARAM>
     <PARAM arraysize="*" datatype="char" name="FLUXCALIB"
@@ -765,10 +765,10 @@ then to be parsed by \splatvo\ in order to retrieve the selected spectrum.
 
 \subsubsection{ObsTAP}
 
-Besides \ssap, spectra can be retrieved using \obstap. This service uses
+In addition to \ssap, spectra can be retrieved using \obstap. This service uses
 the Table Access Protocol (\tap) to query metadata from the Observation
 Data Model Core Components (\obscore). Currently there are few services
-implementing it, and \splatvo\ implementation is ongoing.  \obscore\
+implementing it, and the \splatvo\ implementation is ongoing.  \obscore\
 provide standard metadata attributes that can be used, through the
 \adql\ query language, to perform more extensive and detailed queries
 than in the case of \ssap\ data discovery.
@@ -781,16 +781,14 @@ simple \adql\ interface where some parameters can be set. For more
 advanced queries, the user can directly edit the \adql\
 expression. After sending the query the results tables will be
 displayed, which are in functionality similar to the \ssap\ browser
-window. For the \tap\ query \splatvo\ uses StarJava's \tap\ functions written
-by Mark Taylor.
-
+window. 
 
 \subsubsection{Visualizing Light Curves using  SSAP}
 
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_query.pdf}
-\caption{Example of using \ssap\ for obtaining multicolour light curves from OSPS}
+\caption{Example of using \ssap\ for obtain multicolour light curves from OSPS}
 \label{fig:OGLE-SC7-127550_query}
 \end{center}
 \end{figure*}
@@ -799,9 +797,9 @@ by Mark Taylor.
 \begin{center}
 \includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_plot.pdf}
 \caption{Multicolour light curves of Cepheid OGLE-SC7-127550 from
-  OSPS. The manual modification of default line type into various
+  OSPS. The manual modification of default line types into various
   markers and flip of vertical axis was applied on data obtained by
-  experimental \ssap\ light curve protocol using query from
+  an experimental \ssap\ light curve protocol using the query from
   Fig.~\ref{fig:OGLE-SC7-127550_query}. The measurements in
   Johnson-Cousins filters correspond to U (diamonds), B (asterisks),
   V (pluses) R (crosses) and I (triangles).  }
@@ -809,8 +807,8 @@ by Mark Taylor.
 \end{center}
 \end{figure*}
 
-As the proper standard for displaying photometric light curves or time series
-of other variables is not so far established by IVOA, there were several
+As a proper standard for displaying photometric light curves or time series
+of other variables is not available from the IVOA, there have been several
 attempts to exploit the visual similarity of spectra and light curves
 pretending the spectral axis is the temporal one.  So the \ssap\ was
 successfully used as a transport protocol for delivering light curves in
@@ -1186,12 +1184,12 @@ Ministry of Education and Research, BMBF grant 05A11VH3 and the Czech
 development is supported by grant 13-08195S of Granting Agency of the
 Czech Republic and by the Czech project RVO:67985815.
 
-We thank Mark Taylor, who added to
-\splatvo\ his \samp\ library and created the VO Registry interface, and
-Markus Demleitner who actively supports the new features in \splatvo\ \ssap\
-and \datalink\ handling by the development of GAVO \dachs\ server publishing suite.
-We also thank Jan Wouterloot for his work testing the sub-millimetre
-features of \splatvo.
+We thank Mark Taylor, who added the \samp\ support to \splatvo\ and created the
+VO Registry and \tap\ query libraries used (these are part of StarJava).  We
+also thank Markus Demleitner who actively supports the new features in
+\splatvo\ \ssap\ and \datalink\ handling by the development of GAVO \dachs\
+server publishing suite.  Finally we thank Jan Wouterloot for his work testing
+the sub-millimetre features of \splatvo.
 
 Many new features of \splatvo\ are based on everyday experience with
 analysis of hot emission line stars spectra observed at Perek 2m
