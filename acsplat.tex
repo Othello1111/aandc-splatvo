@@ -560,24 +560,18 @@ TSAP Query window (see Fig.~\ref{fig:TSAP-query}). }
 
 \subsection{Motivation}
 
-As the VO evolves, adding new protocols and data models, SPLAT-VO
-needs to evolve accordingly.  The further development of SPLAT-VO has
-been continued by Margarida Castro Neves and Markus Demleitner at the
-University of Heidelberg, and by and Petr \v{S}koda and David Andre\v{s}i\v{c} at
-the Astronomical Institute of the Academy of Sciences of the Czech
-Republic.
-
-SSAP, as the name says, is a simple protocol, and has some limitations. Some
-features like cut-outs or flux calibration, which are often needed, have to be
-performed in a second work step after downloading the spectra. It is much more
-efficient to have it done on-the-fly at the server and  to download the
-spectra exactly as needed. To overcome the limitations of SSAP, the new
-\texttt{DataLink} protocol \citep{datalink} was used. SPLAT-VO is one of the first
-client implementations of \texttt{DataLink}, in this way also contributing to its
-testing and development from a client point of view.
+As the VO evolves, adding new protocols and data models, SPLAT-VO needs to
+evolve accordingly.  SSAP, as the name says, is a simple protocol, and has
+some limitations. Some features like cut-outs or flux calibration, which are
+often needed, have to be performed in a second work step after downloading the
+spectra. It is much more efficient to have it done on-the-fly at the server
+and  to download the spectra exactly as needed. To overcome the limitations of
+SSAP, the new \texttt{DataLink} protocol \citep{datalink} was used. SPLAT-VO
+is one of the first client implementations of \texttt{DataLink}, in this way
+also contributing to its testing and development from a client point of view.
 
 Besides SSAP, spectra can also be retrieved using the ObsCore data model
-through Table Access Protocol (TAP)  \citep[known as ObsTap;][]{obstap}. Its implementation in
+through Table Access Protocol  \citep[known as ObsTap;][]{obstap}. Its implementation in
 SPLAT-VO allows spectra to be retrieved also from ObsCore services, and
 the ObsTAP ADQL \citep{adql} search offers a more powerful search
 mechanism as well. The implementation of new VO protocols like ObsTAP
@@ -660,7 +654,6 @@ protocol, which will probably be implemented by several services in
 the future, and can also be used in different cases.  \texttt{DataLink}
 resources can provide links with several ways to access the data,
 covering \texttt{getData} functionality and more. 
-
 When parsing the service response from a SSAP query, which is in form
 of a VOTable, SPLAT-VO looks for a \texttt{RESOURCE} element of type \texttt{service}.
 An example is shown below:
@@ -747,8 +740,8 @@ than in the case of SSAP data discovery.
 In the current SPLAT-VO implementation, users can select ObsCore in the
 main SPLAT-VO window. The ObsCore browser window will appear, which is in
 part similar to the SSAP browser window. The user can chose either a
-similar cone search interface like the one in SSAP, or a (still)
-rudimentary ADQL interface where some parameters can be set. For more
+similar cone search interface like the one in SSAP, or a 
+simple ADQL interface where some parameters can be set. For more
 advanced queries, the user can directly edit the ADQL
 expression. After sending the query the results tables will be
 displayed, which are in functionality similar to the SSAP browser
