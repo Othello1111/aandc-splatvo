@@ -119,7 +119,7 @@ queries can be refined using spectral ranges, dates of observation as well as
 more subtle criteria like spectral resolution or target class (even
 spectral type) if the server supports such refinement. More capable servers
 provide extended facilities for converting spectra on-the-fly to the required
-format, and can create previews of spectra in PNG or deliver
+format, and can create previews of spectra in \texttt{PNG} or deliver
 the fluxes and wavelengths in ASCII or CSV tables.
 
 \subsection{SSAP-compatible  Visualization Clients}
@@ -411,10 +411,10 @@ line stars.
   mode to quickly assess a number of lines and or spectra using a \emph{visitor list}.
 
 \item Continuum estimation using flexible curves similar to those expected to
-  be drawn by a human. The \textsc{intep} procedure based on Hermitian polynomials
+  be drawn by a human. The \textsc{INTEP} procedure based on Hermitian polynomials
   \citep{1982PDAO...16...67H} has been successfully used for decades in
   fitting stellar continua (typically of emission-line stars such as Be stars and
-  symbiotic novae) in the program \textsc{spefo} \citep{1996ASPC..101..187S}. An
+  symbiotic novae) in the program \textsc{SPEFO} \citep{1996ASPC..101..187S}. An
   overview of the advantages of this procedure is given in
   \citet{2008asvo.proc...97S}. Other curves types are also available such as
   \citet{Akima:1970:NMI:321607.321609}.
@@ -440,7 +440,7 @@ line stars.
 
 \item Comprehensive overlay graphics toolkit with annotations and many
   configurable options for the presentation of data. Export of publication quality
-  output in PNG, GIF, and EPS.
+  output into \texttt{PNG}, \texttt{GIF}, and \texttt{EPS} formats.
 
 \item Animation of spectra - convenient for showing line evolution or
   non-radial pulsations.
@@ -582,8 +582,7 @@ SPLAT-VO allows spectra to be retrieved also from ObsCore services, and
 the ObsTAP ADQL \citep{adql} search offers a more powerful search
 mechanism as well. The implementation of new VO protocols like ObsTAP
 and \texttt{DataLink} have been done side-by-side with their server-side
-implementation in DaCHS \citep[Data Center Helper Suite;][]{dachs},
-developed by Markus Demleitner.
+implementation in DaCHS \citep[Data Center Helper Suite;][]{dachs}.
 
 Also SPLAT-VO's user interface has been improved. An improved server
 selection interface and SSAP search by metadata parameters are some of
