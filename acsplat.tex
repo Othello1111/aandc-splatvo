@@ -1042,62 +1042,68 @@ developers.
 
 \subsection{The Client is not Omnipotent}
 
+During the discussions about VO standards we often hear that the
+protocol should be very simple, focusing just on allowing users to
+query the particular data set and express the location of original
+files, with all the additional post-processing of data left as a task
+for the client.
 
-During the discussions about  VO standards we have heard often that the
-protocol should be very simple just to allow query the particular data set and
-express the location of original files, while  all the additional
-post-processing of data is the task for the client.  
+Unfortunately, when we started using SPLAT-VO and a simple SSAP server
+of stellar spectra from Ond\v{r}ejov HEROS observations, we
+immediately faced the limitations of purely client-based
+processing. Every spectrum of HEROS is more than twenty thousand
+points long covering about 3000\,$\AA$ in both channels. Other echelle
+spectra (like VLT UVES or HARPS) may have as many as three hundred
+thousand points. Just downloading thousands of spectra takes a long
+time, but zooming on every spectral line to see it in detail and
+unzooming takes even longer, while consuming lot of memory.
 
-Unfortunately, when we
-started using SPLAT-VO and simple SSAP server of stellar spectra from Ond\v{r}ejov
-HEROS observations, we had immediately faced the limitations of purely client
-processing. Every spectrum of HEROS is more than 20 thousand points long
-covering about 3000$\AA$. in both channels. Other echelle spectra (like VLT
-UVES or HARPS) may have even 300 thousand points. Just downloading thousand spectra
-takes a long time, but zooming on every spectral line to see it in detail and
-unzooming takes even more longer, while consuming lot of memory. 
+The experience demonstrates that the analysis of stacks of hundreds of
+spectra is a very inconvenient and time consuming task, while usually
+only a short spectral range of tens of Angstroms is needed for display
+each time.  If the server itself (usually a very powerful computer
+with a lot of memory) would trim to the required range, the client
+need download only a very small data chunk, which could be quickly
+displayed. Instead of spending time zooming to another line we can in
+principle perform another query in different spectral range requesting
+again only a short piece of another line range.
 
- The experience shows the analysis of stack of hundreds of spectra is very
-unconvenient and time consuming task, while usually only a short spectral range
-of tens of Angstroms is needed for display every time. If the server itself
-(usually very powerful computer with a lot of memory) would cut the required
-range, the client needed download only very small data chunk, which could be
-quickly displayed. Instead of spending time  zooming to another line we can in
-principle realize another query in different spectral range requesting again
-only short piece of another line range.
-
-
-The need of server-side post-processing, as articulated by our experience with
-analysis  of thousands of spectra lead to the first implementation
-\footnote{\url{http://wiki.ivoa.net/internal/IVOA/InterOpOct2008DAL/stelSSAcutout.pdf}}
-of VO postprocessing server, based on PLEINPOT suite \citep{2005ASPC..347..385C}, with
-simple on-the-fly cutouts and relative rescaling of spectra, later on ported on
-DaCHS and supplemented by automatic continuum
+The need for server-side post-processing, as articulated by our
+experience with analysis of thousands of spectra lead to the first
+implementation\footnote{\url{http://wiki.ivoa.net/internal/IVOA/InterOpOct2008DAL/stelSSAcutout.pdf}}
+of a VO-based post-processing server, based on the PLEINPOT suite
+\citep{2005ASPC..347..385C}, with simple on-the-fly cutouts and
+relative rescaling of spectra, later on ported to DaCHS and
+supplemented by automatic continuum
 normalization\footnote{\url{http://wiki.ivoa.net/internal/IVOA/InteropMay2012DAL/champaign-getdata.pdf}}.
-As the   SSAP does not contain support for post-processing, it was decided
-pragmatically to "overload" the SSAP query parameters representing query and
-processing parameters at the same time. 
+As SSAP does not contain support for post-processing, it was decided
+pragmatically to ``overload'' the SSAP query parameters representing
+query and processing parameters at the same time.
 
-This required to set up another (post-processing) SSAP  server, where
-the BAND limits are used for cutting of the given spectra range (previously
-selected) and FLUXCALIB was understood as a command to divide by max value
-(FLUXCALIB=RELATIVE) or call automatic continuum normalization
-(FLUXCALIB=NORMALIZED).  This allowed us to display detailed profiles of
-hundreds of spectra, including the very long echelle spectra, study line
-profiles evolution in long time series or identify emission epizodes in a long
-series of Be stars observations  just by overplotting hundreds of on-the-fly
-normalized cuts of H$_\alpha$ line.  Although this solution is not consistent
-with original VO standard motivation, it served it purpose and resulted in
-getData proposal, finally replaced by DataLink, even that the original DataLink
-was not conceived as posprocessing mechanism (rather it should just point to
-alternative version of images, previews etc.).  In any case it is clear that
-just the client is not able to handle large amount of spectra, due to lack of
-memory and processing power. The properly balanced design separation of tasks
-between client and server allows for comfortable processing of really Big Data.
-Very nice and clean protocol, which cannot handle real scientific needs must
-get finally more complex by extensions. Even if it is nice idea, we cannot put
-all the processing burden on the client.  This is always the difficult
-trade-off between design simplicity and scientific requirements.
+This required to set up another (post-processing) SSAP server, where
+the \texttt{BAND} limits are used for cutting of the given spectral
+range (previously selected) and \texttt{FLUXCALIB} was understood as a
+command to divide by the maximum value (\texttt{FLUXCALIB=RELATIVE})
+or call automatic continuum normalization
+(\texttt{FLUXCALIB=NORMALIZED}).  This allowed us to display detailed
+profiles of hundreds of spectra, including the very long echelle
+spectra, study line profiles evolution in long time-series or identify
+emission episodes in a long series of Be stars observations just by
+overplotting hundreds of on-the-fly normalized cuts of the H$_\alpha$
+line.  Although this solution is not consistent with original VO
+standard motivation, it served its purpose and resulted in the
+\texttt{getData} proposal, finally replaced by DataLink, even though
+the original DataLink was not conceived as post-processing mechanism
+(rather it should just point to alternative version of images or
+previews etc.).  In any case it is clear that the client is generally
+not able to handle large amounts of spectra, due to lack of memory and
+processing power. The properly balanced design separation of tasks
+between client and server allows for comfortable processing of really
+Big Data.  A very nice and clean protocol, which cannot handle real
+scientific needs, must finally be made more complex by
+extensions. Even if it is nice idea, we cannot put all the processing
+burden on the client.  This is always the difficult trade-off between
+design simplicity and scientific requirements.
 
 
 \section{Obtaining SPLAT-VO}
