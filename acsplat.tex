@@ -528,7 +528,7 @@ may be queried for detailed specific operations.
 \begin{center}
 \includegraphics[width=0.8\textwidth]{hst_query.pdf}
 \caption{The \ssap\ query for absolutely flux calibrated spectra of $\phi$~Per
-  with results obtained from the \emph{HST} GHRS service} 
+  with results obtained from the \emph{HST} GHRS service}
 \label{fig:hst_query}
 \end{center}
 \end{figure*}
@@ -776,14 +776,14 @@ than in the case of \ssap\ data discovery.
 In the current \splatvo\ implementation, users can select \obscore\ in the
 main \splatvo\ window. The \obscore\ browser window will appear, which is in
 part similar to the \ssap\ browser window. The user can chose either a
-similar cone search interface like the one in \ssap, or a 
+similar cone search interface like the one in \ssap, or a
 simple \adql\ interface where some parameters can be set. For more
 advanced queries, the user can directly edit the \adql\
 expression. After sending the query the results tables will be
 displayed, which are in functionality similar to the \ssap\ browser
-window. 
+window.
 
-\subsubsection{Visualizing Light Curves using  SSAP}
+\subsubsection{Visualizing Light Curves using SSAP}
 
 \begin{figure*}[t]
 \begin{center}
@@ -815,95 +815,73 @@ successfully used as a transport protocol for delivering light curves in
 binary table format. In principle the table may contain many columns displayed
 as dependent variable against the various time axes with interactive menu.
 The current limitation only requires the time axis expressed as floating point
-variables, which limits the possibility of using strings (e.g., dates, time
+variables, which limits the possibility of using strings e.g., dates, time
 stamps or even the names of CCD images used to extract given photometric point
 on light curve.  An example in Fig.~\ref{fig:OGLE-SC7-127550_query} shows the
 query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
-Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing on
-at Danish 1.5m telescope DK154.
+the Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing
+at the Danish 1.5m telescope DK154.
 
 \subsection{New Features in Spectral Analysis}
 
 \label{davids_functions}
-For better analytic capabilities and user comfort in
-general, were added \citep{and146bcthesis} to \splatvo\ following features:
+To improve the analytic capabilities and general usability the following
+features were added to the non-VO capabilities of \splatvo\ \citep{and146bcthesis}:
 
 \subsubsection{Saving Spectra Stack in Multi-extension FITS format}
 
-Previous versions of \splatvo\ were able to save its global list of spectra only to
-their native binary format, which was in fact the memory dump of spectra
-objects. But sometimes, there may be a need to save that list to a more
-universal, standardized format. For example, \splatvo\ allows to perform many
-operations on spectra, which results in a new spectrum object that is added to
+Previous versions of \splatvo\ were able to save the global list of spectra
+to a binary format, which was in fact a dump of the native serialization of spectra
+objects. Sometimes, there may be a need to save that list to a more
+universal, standardized format. For example, \splatvo\ has many
+operations on spectra, which result in a new spectrum that is added to
 a global list of spectra (e.g., cutting a part of spectrum). Saving the list of
-such spectra to a standardized format would then allow its opening in another
-tool and continuing to work with it in a way \splatvo\ wasn't designed to.
-This may be helpful for preparation of large list of normalized line profiles
+such spectra to a standardized format would allow there use in other
+tools offering capabilities that \splatvo\ does not support.
+This may be helpful for the preparation of large lists of normalized line profiles
 for Fourier disentangling or asteroismology studies.
 
-Therefore, \splatvo\ now allows the user to save the global list of spectra to a
+\splatvo\ now allows the user to save the global list of spectra to a
 much more universal FITS format, where every spectrum  is represented by its
-own (IMAGE) extension.  The only disadvantage compared to the proprietary
-format is that it won't keep the settings like colour or strength of the lines
-or type of symbols used for points etc., since these information  are not
-standardized for FITS.
-
-
+own (IMAGE) extension.  The only disadvantage compared to the native dump
+format is that settings related to the way that the spectra are rendered are
+no longer available.
 \subsubsection{Visual Spectrum Selection and Highlighting}
 
-In the earlier versions of \splatvo, when the user worked with multiple
-spectra in one common plot window, he  had a limited possibility of
-selection just one of them for further actions. Selection of, for example, noisy
-spectrum and its deletion from plot window could be done only by
-trial-and-error procedure and therefore quite problematic and time-wasting.
+In earlier versions of \splatvo, when working with multiple spectra displayed
+in one common plot, it was difficult to work out which spectrum corresponded
+to one in the global list, so that it could be worked on independently.
+Also the selection of, for example, a noisy spectrum and its removal from
+the plot window could be done only by a trial-and-error procedure and therefore
+was quite problematic and time-wasting.
 
-We improved this and now when the user clicks on a spectrum in global spectra
-list, \splatvo\ will automatically select the closest spectrum to the cursor
-position and  the spectrum gets immediately highlighted in all plot windows
-that it is opened in. The highlighting has a form of a few-seconds blinking in
-an inverted colour and is performed sequentially (highlighting in one plot
-window comes after the previous one is finished), which gives to the user a
-perfect sequential overview of the spectrum's plots.
+This has been improved and now when a spectrum is selected in the global
+list, \splatvo\ will highlighted it in all the plot windows that it is displayed in.
+The highlighting has the form of a few-seconds blinking in an inverted colour
+and is performed sequentially (highlighting in one plot window comes after the
+previous one is finished), which gives to the user a perfect sequential overview
+of the spectrum's plots.
 
 \subsubsection{Cut window: saving the ranges}
 
-In the \emph{Cut regions from spectrum} window, user could simply read
-ranges of regions from a local file (feature available under \texttt{File}
-menu). But what if he made a visual selection of ranges from a
-currently plotted spectrum and wanted to save it to a local file?
+In the cut regions tool, it is possible to read the ranges of regions from a
+local text file. But what if a visual selection of ranges from a currently
+plotted spectrum is to be saved?  \splatvo\ can now save the currently
+defined ranges to a local file in the same format as used for reading.
 
-\splatvo\ can now save the currently defined
-ranges to a local file (feature is available under \texttt{File} menu) in the
-same format as the reading feature expects, that is one range (with a
-white space between its beginning and ending value) per line.
+\subsubsection{Cut window: working with multiple spectra}
 
-\subsubsection{Cut window: performing on multiple spectra}
+Previously any regions defined by the cut regions tool only operated on one
+spectrum (known as the current spectrum). This tool now has a table of all
+currently plotted spectra which can now be selected so that any regions are
+applied to them all.
 
-And cutting regions from spectrum again: until now, when user defined
-all the wanted regions and performed the cut action, \splatvo\ cut the
-regions only from the currently active spectrum.
+\subsubsection{Display of all spectra received by SAMP to the same window}
 
-This window newly possess a table of all
-currently plotted spectra in the corresponding plot window. User then
-can select multiple of it (buttons for selecting and deselecting all
-the spectra are of course there as well) and perform a cut (or any
-other action in this window) on all the selected spectra.
-
-\subsubsection{Display of All  spectra received by SAMP to the same  window}
-
-In the previous versions of \splatvo, all spectra received via the \samp\
-protocol got opened in their own plot windows. Very often, it would be
-necessary for comparative analysis to have them plotted in the same
-window, but for this, the user had to do it manually.
-
-\splatvo\ is now able to do this
-for the user automatically. We added new checkbox under the
-\texttt{Interoperability} menu that can be used to switch between the previous
-state (each spectrum to its own plot window) and plotting all the
-spectra received by \samp\ to their common plot window. This feature
-can be of course turned on and off several times during the runtime,
-so it allows to plot one bulk of spectra received by \samp\ to one
-window and another bulk to another window.
+In previous versions of \splatvo, all spectra received via \samp\ messages
+were opened in their own plot windows. Since it would be useful
+to also display spectra in one plot to make comparisons, a new control to
+toggle this behaviour on and off has been added.
 
 \section{Lessons learned}
 
@@ -1027,7 +1005,7 @@ downloading data which is not needed. Sometimes too much detail may
 lead to confusion, especially if the service information from the
 registries is often incomplete. If the data is not there as it should
 be a detailed interface won't do much. The current interface will be
-redesigned in the future, probably simpler but more accurate. It has
+redesigned in the future, to be probably simpler but more accurate. It has
 been planned also to use \regtap\ \citep{regtap} to look for spectral services, which
 may provide easier handling.
 
