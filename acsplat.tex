@@ -51,6 +51,14 @@
 \newcommand{\spefo}{\textsc{spefo}}
 \newcommand{\intep}{\textsc{intep}}
 \newcommand{\pleinpot}{\textsc{pleinpot}}
+\newcommand{\IRAF}{\textsc{IRAF}}
+\newcommand{\IDL}{\textsc{IDL}}
+\newcommand{\python}{\textsc{Python}}
+\newcommand{\Sesame}{\textsc{Sesame}}
+\newcommand{\Starlink}{\textsc{Starlink}}
+\newcommand{\MIDAS}{\textsc{MIDAS}}
+\newcommand{\vodesktop}{\textsc{VO-Desktop}}
+\newcommand{\beanshell}{\textsc{BeanShell}}
 
 %% Links
 \newcommand{\ascl}[1]{\href{http://www.ascl.net/#1}{ascl:#1}}
@@ -107,17 +115,17 @@ Spectral Analysis \sep Virtual Observatory \sep VO \sep SPLAT-VO \sep StarJava
 \section{Introduction}
 
 There are many tools for the analysis of astronomical spectra.  The most
-commonly used of these are the various packages of MIDAS
-\citep[][\ascl{1302.017}]{1992ASPC...25..115W}, IRAF
-\citep[][\ascl{9911.002}]{2012ASPC..461..595F}, and Starlink
+commonly used of these are the various packages of MIDAS\
+\citep[][\ascl{1302.017}]{1992ASPC...25..115W}, \IRAF\
+\citep[][\ascl{9911.002}]{2012ASPC..461..595F}, and \Starlink\
 \citep[][\ascl{1110.012}]{1982QJRAS..23..485D}, together with scripts
-written in python \citep[e.g.,][]{2013A&A...558A..33A} and IDL \citep[e.g.,][]{1993ASPC...52..246L}.
+written in \python\ \citep[e.g.,][]{2013A&A...558A..33A} and \IDL\ \citep[e.g.,][]{1993ASPC...52..246L}.
 Very advanced processing is still often done in custom
 (especially FORTRAN) programs used by small communities.  These tools tend to
 work with specially formatted files (quite often ASCII tables) stored on local
 disks.
 
-The common tasks for an astronomer during spectral analysis consists of finding
+The common tasks for an astronomers during spectral analysis consists of finding
 the required spectra in various archives, downloading them, understanding and
 extracting metadata (such as date of exposure, spectral range, and flux units),
 converting to the custom format used by the particular tool, visualizing
@@ -152,7 +160,7 @@ spectra of their favourite objects, and it can also be used to get spectra for a
 the objects in a `circular' region of interest on the sky. These simple
 queries can be refined using spectral ranges, dates of observation as well as
 more subtle criteria like spectral resolution or target class (even
-spectral type) if the server supports such refinement. More capable servers
+spectral type) if the server supports corresponding optional parameters. More capable servers
 provide extended facilities for converting spectra on-the-fly to the required
 format, and can create previews of spectra in \texttt{PNG} or deliver
 the fluxes and wavelengths in ASCII or CSV tables.
@@ -208,9 +216,9 @@ standards and special features.
 %-------------------------------------------------------
 
 \section{History of SPLAT-VO}
-\subsection{Genesis}
+\subsection{SPLAT}
 
-The \splatvo project is an extension to an older one simply called
+The \splatvo\ project is an extension to an older one simply called
 \splat\ \citep[][\ascl{1402.007}]{2002ASPC..281..513B}.  The name \splat\
 is based on the words SPectraL Analysis Tool, an application for the
 display and analysis of spectral data. The development of \splat\ itself
@@ -232,46 +240,49 @@ downloaded.
 \subsection{SPLAT-VO}
 
 The first VO capabilities added to \splat\ where released in 2005
-\citep{2005ASPC..347...22D}, as support for querying VO registries for
-Simple Spectral Access Protocol servers was added. A selection of
-these servers could then be queried for any spectra they contained
-within a region on the sky and these could then be selected and
-displayed. \splat\ already had the ability to match a wide range of
-spectral coordinate systems and flux units, so the spectra could be
-displayed within the same plots for direct comparison. Since then \ssap\
-support has been developed further with version 1 of the standard and
-various enhancements like being able to query for an object, not just
-a region.
+\citep{2005ASPC..347...22D}, as support for querying VO registries for Simple
+Spectral Access Protocol servers was added. A selection of these servers could
+then be queried for any spectra they contained within a region on the sky and
+these could then be selected and displayed. \splat\ already had the ability to
+match a wide range of spectral coordinate systems and flux units, so the
+spectra could be displayed within the same plots for direct comparison. Since
+then \ssap\ support has been developed further with version 1 of the standard
+and various enhancements like being able to query for the SSAP
+\texttt{TARGETNAME}, not just a region.
 
 The second phase of VO developments in \splatvo\ were the incorporation
-into the VO-desktop, so that spectra and tables could be shared
+into the \vodesktop , so that spectra and tables could be shared
 between applications.  Initially, in 2006, this used the \plastic\
 \citep{2007ASPC..376..511T} protocol and then, more recently, \samp\
 \citep{2012ASPC..461..279T}.
 
 
-{\color{red}
-The institutions for all these people are already listed at the
-top of the paper so it's not obvious to me why we need to mention
-them. We don't say \emph{Peter Draper of Durham University was the lead
-programmer} so my inclination would be to not name names or
-institutions and just state GAVO has taken a lead in development. The
-rest is explicit in the author list.
-}
+%{\color{red}
+%The institutions for all these people are already listed at the
+%top of the paper so it's not obvious to me why we need to mention
+%them. We don't say \emph{Peter Draper of Durham University was the lead
+%programmer} so my inclination would be to not name names or
+%institutions and just state GAVO has taken a lead in development. The
+%rest is explicit in the author list.
+%}
 
-In 2011, the VO aspects of \splatvo\ have been taken over by Margarida
-Castro Neves, from the German Astrophysical Virtual Observatory (GAVO) in
-Heidelberg, Germany.  Due to the need for a spectral domain application with
-VO capabilities and good scientific analysis functions, GAVO  decided to resume
-development once the original funding had stopped. In this way \splatvo\ can
-continue to be improved, and kept up-to-date with the changing requirements of
-both end users and data providers.  This development  is done in cooperation
-with Petr \v{S}koda (Astronomical Institute of the Academy of Sciences of the
-Czech Republic), who contributes by defining the user requirements and
-suggesting modifications of scientific functions (with emphasis put on optical
-stellar spectroscopy of  emission line stars).  David Andre\v{s}i\v{c},
-from Technical University, Ostrava, has been implementing new analytic
-functionality (see section.~\ref{davids_functions}) since 2012.
+Since 2011, the development of  \splatvo\ was resumed by German Astrophysical
+Virtual Observatory (GAVO) in Heidelberg, Germany and in  the Astronomical
+Institute of the Academy of Sciences of the Czech Republic (AI~ASCR).  Due to
+the need for a spectral domain application with VO capabilities and good
+scientific analysis functions, GAVO  decided to support development once the
+original funding had stopped, concentrating on improved VO interface,
+benefitting from the in-house development of VO server suite \dachs .  At about
+the same time the  requirements for modifications of scientific functions (with
+emphasis put on optical stellar spectroscopy) identified during everyday
+analysis of spectra of emission line stars  in Stellar department of AI~ASCR
+resulted in Bachelor and successive Diploma thesis focused on implementation of
+new analytical and visualization function in collaboration with
+V\v{S}B---Technical University of Ostrava. 
+
+In this way \splatvo\ can continue to be improved, and kept up-to-date with the
+changing requirements of both end users and data providers.  
+
 
 \section{SPLAT-VO Internals}
 
@@ -310,7 +321,7 @@ established `Bridge Pattern').
 
 This use of a single abstraction to all data formats makes it easier to write
 consistent code and extend the basic internal spectrum with new facilities
-(methods that do things like extraction sections, replace BAD values etc.) as
+(methods that do things like extraction sections, replace bad values etc.) as
 well as associate useful properties like graphics and formatting rendering
 hints, data and coordinate range limits. Extending the underlying model is
 also easy as new features strictly need only be handled in the abstraction
@@ -359,13 +370,13 @@ aspects of \gaia\ \citep{2009ASPC..411..575D}.
 
 \subsection{Scripting of SPLAT-VO}
 
-The various classes of \splatvo\ may be called directly from the BeanShell
+The various classes of \splatvo\ may be called directly from the \beanshell\
 scripting language \citep{niemeyer2013learning}, in principle this allows
 complex workflows to be created, and is used to create example scripts that
 are part of the standard distribution. These support the batch fitting of
 single Gaussian line profiles, as well as composite models consisting of any
 number of Gaussian, Lorentzian and Voigt profiles for deblending complex lines
-(a feature that has never made it into the full UI). BeanShell scripts are
+(a feature that has never made it into the full UI). \beanshell\  scripts are
 also used for controlling \splatvo\ from command line.
 
 %-------------------------------------------------------
@@ -444,7 +455,7 @@ line stars.
   This is important for measuring asymmetric and distorted line profiles
   typical for hot emission stars. For a detailed explanation see
   \citet{2007IAUS..240..486P}. This feature can be operated with a batch-like
-  mode to quickly assess a number of lines and or spectra using a \emph{visitor list}.
+  mode to quickly process a number of lines and/or spectra using a \emph{visitor list}.
 
 \item Continuum estimation using flexible curves similar to those expected to
   be drawn by a human. The \intep\ procedure based on Hermite polynomials
@@ -462,7 +473,7 @@ line stars.
 
 \item Built-in spreadsheet processor supported by special astronomical
   functions. Allows the modification/transformation of coordinates and data
-  values. Astronomical functions include the spectral profile models.
+  values. Astronomical functions include the spectral line profile models.
 
 \item Filtering with smoothing (mean, median, rebin) and denoising with wavelets.
 
@@ -505,7 +516,7 @@ can be selected for download.
 Queries can involve supplying the coordinates (\texttt{POS}) and size
 (\texttt{SIZE}) defining a 'circular' region on the sky (a so called `cone
 search'), or just the name of an object and size, the name being resolved into
-a position by the CDS name resolver Sesame. Other form elements provide
+a position by the CDS name resolver \Sesame . Other form elements provide
 refinement of the query to include things like spectral ranges
 (\texttt{BAND}), the date and time of observation (\texttt{TIME}), status of
 the wavelength calibration (\texttt{WAVECALIB}), flux calibation
@@ -830,22 +841,24 @@ features were added to the non-VO capabilities of \splatvo\ \citep{and146bcthesi
 
 \subsubsection{Saving Spectra Stack in Multi-extension FITS format}
 
-Previous versions of \splatvo\ were able to save the global list of spectra
-to a binary format, which was in fact a dump of the native serialization of spectra
-objects. Sometimes, there may be a need to save that list to a more
-universal, standardized format. For example, \splatvo\ has many
-operations on spectra, which result in a new spectrum that is added to
-a global list of spectra (e.g., cutting a part of spectrum). Saving the list of
-such spectra to a standardized format would allow there use in other
-tools offering capabilities that \splatvo\ does not support.
-This may be helpful for the preparation of large lists of normalized line profiles
-for Fourier disentangling or asteroismology studies.
+Previous versions of \splatvo\ were able to save the global list of spectra to
+a binary format, which was in fact a dump of the native serialization of
+spectra objects. Sometimes, there may be a need to save that list to a more
+universal, standardized format. For example, \splatvo\ has many operations on
+spectra, which result in a new spectrum that is added to a global list of
+spectra (e.g., cutting a part of spectrum). Saving the list of such spectra to
+a standardized format would allow their use in other tools offering
+capabilities that \splatvo\ does not support.  This may be helpful for the
+preparation of large lists of normalized line profiles for Fourier
+disentangling or asteroismology studies.
 
-\splatvo\ now allows the user to save the global list of spectra to a
-much more universal FITS format, where every spectrum  is represented by its
-own (IMAGE) extension.  The only disadvantage compared to the native dump
-format is that settings related to the way that the spectra are rendered are
-no longer available.
+\splatvo\ now allows the user to save the global list of spectra to a much more
+universal FITS format, where every spectrum  is represented by its own (\texttt{IMAGE})
+extension.  The only disadvantage compared to the native dump format is that
+settings related to the way that the spectra are rendered are no longer
+available as there is no standard for metadata of presentation styles and
+graphics attributes.
+ 
 \subsubsection{Visual Spectrum Selection and Highlighting}
 
 In earlier versions of \splatvo, when working with multiple spectra displayed
@@ -856,7 +869,7 @@ the plot window could be done only by a trial-and-error procedure and therefore
 was quite problematic and time-wasting.
 
 This has been improved and now when a spectrum is selected in the global
-list, \splatvo\ will highlighted it in all the plot windows that it is displayed in.
+list, \splatvo\ will highlight it in all the plot windows that it is displayed in.
 The highlighting has the form of a few-seconds blinking in an inverted colour
 and is performed sequentially (highlighting in one plot window comes after the
 previous one is finished), which gives to the user a perfect sequential overview
@@ -873,10 +886,10 @@ defined ranges to a local file in the same format as used for reading.
 
 Previously any regions defined by the cut regions tool only operated on one
 spectrum (known as the current spectrum). This tool now has a table of all
-currently plotted spectra which can now be selected so that any regions are
-applied to them all.
+currently plotted spectra which can now be selected so that any region
+operations are applied to them all.
 
-\subsubsection{Display of all spectra received by SAMP to the same window}
+\subsubsection{Display of spectra received by SAMP in the same window}
 
 In previous versions of \splatvo, all spectra received via \samp\ messages
 were opened in their own plot windows. Since it would be useful
@@ -961,7 +974,7 @@ concern.  At the James Clerk Maxwell Telescope \splat\ replaced the
 \specx\ package \citep[][\ascl{1310.008}]{specx} which had been
 developed for interactive command-line use whilst supporting a
 scripting language to allow for bulk processing of spectra. With \splat\
-the promise of beanshell support was never able to overcome some key
+the promise of \beanshell\ support was never able to overcome some key
 difficulties associated with automation. There are two scenarios for
 automation. The first is for an astronomer to record the steps taken
 manually in reducing or analysing a spectrum and then replay that
@@ -996,7 +1009,7 @@ efficiency values are required when comparing spectra from different
 telescopes. The situation is in dire need of standardisation efforts
 and we simply had to ignore the issue in \splat.
 
-\subsection{Service selection interface}
+\subsection{Service selection interface depends on Registry}
 
 The new \ssap\ service selection interface, using more metadata
 information from the services, is meant to help the user to choose the
