@@ -35,30 +35,33 @@
 \newcommand{\adql}{ADQL}
 
 %% Standards
-\newcommand{\vounits}{VOUnits}
+\newcommand{\vounits}{\texttt{VOUnits}}
 
 %% Software applications
-\newcommand{\splat}{\textsc{splat}}
-\newcommand{\splatvo}{\textsc{splat-vo}}
-\newcommand{\topcat}{\textsc{topcat}}
-\newcommand{\vospec}{\textsc{VOSpec}}
-\newcommand{\specview}{\textsc{Specview}}
-\newcommand{\dachs}{\textsc{DaCHS}}
-\newcommand{\aladin}{\textsc{Aladin}}
-\newcommand{\gaia}{\textsc{gaia}}
-\newcommand{\KAPPA}{\textsc{kappa}}
-\newcommand{\specx}{\textsc{specx}}
-\newcommand{\spefo}{\textsc{spefo}}
-\newcommand{\intep}{\textsc{intep}}
-\newcommand{\pleinpot}{\textsc{pleinpot}}
-\newcommand{\IRAF}{\textsc{IRAF}}
-\newcommand{\IDL}{\textsc{IDL}}
-\newcommand{\python}{\textsc{Python}}
-\newcommand{\Sesame}{\textsc{Sesame}}
-\newcommand{\Starlink}{\textsc{Starlink}}
-\newcommand{\MIDAS}{\textsc{MIDAS}}
-\newcommand{\vodesktop}{\textsc{VO-Desktop}}
-\newcommand{\beanshell}{\textsc{BeanShell}}
+\newcommand{\splat}{\textsf{\small SPLAT}}
+\newcommand{\splatvo}{{\textsf{\small{SPLAT-VO}}}}
+\newcommand{\topcat}{\textsf{\small TOPCAT}}
+\newcommand{\vospec}{\textsf{\small VOSpec}}
+\newcommand{\specview}{\textsf{\small Specview}}
+\newcommand{\dachs}{\textsf{\small DaCHS}}
+\newcommand{\aladin}{\textsf{\small Aladin}}
+\newcommand{\gaia}{\textsf{\small GAIA}}
+\newcommand{\KAPPA}{\textsf{\small KAPPA}}
+\newcommand{\specx}{\textsf{\small SPECX}}
+\newcommand{\spefo}{\textsf{\small SPEFO}}
+\newcommand{\intep}{\textsf{\small INTEP}}
+\newcommand{\pleinpot}{\textsf{\small PLEINPOT}}
+\newcommand{\IRAF}{\textsf{\small IRAF}}
+\newcommand{\IDL}{\textsf{\small IDL}}
+\newcommand{\python}{\textsf{\small Python}}
+\newcommand{\Sesame}{\textsf{\small Sesame}}
+\newcommand{\Starlink}{\textsf{\small Starlink}}
+\newcommand{\MIDAS}{\textsf{\small MIDAS}}
+\newcommand{\almaot}{\textsf{\small ALMA-OT}}
+\newcommand{\vodesktop}{\textsf{\small VO-Desktop}}
+\newcommand{\beanshell}{\textsf{\small BeanShell}}
+\newcommand{\subversion}{\textsf{\small Subversion}}
+\newcommand{\git}{\textsf{\small Git}}
 
 %% Links
 \newcommand{\ascl}[1]{\href{http://www.ascl.net/#1}{ascl:#1}}
@@ -93,7 +96,7 @@ Engineering and Computer Science, V\v{S}B --- Technical University of Ostrava\\
   and analysing astronomical spectra, as well as searching and retrieving
   spectra from services around the world using Virtual Observatory (VO)
   protocols and services. The development of \splatvo\ started in 1999, as part
-  of the Starlink StarJava initiative, sometime before that of the VO, so
+  of the \Starlink\ StarJava initiative, sometime before that of the VO, so
   initial support for the VO was necessarily added once VO standards and
   services became available. Further developments were supported by
   the Joint Astronomy Centre,
@@ -222,7 +225,7 @@ The \splatvo\ project is an extension to an older one simply called
 \splat\ \citep[][\ascl{1402.007}]{2002ASPC..281..513B}.  The name \splat\
 is based on the words SPectraL Analysis Tool, an application for the
 display and analysis of spectral data. The development of \splat\ itself
-was started by the Starlink Project \citep{1982QJRAS..23..485D} in
+was started by the \Starlink\ Project \citep{1982QJRAS..23..485D} in
 1999 in response to a perceived need within the UK astronomy community
 for a spectral domain tool with capabilities similar to those of the
 successful \gaia\ tool \citep[][\ascl{1403.024}]{2000ASPC..216..615D}
@@ -346,7 +349,7 @@ Early in the design of \splat\ it was decided that it would not be possible to
 replicate the considerable effort that had already been put into a
 comprehensive system for handling coordinate systems and units, including full
 support for reading and writing FITS WCS \citep{2006A&A...446..747G}. This led to the development of a JNI
-library for the Starlink AST library \citep[][\ascl{1404.016}]{1998ASPC..145...41W,2012ASPC..461..825B}, JNIAST. AST
+library for the \Starlink\ AST library \citep[][\ascl{1404.016}]{1998ASPC..145...41W,2012ASPC..461..825B}, JNIAST. AST
 itself is written in standard C so compiling it on many platforms is
 relatively easy, but, as discussed in Sec.\ \ref{sec:jniast-lesson}, this remains a portability issue at the heart of \splat\
 limiting one of the initial aims.
@@ -363,7 +366,7 @@ AST supports all the units specified in the FITS standard
 matching of spectra with different flux units. Adding full \vounits\
 support \citep{vounits} to \splatvo\ would currently require that AST
 is updated to match the standard. This would have the added benefit of
-expanding support for \vounits\ to the entire Starlink software
+expanding support for \vounits\ to the entire \Starlink\ software
 collection and in particular enhance the unit support of the VO
 aspects of \gaia\ \citep{2009ASPC..411..575D}.
 
@@ -427,9 +430,9 @@ range of capabilities required by astronomers for every-day work outside of
 the VO. Input spectra may be loaded directly from local disk files in a number
 of formats, including several types of multicolumn ASCII tables,
 multi-extension FITS with binary tables or 1D spectrum FITS image, as well as
-Starlink NDF.
+\Starlink\ NDF.
 
-The list of capabilites of \splatvo\ is enormous and are fully described in
+The list of capabilities of \splatvo\ is enormous and are fully described in
 the associated documentation \citep[SUN/243;][]{sun243} which is also
 available as online help and includes example data from
 multi-wavelength observations.
@@ -571,7 +574,7 @@ obtained from libraries available in the VO (e.g., Kurucz models, Rauch's
 non-LTE model spectra, TLUSTY hot stars, Salpeter, Dusty). They are selected
 by a radio button, which changes the role of parameters used in the query. The
 extended protocol called Theory-\ssap\ \citep[hereafter TSAP;][]{ssap} uses
-various physical parameters like $T_{\rm eff}$, $\log g$, metalicity etc. for
+various physical parameters like $T_{\rm eff}$, $\log g$, metallicity etc. for
 queries instead of position, wavelength, region and date/time range.
 Unfortunately obligatory metadata do not exist for all required physical
 parameters, so it is necessary to just try out what is available on a given
@@ -593,7 +596,7 @@ result of selecting several Kurucz models for Vega.
 \begin{figure*}[t]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{TSSA-plot.pdf}
-\caption{Zoomed plot of Vega-like Kuruz models manually selected in the previous
+\caption{Zoomed plot of Vega-like Kurucz models manually selected in the previous
 \tsap\ Query window (see Fig.~\ref{fig:TSAP-query}). }
 \label{fig:TSAP-plot}
 \end{center}
@@ -672,7 +675,7 @@ in the registry.
 
 In early versions, \splatvo\ contained just a simple cone search using
 the \ssap\ obligatory parameters (RA, DEC, band, time, data format) and later
-added wavelegth and flux calibration state, although much other metadata is
+added wavelength and flux calibration state, although much other metadata is
 available on servers.  Now \splatvo\ also retrieves the metadata parameters for
 each server, and a new user interface allows users to chose metadata
 parameters and their values to perform more detailed queries.  This is
@@ -850,7 +853,7 @@ spectra (e.g., cutting a part of spectrum). Saving the list of such spectra to
 a standardized format would allow their use in other tools offering
 capabilities that \splatvo\ does not support.  This may be helpful for the
 preparation of large lists of normalized line profiles for Fourier
-disentangling or asteroismology studies.
+disentangling or asteroseismology studies.
 
 \splatvo\ now allows the user to save the global list of spectra to a much more
 universal FITS format, where every spectrum  is represented by its own (\texttt{IMAGE})
@@ -941,8 +944,8 @@ languages.
 \subsection{Open sourcing from the beginning}
 
 The decision was made very early on for the \splat\ source code to be
-made publicly available, first via CVS on a Starlink server, then via
-Subversion on a Joint Astronomy Centre server and finally using \texttt{git}
+made publicly available, first via CVS on a \Starlink\ server, then via
+\subversion\ on a Joint Astronomy Centre server and finally using \git\ 
 on Github. We feel that this openness contributed directly to the
 software being picked up by the GAVO project, saving the application
 from stagnation once the direct funding for it was dropped.
@@ -956,7 +959,7 @@ internal list is dominated by sub-millimetre lines required by the
 JCMT. Even so, the list of lines was never sufficient and astronomers
 continue to ask for more obscure transitions to be included. A local
 line catalogue is an excellent back up but it is also necessary to
-look up catalogues from remote services. The ALMA-OT
+look up catalogues from remote services. The \almaot\ 
 \citep{2013ASPC..475..373W} works in exactly this way with much
 success. This feature will be added in the future using the Simple
 Line Access Protocol (SLAP) that will allow for retrieval of line
@@ -982,7 +985,7 @@ analysis on many other spectrum. The second scenario is to allow key
 algorithms to be made usable in a pipeline environment with the GUI
 disabled. For the JCMT heterodyne pipeline
 \citep[][\ascl{1310.001}]{2008ASPC..394..565J,JennessACSISDR} all efforts at algorithmic
-enhancement were focused on individual Starlink applications such as
+enhancement were focused on individual \Starlink\ applications such as
 \KAPPA\ \citep[][\ascl{1403.022}]{sun95}, because it was unclear how
 feasible it would be to add complex algorithms to \splat\ and make them
 available through the pipeline. One of the interesting approaches
@@ -1120,7 +1123,7 @@ design simplicity and scientific requirements.
 \section{Obtaining SPLAT-VO}
 
 \splatvo\ is released in a variety of ways, you can build it using the source
-code, obtain it as part of a Starlink JAC release. Alternatively you can
+code, obtain it as part of a \Starlink\ JAC release. Alternatively you can
 install into your desktop using a standalone IzPack bundled version or run it
 up using Java webstart.
 
@@ -1129,7 +1132,7 @@ available for the following desktops, Linux (32 and 64 bit), Mac OS X (32 and
 64 bit Lion) and Windows XP and later (32 bit Java only). Previous versions
 also worked on Solaris, Sparc and Intel, and OS X PPC.
 
-The Starlink releases
+The \Starlink\ releases
 \citep[e.g.,][]{currie_adassxxiii,2013ASPC..475..247B} are available
 for Linux (32 and 64 bit) and OS X (Lion and Snow Leopard).
 
@@ -1148,14 +1151,14 @@ open-source and available on Github at
 \splatvo\ is a very powerful tool for the analysis of spectra allowing the
 immediate browsing of world-wide distributed archives as well as detailed
 studies of individual objects across the whole electromagnetic spectrum by the
-building of SEDs from spectra taken in many different enery bands. Its
+building of SEDs from spectra taken in many different energy bands. Its
 capabilities make it an ideal tool for the analysis of astronomical spectra on
 the local desktop, facilities that are promoted to full productivity when
 combined with resources from the VO environment. It is currently under active
 development, promising soon handling of light curves and data cubes. We
 also intend to add support for automatic matching of line identifiers to
 spectra, simultaneous processing of multiple spectra, automated continuum
-normalization, and enhanced support of FITS extensions and metdata.
+normalization, and enhanced support of FITS extensions and metadata.
 
 As a result of combining the effort of GAVO \dachs\ server suite
 developers and \splatvo\ developers, \splatvo\ is an ideal reference
@@ -1165,7 +1168,7 @@ IVOA rules, for pushing standards in the recommendation phase.
 \section*{Acknowledgements}
 
 The initial work on \splatvo\ was supported
-by the now closed Starlink Project funded by the Particle Physics and
+by the now closed \Starlink\ Project funded by the Particle Physics and
 Astronomy Research Council and more recently by the Joint Astronomy
 Centre, Hawaii, also funded by the Particle Physics and Astronomy
 Research Council and more recently by its successor organisation the
@@ -1189,7 +1192,7 @@ Telescope of the Ond\v{r}ejov observatory of the Astronomical Insitute
 of the Academy of Sciences, Czech Republic. We greatly acknowledge the
 help of M.~\v{S}lechta, responsible for reduction of most of the
 spectra and students T.~Peterka and J.~N\'advorn\'\i{}k for the set up
-and maintainance of the \ssap\ services of the AI stellar department,
+and maintenance of the \ssap\ services of the AI stellar department,
 with which \splatvo\ was heavily tested in recent years.
 
 \bibliographystyle{model2-names-astronomy}
