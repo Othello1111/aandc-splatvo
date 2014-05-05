@@ -93,7 +93,7 @@ Engineering and Computer Science, V\v{S}B --- Technical University of Ostrava\\
 
 \begin{abstract}
   \splatvo\ is a powerful graphical tool for displaying, comparing, modifying
-  and analysing astronomical spectra, as well as searching and retrieving
+  and analyzing astronomical spectra, as well as searching and retrieving
   spectra from services around the world using Virtual Observatory (VO)
   protocols and services. The development of \splatvo\ started in 1999, as part
   of the \Starlink\ StarJava initiative, sometime before that of the VO, so
@@ -104,7 +104,7 @@ Engineering and Computer Science, V\v{S}B --- Technical University of Ostrava\\
   continued by the German Astrophysical Virtual Observatory, and the
   Astronomical Institute of the Academy of Sciences of the Czech Republic.
   From this time several new features have been added, including support for
-  the latest VO protocols, along with new visualisation and spectra storing
+  the latest VO protocols, along with new visualization and spectra storing
   capabilities. This paper presents the history of \splatvo, it's
   capabilities, recent additions and future plans, as well as a discussion on
   the motivations and lessons learned up to now.
@@ -150,7 +150,7 @@ Making the handling of spectra obtained from world-wide distributed
 heterogeneous archives simple and efficient was the main motivation for
 developing the International Virtual Observatory Alliance Simple Spectral
 Access Protocol \citep[IVOA \ssap;][]{ssap}. The key elements of this
-\texttt{http}-based protocol are a standard spectral server discovery mechanism (a
+\texttt{HTTP}-based protocol are a standard spectral server discovery mechanism (a
 Google for astronomical data) called IVOA Registry \citep{registry} and  the
 standard \votable\ data format\citep{2004tivo.conf..118O},
 that is used to describe the metadata of discovered spectra in a limited vocabulary of
@@ -303,7 +303,7 @@ modifiable and be derived from data with higher dimensionalities.
 
 The presentation of all data types through a single interface works especially
 well when coupled with a further, higher-level, abstraction class. This
-abstraction is in effect how all the analysis and visualisation code
+abstraction is in effect how all the analysis and visualization code
 throughout \splatvo\ see a `spectrum' (these two elements that decouple an
 abstraction from the underlying implementations are in fact the well
 established `Bridge Pattern').
@@ -385,7 +385,7 @@ on in some imaging survey frame displayed in \aladin, or identify the visual
 appearance of galaxies from the spectra which have been visually selected in
 \splatvo. \samp\ has successfully been used to send messages from a web browser
 displaying previews of a number of spectra to \splatvo\ where they were
-subsequently automatically downloaded and then analysed.
+subsequently automatically downloaded and then analyzed.
 
 \section{SPLAT-VO capabilities  for spectra analysis}
 
@@ -633,7 +633,7 @@ metadata taken from the registry (data source, waveband).
 
 There are two ways of selecting services. The first way is to choose
 according to data source (such as a survey, pointed observation, or simulation)
-or waveband.  For example, the user wants to select services
+or wave-band.  For example, the user wants to select services
 containing pointed observation sources in optical wavelength, so this
 can be selected in the interface and only the services which contain
 this information in the metadata will be selected.  The other way is
@@ -966,7 +966,7 @@ scripting language to allow for bulk processing of spectra. With \splat\
 the promise of \beanshell\ support was never able to overcome some key
 difficulties associated with automation. There are two scenarios for
 automation. The first is for an astronomer to record the steps taken
-manually in reducing or analysing a spectrum and then replay that
+manually in reducing or analyzing a spectrum and then replay that
 analysis on many other spectrum. The second scenario is to allow key
 algorithms to be made usable in a pipeline environment with the GUI
 disabled. For the JCMT heterodyne pipeline
@@ -985,7 +985,7 @@ long term ramifications for an application.
 
 \subsection{Sub-millimeter units are complicated}
 
-\vounits\ \citep{vounits} standardisation is very useful but is not
+\vounits\ \citep{vounits} standardization is very useful but is not
 sufficient for the majority of spectral line data that is encountered
 by sub-millimeter astronomers. Sub-millimeter spectra are generally
 calibrated in temperature rather than janskys and there are two
@@ -995,7 +995,7 @@ antenna temperature, main-beam temperature and antenna temperature
 \citep{1981ApJ...250..341K,1989LNP...333..351D,2009tra..book.....W}. The
 units alone do not tell you which temperature scale is in use and many
 efficiency values are required when comparing spectra from different
-telescopes. The situation is in dire need of standardisation efforts
+telescopes. The situation is in dire need of standardization efforts
 and we simply had to ignore the issue in \splat.
 
 \subsection{Service selection interface depends on Registry}
@@ -1020,7 +1020,7 @@ during that time. One interesting outcome of this was that funding for
 classical astronomy software development efforts. VO standards became
 increasingly important and it was clear that support should be added
 for \ssap\ and related standards although it was a struggle to
-prioritise this effort as VO adoption was initially slow and
+prioritize this effort as VO adoption was initially slow and
 astronomers were not driving the initial support for these
 facilities. 
 
@@ -1157,7 +1157,7 @@ The initial work on \splatvo\ was supported
 by the now closed \Starlink\ Project funded by the Particle Physics and
 Astronomy Research Council and more recently by the Joint Astronomy
 Centre, Hawaii, also funded by the Particle Physics and Astronomy
-Research Council and more recently by its successor organisation the
+Research Council and more recently by its successor organization the
 Science and Technology Facilities Council.
 
 The current work on \splatvo\ by GAVO is supported by German Federal
@@ -1170,11 +1170,11 @@ VO Registry and \tap\ query libraries used (these are part of StarJava).  We
 also thank Markus Demleitner who actively supports the new features in
 \splatvo\ \ssap\ and \datalink\ handling by the development of GAVO \dachs\
 server publishing suite.  Finally we thank Jan Wouterloot for his work testing
-the sub-millimetre features of \splatvo.
+the sub-millimeter features of \splatvo.
 
 Many new features of \splatvo\ are based on everyday experience with
 analysis of hot emission line stars spectra observed at Perek 2m
-Telescope of the Ond\v{r}ejov observatory of the Astronomical Insitute
+Telescope of the Ond\v{r}ejov observatory of the Astronomical Institute
 of the Academy of Sciences, Czech Republic. We greatly acknowledge the
 help of M.~\v{S}lechta, responsible for reduction of most of the
 spectra and students T.~Peterka and J.~N\'advorn\'\i{}k for the set up
@@ -1184,13 +1184,6 @@ with which \splatvo\ was heavily tested in recent years.
 \bibliographystyle{model2-names-astronomy}
 \bibliography{acsplat}
 
-
-%!!! explain what is OSPS and cite ADASS article !!!
-%bc thesis of Andresic
-
-
-
-
 %\begin{figure*}
 %\begin{center}
 %\includegraphics[width=0.8\textwidth]{}
@@ -1198,7 +1191,5 @@ with which \splatvo\ was heavily tested in recent years.
 %\label{fig:}
 %\end{center}
 %\end{figure*}
-
-
 
 \end{document}
