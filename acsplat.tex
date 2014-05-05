@@ -156,7 +156,7 @@ standard \votable\ data format\citep{2004tivo.conf..118O},
 that is used to describe the metadata of discovered spectra in a limited vocabulary of
 obligatory parameters.
 
-\subsection{The SSA Protocol}
+\subsection{The SSA protocol}
 %
 \ssap\ allows astronomers to find all the world-wide VO-compatible archival
 spectra of their favourite objects, and it can also be used to get spectra for all
@@ -168,7 +168,7 @@ provide extended facilities for converting spectra on-the-fly to the required
 format, and can create previews of spectra in \texttt{PNG} or deliver
 the fluxes and wavelengths in ASCII or CSV tables.
 
-\subsection{SSAP-compatible  Visualization Clients}
+\subsection{SSAP-compatible visualization clients}
 
 Although processing large amounts of data is more convenient when
 using \ssap\ from a scripting language for batch processing, a crucial
@@ -277,9 +277,9 @@ In this way \splatvo\ can continue to be improved, and kept up-to-date with the
 changing requirements of both end users and data providers.  
 
 
-\section{SPLAT-VO Internals}
+\section{SPLAT-VO internals}
 
-\subsection{Data Formats}
+\subsection{Data formats}
 
 The \splatvo\ spectral data model is specified by a single internal interface
 that is concretely implemented for the various data formats that are
@@ -374,7 +374,7 @@ also used for controlling \splatvo\ from command line.
 
 %-------------------------------------------------------
 
-\subsection{The Power of SAMP in SPLAT-VO}
+\subsection{The power of SAMP in SPLAT-VO}
 
 Although all \ssap\ clients have powerful capabilities, they are naturally
 limited to their built-in features, which will not suit all the requirements
@@ -391,7 +391,7 @@ appearance of galaxies from the spectra which have been visually selected in
 displaying previews of a number of spectra to \splatvo\ where they were
 subsequently automatically downloaded and then analysed.
 
-\section{SPLAT-VO Capabilities  for Spectra Analysis}
+\section{SPLAT-VO capabilities  for spectra analysis}
 
 \begin{figure*}[t]
 \begin{center}
@@ -557,7 +557,7 @@ the \emph{IUE} low resolution spectra (selected in the other tab).  The
 composite plot of UV spectra from \emph{HST} GHRS and \emph{IUE} low
 resolution spectra is in Fig.~\ref{fig:iuehst2}.
 
-\subsection{ Theoretical Spectra Access}
+\subsection{ Theoretical spectra access}
 
 In a similar way to observational spectra, synthetic spectra can also be
 obtained from libraries available in the VO (e.g., Kurucz models, Rauch's
@@ -595,7 +595,7 @@ result of selecting several Kurucz models for Vega.
 
 %-------------------------------------------------------
 
-\section{Recent Additions}
+\section{Recent additions}
 
 
 \subsection{Motivation}
@@ -622,7 +622,7 @@ implementation in \dachs\ \citep[Data Center Helper Suite;][]{dachs}.
 selection interface and \ssap\ search by metadata parameters are some of
 the new features added, which are listed in the next subsections.
 
-\subsection{New Features in VO Access}
+\subsection{New features in VO access}
 
 \subsubsection{SSAP service selection}
 
@@ -787,7 +787,7 @@ expression. After sending the query the results tables will be
 displayed, which are in functionality similar to the \ssap\ browser
 window.
 
-\subsubsection{Visualizing Light Curves using SSAP}
+\subsubsection{Visualizing light curves using SSAP}
 
 \begin{figure*}[t]
 \begin{center}
@@ -826,13 +826,13 @@ query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_pl
 the Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing
 at the Danish 1.5m telescope DK154.
 
-\subsection{New Features in Spectral Analysis}
+\subsection{New features in spectral analysis}
 
 \label{davids_functions}
 To improve the analytic capabilities and general usability the following
 features were added to the non-VO capabilities of \splatvo\ \citep{and146bcthesis}:
 
-\subsubsection{Saving Spectra Stack in Multi-extension FITS format}
+\subsubsection{Saving spectra stack in multi-extension FITS format}
 
 Previous versions of \splatvo\ were able to save the global list of spectra to
 a binary format, which was in fact a dump of the native serialization of
@@ -852,7 +852,7 @@ settings related to the way that the spectra are rendered are no longer
 available as there is no standard for metadata of presentation styles and
 graphics attributes.
  
-\subsubsection{Visual Spectrum Selection and Highlighting}
+\subsubsection{Visual spectrum selection and highlighting}
 
 In earlier versions of \splatvo, when working with multiple spectra displayed
 in one common plot, it was difficult to work out which spectrum corresponded
@@ -882,7 +882,7 @@ spectrum (known as the current spectrum). This tool now has a table of all
 currently plotted spectra which can now be selected so that any region
 operations are applied to them all.
 
-\subsubsection{Display of spectra received by SAMP in the same window}
+\subsubsection{Display of spectra received by SAMP in one window}
 
 In previous versions of \splatvo, all spectra received via \samp\ messages
 were opened in their own plot windows. Since it would be useful
@@ -1041,7 +1041,7 @@ difficult balancing act and we can not expect the IVOA standards
 process to stagnate purely to make life easier for applications
 developers.
 
-\subsection{The Client is not Omnipotent}
+\subsection{The client is not omnipotent}
 
 During the discussions about VO standards we often hear that the
 protocol should be very simple, focusing just on allowing users to
