@@ -128,7 +128,7 @@ Very advanced processing is still often done in custom
 work with specially formatted files (quite often ASCII tables) stored on local
 disks.
 
-The common tasks for an astronomers during spectral analysis consists of finding
+The common tasks for astronomers during spectral analysis consist of finding
 the required spectra in various archives, downloading them, understanding and
 extracting metadata (such as date of exposure, spectral range, and flux units),
 converting to the custom format used by the particular tool, visualizing
@@ -498,7 +498,7 @@ line stars.
 The \ssap\ interface in \splatvo\ is clearly the most important tool for working
 with the VO and remains under active development. The task of the interface is
 to help the user construct a valid \ssap\ query by filling out a simple form of
-parameters, and then arrange for that query to to sent to a list of selected
+parameters, and then arrange for that query to be sent to a list of selected
 \ssap\ servers and finally make the query response available so that any spectra
 can be selected for download.
 
@@ -625,14 +625,14 @@ the new features added, which are listed in the next subsections.
 In the earlier versions of \splatvo\ a list of services was presented, and
 the user could select the services to be queried, as well as remove
 uninteresting services from the list. Information about the services
-of interest had to be gotten from somewhere else, as the service
+of interest had to be retrieved from somewhere else, as the service
 metadata was not used.  This simple server selection interface has
 been improved by a more detailed selection, users can choose a set of
-services that may contain data of interest, based on the services
+services that may contain data of interest, based on the service's
 metadata taken from the registry (data source, wave-band).
 
 There are two ways of selecting services. The first way is to choose
-according to data source (such as a survey, pointed observation, or simulation)
+according to the data source (such as a survey, pointed observation, or simulation)
 or wave-band.  For example, the user wants to select services
 containing pointed observation sources in optical wavelength, so this
 can be selected in the interface and only the services which contain
@@ -902,7 +902,7 @@ either way it is difficult to deny that a pure Java solution would
 have been preferable.
 
 The positives of this choice are that it made the development of
-\splatvo\ possible on useful timescales as we were able to immediately
+\splatvo\ possible on useful time-scales as we were able to immediately
 benefit from all the work that had gone into the AST library, as AST
 is very much more than just a system for handling coordinates and
 units. It also insulates against the often messy need to parse FITS
@@ -1008,7 +1008,7 @@ lead to confusion, especially if the service information from the
 registries is often incomplete. If the data is not there as it should
 be a detailed interface won't do much. The current interface will be
 redesigned in the future, to be probably simpler but more accurate. It has
-been planned also to use \regtap\ \citep{regtap} to look for spectral services, which
+also been planned to use \regtap\ \citep{regtap} to look for spectral services, which
 may provide easier handling.
 
 \subsection{Tracking VO standards is hard}
@@ -1030,7 +1030,7 @@ such as \datalink\ \citep{datalink}, \obscore\ \citep{obstap} and \regtap\ \cite
 services, but the VO standards will continue to evolve
 as new versions are announced and new standards developed and it will
 be a continuing struggle to remain compliant. There is a worry that
-all of the development effort available to \splatvo\ will be spent
+all the development effort available to \splatvo\ will be spent
 simply on maintaining standards support and this will be at the
 expense of supporting new analysis algorithms. This is a very
 difficult balancing act and we can not expect the IVOA standards
