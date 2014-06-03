@@ -53,6 +53,8 @@
 \newcommand{\pleinpot}{\textsf{\small PLEINPOT}}
 \newcommand{\IRAF}{\textsf{\small IRAF}}
 \newcommand{\IDL}{\textsf{\small IDL}}
+\newcommand{\iris}{\textsf{\small Iris}}
+\newcommand{\cassis}{\textsf{\small CASSIS}}
 \newcommand{\python}{\textsf{\small Python}}
 \newcommand{\Sesame}{\textsf{\small Sesame}}
 \newcommand{\Starlink}{\textsf{\small Starlink}}
@@ -187,31 +189,45 @@ format was added just recently. \vospec\ contains quite complex non-linear
 model-fitting package and can handle photometric points as well as Spectral
 Energy Distributions (SEDs).
 
-The other two clients were developed as general spectral analysis
-tools prior to the conception of the VO and have been extended to add
+The other clients were developed as general spectral analysis
+tools without  VO capability in mind (or even prior to establishing VO conception) and later have been extended to add
 support for querying and downloading spectra using \ssap.  The
 advantage of this approach is the support for many legacy data formats
 and various domain-specific functionality, better tuned to
 requirements of scientists not familiar with VO technology.
 
-\specview\ \citep[][\ascl{1210.016}]{2002SPIE.4847..410B}, developed at
-STScI, was intended mainly for handling spectra from Hubble Space
-Telescope instrumentation and some other NASA missions, but gradually
-transformed into a VO-compatible general client supplemented with a
-library of theoretical spectra and various models for SED generation.
-While \specview\ is a very powerful tool compatible with a lot of very
-special formats from \emph{HST}, \emph{IUE}, \emph{FUSE}, \emph{ISO}
-and \emph{GALEX} satellites, allowing for the advanced comparison of
-observations with a wide range of theoretical spectral models (such as
-power laws, Bremsstrahlung, emission line profiles, interstellar
-extinction, dusty rings or whole Kurucz library of spectral types), it
-is less flexible in the support of various \ssap\ features and is falling
-behind the rapid evolution in IVOA standards.
+\specview\ \citep[][\ascl{1210.016}]{2002SPIE.4847..410B}, developed at STScI,
+was intended mainly for handling spectra from Hubble Space Telescope
+instrumentation and some other NASA missions, but gradually transformed into a
+VO-compatible general client supplemented with a library of theoretical spectra
+and various models for SED generation.  While \specview\ is a very powerful
+tool compatible with a lot of very special formats from \emph{HST}, \emph{IUE},
+\emph{FUSE}, \emph{ISO} and \emph{GALEX} satellites, allowing for the advanced
+comparison of observations with a wide range of theoretical spectral models
+(such as power laws, Bremsstrahlung, emission line profiles, interstellar
+extinction, dusty rings or whole Kurucz library of spectral types), it is less
+flexible in the support of various \ssap\ features and is falling behind the
+rapid evolution in IVOA standards.  
+For its powerful spectral models handling
+\specview\   was  selected as a core module for the visualization of spectra
+and SEDs in a complex VAO Spectral Energy Distribution Analysis Tool \iris\
+\citep[][\ascl{1205.007}]{2014ASPC..485...19L}. 
 
-In contrast with \specview, the last VO-compatible client for spectra analysis,
-\splatvo\ \citep[][\ascl{1402.008}]{sun243} was revived recently and currently
-is under intensive development serving as a test-bed for newly proposed VO
-standards and special features.
+The specific domain of \cassis\
+\citep[][\ascl{1402.013}]{2011IAUS..280P.120C} is the visualization and
+analysis of  sub-millimetre  spectra (with special attention put  on data from
+Herschel space observatory as a plugin for its HIPE pipeline) using various
+databases of atomic and molecular transitions and several physical models of
+interstellar environment. In order to be able to directly use spectra from VO
+resources, the SSAP interface was added recently, which closely resembles by
+both the visual appearance and  funcionality the SSAP interface of the last
+VO-compatible client for spectra analysis and main subject of this article ---
+\splatvo\ \citep[][\ascl{1402.008}]{sun243}. 
+
+\splatvo\ despite its early time origins  was revived recently and
+currently is under intensive development serving as a test-bed for newly
+proposed VO standards and special features.
+
 
 
 %\subsection{VO access in practical examples}
@@ -299,7 +315,7 @@ supported using the STILTS
 these spectra can also be memory based so that they can become
 modifiable and be derived from data with higher dimensionalities.
 
-\subsection{Internal spectral handling}
+\subsection{Internal spectra handling}
 
 The presentation of all data types through a single interface works especially
 well when coupled with a further, higher-level, abstraction class. This
@@ -524,32 +540,43 @@ server list may be edited so that the query is only sent to collections of
 servers with say similar data or can be restricted to only one service that
 may be queried for detailed specific operations.
 
-\begin{figure*}[t]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{hst_query.pdf}
-\caption{The \ssap\ query for absolutely flux calibrated spectra of $\phi$~Per
-  with results obtained from the \emph{HST} GHRS service}
-\label{fig:hst_query}
-\end{center}
-\end{figure*}
+%\begin{figure*}[t]
+%\begin{center}
+%\includegraphics[width=0.8\textwidth]{hst_query.pdf}
+%\caption{The \ssap\ query for absolutely flux calibrated spectra of $\phi$~Per
+%  with results obtained from the \emph{HST} GHRS service}
+%\label{fig:hst_query}
+%\end{center}
+%\end{figure*}
 
 
 \begin{figure*}[th]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{iuehst2.pdf}
 \caption{Composite plot of UV spectra of $\phi$~Per from the \emph{HST} GHRS
-  spectrograph (thick blue short pieces) selected in the query shown in
-  Fig.~\ref{fig:hst_query} together with \emph{IUE} low resolution spectra
-  from SWP camera, that were selected earlier (thin green line)}
+  spectrograph (thick blue short pieces) 
+%selected in the query shown in
+%  Fig.~\ref{fig:hst_query} 
+together with \emph{IUE} low resolution spectra
+  from SWP camera, 
+%that were selected earlier 
+(thin green line)}
 \label{fig:iuehst2}
 \end{center}
 \end{figure*}
 
-As an example, Fig.~\ref{fig:hst_query} shows the search of absolutely
-calibrated spectra of the emission star $\phi$~Per. We have selected the
-Hubble Space Telescope with the Goddard High Resolution Spectrograph (at the
-opened tab, note also the unfolded service description on the left side) and
-the \emph{IUE} low resolution spectra (selected in the other tab).  The
+As an example, 
+%Fig.~\ref{fig:hst_query} 
+shows the 
+%search of 
+absolutely calibrated spectra of the emission star $\phi$~Per. We have selected the
+Hubble Space Telescope with the Goddard High Resolution Spectrograph 
+%(at the
+%opened tab, note also the unfolded service description on the left side) 
+and
+the \emph{IUE} low resolution spectra 
+%(selected in the other tab)
+.  The
 composite plot of UV spectra from \emph{HST} GHRS and \emph{IUE} low
 resolution spectra is in Fig.~\ref{fig:iuehst2}.
 
@@ -785,13 +812,13 @@ window.
 
 \subsubsection{Visualizing light curves using SSAP}
 
-\begin{figure*}[tbh]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_query.pdf}
-\caption{Example of using \ssap\ to obtain multicolour light curves from OSPS}
-\label{fig:OGLE-SC7-127550_query}
-\end{center}
-\end{figure*}
+%\begin{figure*}[tbh]
+%\begin{center}
+%\includegraphics[width=0.8\textwidth]{OGLE-SC7-127550_query.pdf}
+%\caption{Example of using \ssap\ to obtain multicolour light curves from OSPS}
+%\label{fig:OGLE-SC7-127550_query}
+%\end{center}
+%\end{figure*}
 
 \begin{figure*}[tbh]
 \begin{center}
@@ -799,8 +826,10 @@ window.
 \caption{Multicolour light curves of Cepheid OGLE-SC7-127550 from
   OSPS. The manual modification of default line types into various
   markers and flip of vertical axis was applied on data obtained by
-  an experimental \ssap\ light curve protocol using the query from
-  Fig.~\ref{fig:OGLE-SC7-127550_query}. The measurements in
+  an experimental \ssap\ light curve protocol 
+%using the query from
+%  Fig.~\ref{fig:OGLE-SC7-127550_query}
+. The measurements in
   Johnson-Cousins filters correspond to U (diamonds), B (asterisks),
   V (pluses) R (crosses) and I (triangles).  }
 \label{fig:OGLE-SC7-127550_plot}
@@ -817,8 +846,11 @@ as dependent variable against the various time axes with interactive menu.
 The current limitation only requires the time axis expressed as floating point
 variables, which limits the possibility of using strings e.g., dates, time
 stamps or even the names of CCD images used to extract given photometric point
-on light curve.  An example in Fig.~\ref{fig:OGLE-SC7-127550_query} shows the
-query and corresponding light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
+on light curve.  An example in 
+%Fig.~\ref{fig:OGLE-SC7-127550_query}
+ shows the
+%query and corresponding 
+light curves obtained  (Fig.~\ref{fig:OGLE-SC7-127550_plot})  from
 the Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing
 at the Danish 1.5m telescope DK154.
 
