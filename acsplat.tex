@@ -190,7 +190,8 @@ model-fitting package and can handle photometric points as well as Spectral
 Energy Distributions (SEDs).
 
 The other clients were developed as general spectral analysis
-tools without  VO capability in mind (or even prior to establishing VO conception) and later have been extended to add
+tools prior to the conception of the VO,
+and have subsequently been extended to add
 support for querying and downloading spectra using \ssap.  The
 advantage of this approach is the support for many legacy data formats
 and various domain-specific functionality, better tuned to
@@ -207,8 +208,8 @@ comparison of observations with a wide range of theoretical spectral models
 (such as power laws, Bremsstrahlung, emission line profiles, interstellar
 extinction, dusty rings or whole Kurucz library of spectral types), it is less
 flexible in the support of various \ssap\ features and is falling behind the
-rapid evolution in IVOA standards.  
-For its powerful spectral models handling
+rapid evolution in IVOA standards.
+Because of its powerful spectral model handling
 \specview\   was  selected as a core module for the visualization of spectra
 and SEDs in the VAO Spectral Energy Distribution Analysis Tool \iris\
 \citep[][\ascl{1205.007}]{2014ASPC..485...19L}.
@@ -218,14 +219,14 @@ The specific domain of \cassis\
 analysis of  sub-millimetre  spectra (with special emphasis on data from the
 \emph{Herschel Space Observatory} as a plugin for its HIPE pipeline \citep[][\ascl{1111.001}]{2012ASPC..461..733B}) using various
 databases of atomic and molecular transitions and several physical models of
-interstellar environment. In order to be able to directly use spectra from VO
-resources, the SSAP interface was added recently, which closely resembles by
-both the visual appearance and  functionality the SSAP interface of the last
-VO-compatible client for spectra analysis and main subject of this article ---
-\splatvo\ \citep[][\ascl{1402.008}]{sun243}. 
+the interstellar environment. In order to be able to directly use spectra from VO
+resources, an SSAP interface was added recently. This closely resembles the
+the visual appearance and functionality of the SSAP interface of the final
+VO-compatible client for spectra analysis and the main subject of this article ---
+\splatvo\ \citep[][\ascl{1402.008}]{sun243}.
 
-\splatvo\ despite its early time origins  was revived recently and
-currently is under intensive development serving as a test-bed for newly
+\splatvo\ despite its early origin was revived recently and
+is currently under intensive development, serving as a test-bed for newly
 proposed VO standards and special features.
 
 
@@ -250,7 +251,7 @@ moving future developments into the Java language, with the obvious
 benefits of improved portability, modern language capabilities (OOD,
 OOP) and core-level support for features like UIs and Internet
 protocols and services. This work eventually led to the formation of
-what became the StarJava project, containing also the well-known table processor \topcat\ \citep[][\ascl{1101.010}]{2005ASPC..347...29T}. 
+what became the StarJava project, containing also the well-known table processor \topcat\ \citep[][\ascl{1101.010}]{2005ASPC..347...29T}.
 
 \subsection{SPLAT-VO}
 
@@ -283,10 +284,10 @@ emphasis on optical stellar spectroscopy) identified during the everyday
 analysis of spectra of emission line stars in the Stellar department of AI~ASCR,
 resulted in Bachelor and successive Diploma theses focused on the implementation of
 new analytical and visualization functions in collaboration with
-V\v{S}B---Technical University of Ostrava. 
+V\v{S}B---Technical University of Ostrava.
 
 In this way \splatvo\ can continue to be improved, and kept up-to-date with the
-changing requirements of both end users and data providers.  
+changing requirements of both end users and data providers.
 
 
 \section{SPLAT-VO internals}
@@ -410,7 +411,7 @@ subsequently automatically downloaded and then analyzed.
 \includegraphics[width=0.8\textwidth]{phiper-heros-stack.pdf}
 \caption{The time evolution of the H$_\alpha$ line emission profile in
 $\phi$~Per observations obtained with the HEROS spectrograph at Ond\v{r}ejov 2m
-telescope in years 2001--2003. The stacking offset of 0.9  makes sure that the changes can be seen easily}
+telescope in years 2001--2003. The stacking offset of 0.9  makes sure that the changes can be seen easily.}
 
 \label{fig:phiper-heros-stack}
 \end{center}
@@ -554,26 +555,26 @@ may be queried for detailed specific operations.
 \begin{center}
 \includegraphics[width=0.8\textwidth]{iuehst2.pdf}
 \caption{Composite plot of UV spectra of $\phi$~Per from the \emph{HST} GHRS
-  spectrograph (thick blue short pieces) 
+  spectrograph (thick blue short pieces)
 %selected in the query shown in
-%  Fig.~\ref{fig:hst_query} 
+%  Fig.~\ref{fig:hst_query}
 together with \emph{IUE} low resolution spectra
-  from SWP camera, 
-%that were selected earlier 
-(thin green line)}
+  from SWP camera,
+%that were selected earlier
+(thin green line).}
 \label{fig:iuehst2}
 \end{center}
 \end{figure*}
 
-%As an 
-The following example 
-%Fig.~\ref{fig:hst_query} 
-shows the 
-%search of 
+%As an
+The following example
+%Fig.~\ref{fig:hst_query}
+shows the
+%search of
 absolutely calibrated spectra of the emission star $\phi$~Per. We have selected the
 \emph{Hubble Space Telescope} with the Goddard High Resolution Spectrograph
 %(at the
-%opened tab, note also the unfolded service description on the left side) 
+%opened tab, note also the unfolded service description on the left side)
 and
 the \emph{IUE} low resolution spectra.
 %(selected in the other tab)
@@ -847,13 +848,13 @@ as dependent variable against the various time axes with interactive menu.
 The current limitation only requires the time axis expressed as floating point
 variables, which limits the possibility of using strings e.g., dates, time
 stamps or even the names of CCD images used to extract given photometric point
-on light curve.  An example in 
+on light curve.  An example in
 Fig.~\ref{fig:OGLE-SC7-127550_plot}
 %Fig.~\ref{fig:OGLE-SC7-127550_query}
  shows the
-%query and corresponding 
-light curves obtained  
-%(Fig.~\ref{fig:OGLE-SC7-127550_plot}) 
+%query and corresponding
+light curves obtained
+%(Fig.~\ref{fig:OGLE-SC7-127550_plot})
 from the Ond\v{r}ejov Southern Photometry Survey \citep{skoda_adassxxiii} ongoing at the Danish 1.5m telescope DK154.
 
 \subsection{New features in spectral analysis}
@@ -881,7 +882,7 @@ extension.  The only disadvantage compared to the native dump format is that
 settings related to the way that the spectra are rendered are no longer
 available as there is no standard for metadata of presentation styles and
 graphics attributes.
- 
+
 \subsubsection{Visual spectrum selection and highlighting}
 
 In earlier versions of \splatvo, when working with multiple spectra displayed
@@ -965,7 +966,7 @@ languages.
 
 The decision was made very early on for the \splat\ source code to be
 made publicly available, first via CVS on a \Starlink\ server, then via
-\subversion\ on a Joint Astronomy Centre server and finally using \git\ 
+\subversion\ on a Joint Astronomy Centre server and finally using \git\
 on Github. We feel that this openness contributed directly to the
 software being picked up by the GAVO project, saving the application
 from stagnation once the direct funding for it was dropped.
@@ -979,7 +980,7 @@ internal list is dominated by sub-millimetre lines required by the
 JCMT. Even so, the list of lines was never sufficient and astronomers
 continue to ask for more obscure transitions to be included. A local
 line catalogue is an excellent back up but it is also necessary to
-look up catalogues from remote services. The \almaot\ 
+look up catalogues from remote services. The \almaot\
 \citep{2013ASPC..475..373W} works in exactly this way with much
 success. This feature will be added in the future using the Simple
 Line Access Protocol (SLAP) that will allow for retrieval of line
@@ -1057,7 +1058,7 @@ increasingly important and it was clear that support should be added
 for \ssap\ and related standards although it was a struggle to
 prioritize this effort as VO adoption was initially slow and
 astronomers were not driving the initial support for these
-facilities. 
+facilities.
 
 \splatvo\ is being updated to add support for standards
 such as \datalink\ \citep{datalink}, \obscore\ \citep{obstap} and \regtap\ \citep{regtap} as well as expanded units support with
